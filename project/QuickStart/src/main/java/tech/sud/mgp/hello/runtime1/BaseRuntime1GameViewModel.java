@@ -19,12 +19,12 @@ import tech.sud.gip.SUDGIPWrapper.decorator.SudRuntime1FSTAPPDecorator;
 import tech.sud.gip.SUDGIPWrapper.model.GameConfigModel;
 import tech.sud.gip.SUDGIPWrapper.model.GameViewInfoModel;
 import tech.sud.gip.SUDGIPWrapper.utils.SudJsonUtils;
-import tech.sud.gip.core.ISudFSMStateHandle;
-import tech.sud.gip.r1.core.ISudRuntime1FSTAPP;
-import tech.sud.gip.r1.core.ISudRuntime1ListenerInitSDK;
-import tech.sud.gip.r1.core.SudRuntime1;
-import tech.sud.gip.r1.core.SudRuntime1InitSDKParamModel;
-import tech.sud.gip.r1.core.SudRuntime1LoadGameParamModel;
+import tech.sud.gip.core.ISUDFSMStateHandle;
+import tech.sud.gip.r1.core.ISUDRuntime1FSTAPP;
+import tech.sud.gip.r1.core.ISUDRuntime1ListenerInitSDK;
+import tech.sud.gip.r1.core.SUDRuntime1;
+import tech.sud.gip.r1.core.SUDRuntime1InitSDKParamModel;
+import tech.sud.gip.r1.core.SUDRuntime1LoadGameParamModel;
 
 /**
  * 游戏业务逻辑抽象类
@@ -87,15 +87,11 @@ public abstract class BaseRuntime1GameViewModel implements SudFSMMGListener {
      *
      * @param activity 游戏所在页面，用作于生命周期判断
      *                 The page where the game is located, used for lifecycle judgment.
-     * @param gameId   游戏id，传入不同的游戏id，即可加载不同的游戏，传0等同于关闭游戏
-     *                 Game ID, passing a different gameId will load a different game. Passing 0 is equivalent to closing the game.
+     * @param gameId   游戏id，传入不同的游戏id，即可加载不同的游戏，传null等同于关闭游戏
+     *                 Game ID, passing a different gameId will load a different game. Passing null is equivalent to closing the game.
      */
     public void switchGame(Activity activity, String gameId, String gameUrl, String gamePkgVersion) {
         mActivity = activity;
-        if (TextUtils.isEmpty(gameId) || TextUtils.isEmpty(gameUrl) || TextUtils.isEmpty(gamePkgVersion)) {
-            toastMsg("switchGame params can not be empty");
-            return;
-        }
         if (Objects.equals(playingGameId, gameId)) {
             return;
         }
@@ -103,6 +99,9 @@ public abstract class BaseRuntime1GameViewModel implements SudFSMMGListener {
         playingGameId = gameId;
         mGameUrl = gameUrl;
         mGamePkgVersion = gamePkgVersion;
+        if (TextUtils.isEmpty(gameId) || TextUtils.isEmpty(gameUrl) || TextUtils.isEmpty(gamePkgVersion)) {
+            return;
+        }
         login(activity, gameId);
     }
 
@@ -161,13 +160,13 @@ public abstract class BaseRuntime1GameViewModel implements SudFSMMGListener {
         String appKey = getAppKey();
         // 初始化sdk
         // Initialize the SDK
-        SudRuntime1InitSDKParamModel params = new SudRuntime1InitSDKParamModel();
+        SUDRuntime1InitSDKParamModel params = new SUDRuntime1InitSDKParamModel();
         params.context = activity;
         params.appId = appId;
         params.appKey = appKey;
         params.userId = getUserId();
         params.code = code;
-        SudRuntime1.initSDK(params, new ISudRuntime1ListenerInitSDK() {
+        SUDRuntime1.initSDK(params, new ISUDRuntime1ListenerInitSDK() {
             @Override
             public void onSuccess() {
                 loadGame(activity, code, gameId);
@@ -184,13 +183,13 @@ public abstract class BaseRuntime1GameViewModel implements SudFSMMGListener {
     /**
      * 第3步，加载游戏
      * APP和游戏的相互调用
-     * ISudFSTAPP：APP调用游戏的接口
-     * ISudFSMMG：游戏调APP的响应回调
+     * ISUDFSTAPP：APP调用游戏的接口
+     * ISUDFSMMG：游戏调APP的响应回调
      * <p>
      * Step 3, load the game.
      * Interaction between the APP and the game.
-     * ISudFSTAPP: Interface for the APP to call the game.
-     * ISudFSMMG: Callback for the game to call back to the APP.
+     * ISUDFSTAPP: Interface for the APP to call the game.
+     * ISUDFSMMG: Callback for the game to call back to the APP.
      *
      * @param activity 游戏所在页面
      *                 The page where the game is located.
@@ -209,7 +208,7 @@ public abstract class BaseRuntime1GameViewModel implements SudFSMMGListener {
 
         // 调用游戏sdk加载游戏
         // Invoke the game SDK to load the game.
-        SudRuntime1LoadGameParamModel sudLoadMGParamModel = new SudRuntime1LoadGameParamModel();
+        SUDRuntime1LoadGameParamModel sudLoadMGParamModel = new SUDRuntime1LoadGameParamModel();
         sudLoadMGParamModel.activity = activity;
         sudLoadMGParamModel.userId = getUserId();
 //        sudLoadMGParamModel.roomId = gameRoomId;
@@ -218,7 +217,7 @@ public abstract class BaseRuntime1GameViewModel implements SudFSMMGListener {
         sudLoadMGParamModel.pkgVersion = mGamePkgVersion;
         sudLoadMGParamModel.pkgUrl = mGameUrl;
 //        sudLoadMGParamModel.language = getLanguageCode();
-        ISudRuntime1FSTAPP iSudRuntime1FSTAPP = SudRuntime1.loadGame(sudLoadMGParamModel, sudFSMGameDecorator);
+        ISUDRuntime1FSTAPP iSudRuntime1FSTAPP = SUDRuntime1.loadGame(sudLoadMGParamModel, sudFSMGameDecorator);
 
         // 如果返回空，则代表参数问题或者非主线程
         // If null is returned, it indicates a parameter issue or a non-main thread.
@@ -230,7 +229,7 @@ public abstract class BaseRuntime1GameViewModel implements SudFSMMGListener {
 
         // APP调用游戏接口的装饰类设置
         // Decorator class setup for APP calling game interfaces.
-        sudFSTAPPDecorator.setISudFSTAPP(iSudRuntime1FSTAPP);
+        sudFSTAPPDecorator.setISUDFSTAPP(iSudRuntime1FSTAPP);
 
         // 获取游戏视图，将其抛回Activity进行展示
         // Activity调用：gameContainer.addView(view, FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT);
@@ -264,7 +263,7 @@ public abstract class BaseRuntime1GameViewModel implements SudFSMMGListener {
      * Destroy the game.
      */
     public void destroyGame() {
-        if (TextUtils.isEmpty(playingGameId)) {
+        if (!TextUtils.isEmpty(playingGameId)) {
             sudFSTAPPDecorator.destroyGame();
             sudFSMGameDecorator.destroyGame();
             playingGameId = null;
@@ -389,7 +388,7 @@ public abstract class BaseRuntime1GameViewModel implements SudFSMMGListener {
      * @param dataJson {"code":"value"}
      */
     @Override
-    public void onExpireCode(ISudFSMStateHandle handle, String dataJson) {
+    public void onExpireCode(ISUDFSMStateHandle handle, String dataJson) {
     }
 
     /**
@@ -400,7 +399,7 @@ public abstract class BaseRuntime1GameViewModel implements SudFSMMGListener {
      * @param dataJson {}
      */
     @Override
-    public void onGetGameViewInfo(ISudFSMStateHandle handle, String dataJson) {
+    public void onGetGameViewInfo(ISUDFSMStateHandle handle, String dataJson) {
         processOnGetGameViewInfo(gameView, handle);
     }
 
@@ -416,19 +415,19 @@ public abstract class BaseRuntime1GameViewModel implements SudFSMMGListener {
      *                 最低版本：v1.1.30.xx
      */
     @Override
-    public void onGetGameCfg(ISudFSMStateHandle handle, String dataJson) {
+    public void onGetGameCfg(ISUDFSMStateHandle handle, String dataJson) {
         processOnGetGameCfg(handle, dataJson);
     }
     // endregion 游戏侧回调 English：Callback from the game side
 
     /**
      * 处理游戏视图信息(游戏安全区)
-     * 文档：https://docs.sud.tech/zh-CN/app/Client/API/ISudFSMMG/onGetGameViewInfo.html
+     * 文档：https://docs.sud.tech/zh-CN/app/Client/API/ISUDFSMMG/onGetGameViewInfo.html
      * <p>
      * Handle game view information (game safe area).
-     * Documentation: https://docs.sud.tech/en-US/app/Client/API/ISudFSMMG/onGetGameViewInfo.html
+     * Documentation: https://docs.sud.tech/en-US/app/Client/API/ISUDFSMMG/onGetGameViewInfo.html
      */
-    public void processOnGetGameViewInfo(View gameView, ISudFSMStateHandle handle) {
+    public void processOnGetGameViewInfo(View gameView, ISUDFSMStateHandle handle) {
         // 拿到游戏View的宽高
         // Get the width and height of the game view.
         int gameViewWidth = gameView.getMeasuredWidth();
@@ -455,7 +454,7 @@ public abstract class BaseRuntime1GameViewModel implements SudFSMMGListener {
      * 通知游戏，游戏视图信息
      * Notify the game about the game view information.
      */
-    private void notifyGameViewInfo(ISudFSMStateHandle handle, int gameViewWidth, int gameViewHeight) {
+    private void notifyGameViewInfo(ISUDFSMStateHandle handle, int gameViewWidth, int gameViewHeight) {
         GameViewInfoModel gameViewInfoModel = new GameViewInfoModel();
         gameViewInfoModel.ret_code = 0;
         // 游戏View大小
@@ -505,12 +504,12 @@ public abstract class BaseRuntime1GameViewModel implements SudFSMMGListener {
 
     /**
      * 处理游戏配置
-     * 文档：https://docs.sud.tech/zh-CN/app/Client/API/ISudFSMMG/onGetGameCfg.html
+     * 文档：https://docs.sud.tech/zh-CN/app/Client/API/ISUDFSMMG/onGetGameCfg.html
      * <p>
      * Handle game configuration.
-     * Documentation: https://docs.sud.tech/en-US/app/Client/API/ISudFSMMG/onGetGameCfg.html
+     * Documentation: https://docs.sud.tech/en-US/app/Client/API/ISUDFSMMG/onGetGameCfg.html
      */
-    public void processOnGetGameCfg(ISudFSMStateHandle handle, String dataJson) {
+    public void processOnGetGameCfg(ISUDFSMStateHandle handle, String dataJson) {
         handle.success(SudJsonUtils.toJson(gameConfigModel));
     }
 

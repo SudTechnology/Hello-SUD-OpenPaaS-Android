@@ -10,13 +10,13 @@ import java.util.List;
 
 import tech.sud.gip.SUDGIPWrapper.state.SudGIPAPPState;
 import tech.sud.gip.SUDGIPWrapper.utils.SudJsonUtils;
-import tech.sud.gip.core.ISudAiAgent;
-import tech.sud.gip.core.ISudFSTAPP;
-import tech.sud.gip.core.ISudListenerNotifyStateChange;
+import tech.sud.gip.core.ISUDAiAgent;
+import tech.sud.gip.core.ISUDFSTAPP;
+import tech.sud.gip.core.ISUDListenerNotifyStateChange;
 
 /**
- * ISudFSTAPP的装饰类，接近于业务
- * 参考文档：https://docs.sud.tech/zh-CN/app/Client/API/ISudFSTAPP.html
+ * ISUDFSTAPP的装饰类，接近于业务
+ * 参考文档：https://docs.sud.tech/zh-CN/app/Client/API/ISUDFSTAPP.html
  * 注意：
  * 1，向游戏侧发送状态之后，不能立即调用destroyMG()方法，也不能立即finish Activity。例如：{@link SudFSTAPPDecorator#notifyAPPCommonSelfEnd()}
  */
@@ -25,7 +25,7 @@ public class SudFSTAPPDecorator {
     /**
      * APP调用游戏的接口
      */
-    private ISudFSTAPP iSudFSTAPP;
+    private ISUDFSTAPP iSudFSTAPP;
     private OnNotifyStateChangeListener onNotifyStateChangeListener;
 
     /**
@@ -33,11 +33,11 @@ public class SudFSTAPPDecorator {
      *
      * @param iSudFSTAPP
      */
-    public void setISudFSTAPP(ISudFSTAPP iSudFSTAPP) {
+    public void setISUDFSTAPP(ISUDFSTAPP iSudFSTAPP) {
         this.iSudFSTAPP = iSudFSTAPP;
     }
 
-    // region 状态通知，ISudFSTAPP.notifyStateChange
+    // region 状态通知，ISUDFSTAPP.notifyStateChange
 
     /**
      * 发送
@@ -284,39 +284,39 @@ public class SudFSTAPPDecorator {
         state.score = score;
         notifyStateChange(SudGIPAPPState.APP_COMMON_GAME_SCORE, state);
     }
-    // endregion 状态通知，ISudFSTAPP.notifyStateChange
+    // endregion 状态通知，ISUDFSTAPP.notifyStateChange
 
     // region 生命周期
     public void startMG() {
-        ISudFSTAPP iSudFSTAPP = this.iSudFSTAPP;
+        ISUDFSTAPP iSudFSTAPP = this.iSudFSTAPP;
         if (iSudFSTAPP != null) {
             iSudFSTAPP.startMG();
         }
     }
 
     public void pauseMG() {
-        ISudFSTAPP iSudFSTAPP = this.iSudFSTAPP;
+        ISUDFSTAPP iSudFSTAPP = this.iSudFSTAPP;
         if (iSudFSTAPP != null) {
             iSudFSTAPP.pauseMG();
         }
     }
 
     public void playMG() {
-        ISudFSTAPP iSudFSTAPP = this.iSudFSTAPP;
+        ISUDFSTAPP iSudFSTAPP = this.iSudFSTAPP;
         if (iSudFSTAPP != null) {
             iSudFSTAPP.playMG();
         }
     }
 
     public void stopMG() {
-        ISudFSTAPP iSudFSTAPP = this.iSudFSTAPP;
+        ISUDFSTAPP iSudFSTAPP = this.iSudFSTAPP;
         if (iSudFSTAPP != null) {
             iSudFSTAPP.stopMG();
         }
     }
 
     public void destroyMG() {
-        ISudFSTAPP iSudFSTAPP = this.iSudFSTAPP;
+        ISUDFSTAPP iSudFSTAPP = this.iSudFSTAPP;
         if (iSudFSTAPP != null) {
             iSudFSTAPP.destroyMG();
             this.iSudFSTAPP = null;
@@ -331,8 +331,8 @@ public class SudFSTAPPDecorator {
      * @param code
      * @param listener
      */
-    public void updateCode(String code, ISudListenerNotifyStateChange listener) {
-        ISudFSTAPP iSudFSTAPP = this.iSudFSTAPP;
+    public void updateCode(String code, ISUDListenerNotifyStateChange listener) {
+        ISUDFSTAPP iSudFSTAPP = this.iSudFSTAPP;
         if (iSudFSTAPP != null) {
             iSudFSTAPP.updateCode(code, listener);
         }
@@ -342,7 +342,7 @@ public class SudFSTAPPDecorator {
      * 音频流数据
      */
     public void pushAudio(ByteBuffer buffer, int bufferLength) {
-        ISudFSTAPP iSudFSTAPP = this.iSudFSTAPP;
+        ISUDFSTAPP iSudFSTAPP = this.iSudFSTAPP;
         if (iSudFSTAPP != null) {
             iSudFSTAPP.pushAudio(buffer, bufferLength);
         }
@@ -379,8 +379,8 @@ public class SudFSTAPPDecorator {
      * @param dataJson 数据
      * @param listener 回调监听
      */
-    public void notifyStateChange(String state, String dataJson, ISudListenerNotifyStateChange listener) {
-        ISudFSTAPP iSudFSTAPP = this.iSudFSTAPP;
+    public void notifyStateChange(String state, String dataJson, ISUDListenerNotifyStateChange listener) {
+        ISUDFSTAPP iSudFSTAPP = this.iSudFSTAPP;
         if (iSudFSTAPP != null) {
             iSudFSTAPP.notifyStateChange(state, dataJson, listener);
             if (onNotifyStateChangeListener != null) {
@@ -414,7 +414,7 @@ public class SudFSTAPPDecorator {
      * 在游戏加载失败时，调用此方法可重新加载游戏
      */
     public void reloadMG() {
-        ISudFSTAPP iSudFSTAPP = this.iSudFSTAPP;
+        ISUDFSTAPP iSudFSTAPP = this.iSudFSTAPP;
         if (iSudFSTAPP != null) {
             iSudFSTAPP.reloadMG();
         }
@@ -425,8 +425,8 @@ public class SudFSTAPPDecorator {
     }
 
     /** 获取大模型游戏互动的操作句柄，注意需要在游戏加载完成之后才能获取，否则返回的对象会为空 */
-    public ISudAiAgent getAiAgent() {
-        ISudFSTAPP iSudFSTAPP = this.iSudFSTAPP;
+    public ISUDAiAgent getAiAgent() {
+        ISUDFSTAPP iSudFSTAPP = this.iSudFSTAPP;
         if (iSudFSTAPP != null) {
             return iSudFSTAPP.getAiAgent();
         }

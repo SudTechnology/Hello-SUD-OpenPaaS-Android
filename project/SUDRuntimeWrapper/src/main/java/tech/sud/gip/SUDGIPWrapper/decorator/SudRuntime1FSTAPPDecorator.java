@@ -9,12 +9,12 @@ import java.util.List;
 
 import tech.sud.gip.SUDGIPWrapper.state.SudGIPAPPState;
 import tech.sud.gip.SUDGIPWrapper.utils.SudJsonUtils;
-import tech.sud.gip.core.ISudListenerNotifyStateChange;
-import tech.sud.gip.r1.core.ISudRuntime1FSTAPP;
+import tech.sud.gip.core.ISUDListenerNotifyStateChange;
+import tech.sud.gip.r1.core.ISUDRuntime1FSTAPP;
 
 /**
- * ISudFSTAPP的装饰类，接近于业务
- * 参考文档：https://docs.sud.tech/zh-CN/app/Client/API/ISudFSTAPP.html
+ * ISUDFSTAPP的装饰类，接近于业务
+ * 参考文档：https://docs.sud.tech/zh-CN/app/Client/API/ISUDFSTAPP.html
  * 注意：
  * 1，向游戏侧发送状态之后，不能立即调用destroyMG()方法，也不能立即finish Activity。例如：{@link SudRuntime1FSTAPPDecorator#notifyAPPCommonSelfEnd()}
  */
@@ -23,7 +23,7 @@ public class SudRuntime1FSTAPPDecorator {
     /**
      * APP调用游戏的接口
      */
-    private ISudRuntime1FSTAPP iSudFSTAPP;
+    private ISUDRuntime1FSTAPP iSudFSTAPP;
     private OnNotifyStateChangeListener onNotifyStateChangeListener;
 
     /**
@@ -31,15 +31,15 @@ public class SudRuntime1FSTAPPDecorator {
      *
      * @param iSudFSTAPP
      */
-    public void setISudFSTAPP(ISudRuntime1FSTAPP iSudFSTAPP) {
+    public void setISUDFSTAPP(ISUDRuntime1FSTAPP iSudFSTAPP) {
         this.iSudFSTAPP = iSudFSTAPP;
     }
 
-    public ISudRuntime1FSTAPP getiSudFSTAPP() {
+    public ISUDRuntime1FSTAPP getiSudFSTAPP() {
         return iSudFSTAPP;
     }
 
-    // region 状态通知，ISudFSTAPP.notifyStateChange
+    // region 状态通知，ISUDFSTAPP.notifyStateChange
 
     /**
      * 发送
@@ -266,39 +266,39 @@ public class SudRuntime1FSTAPPDecorator {
         state.score = score;
         notifyStateChange(SudGIPAPPState.APP_COMMON_GAME_SCORE, state);
     }
-    // endregion 状态通知，ISudFSTAPP.notifyStateChange
+    // endregion 状态通知，ISUDFSTAPP.notifyStateChange
 
     // region 生命周期
     public void startGame() {
-        ISudRuntime1FSTAPP iSudFSTAPP = this.iSudFSTAPP;
+        ISUDRuntime1FSTAPP iSudFSTAPP = this.iSudFSTAPP;
         if (iSudFSTAPP != null) {
             iSudFSTAPP.startGame();
         }
     }
 
     public void pauseGame() {
-        ISudRuntime1FSTAPP iSudFSTAPP = this.iSudFSTAPP;
+        ISUDRuntime1FSTAPP iSudFSTAPP = this.iSudFSTAPP;
         if (iSudFSTAPP != null) {
             iSudFSTAPP.pauseGame();
         }
     }
 
     public void playGame() {
-        ISudRuntime1FSTAPP iSudFSTAPP = this.iSudFSTAPP;
+        ISUDRuntime1FSTAPP iSudFSTAPP = this.iSudFSTAPP;
         if (iSudFSTAPP != null) {
             iSudFSTAPP.playGame();
         }
     }
 
     public void stopGame() {
-        ISudRuntime1FSTAPP iSudFSTAPP = this.iSudFSTAPP;
+        ISUDRuntime1FSTAPP iSudFSTAPP = this.iSudFSTAPP;
         if (iSudFSTAPP != null) {
             iSudFSTAPP.stopGame();
         }
     }
 
     public void destroyGame() {
-        ISudRuntime1FSTAPP iSudFSTAPP = this.iSudFSTAPP;
+        ISUDRuntime1FSTAPP iSudFSTAPP = this.iSudFSTAPP;
         if (iSudFSTAPP != null) {
             iSudFSTAPP.destroyGame();
             this.iSudFSTAPP = null;
@@ -338,8 +338,8 @@ public class SudRuntime1FSTAPPDecorator {
      * @param dataJson 数据
      * @param listener 回调监听
      */
-    public void notifyStateChange(String state, String dataJson, ISudListenerNotifyStateChange listener) {
-        ISudRuntime1FSTAPP iSudFSTAPP = this.iSudFSTAPP;
+    public void notifyStateChange(String state, String dataJson, ISUDListenerNotifyStateChange listener) {
+        ISUDRuntime1FSTAPP iSudFSTAPP = this.iSudFSTAPP;
         if (iSudFSTAPP != null) {
             iSudFSTAPP.notifyStateChange(state, dataJson, listener);
             if (onNotifyStateChangeListener != null) {
@@ -373,7 +373,7 @@ public class SudRuntime1FSTAPPDecorator {
      * 在游戏加载失败时，调用此方法可重新加载游戏
      */
     public void reloadMG() {
-        ISudRuntime1FSTAPP iSudFSTAPP = this.iSudFSTAPP;
+        ISUDRuntime1FSTAPP iSudFSTAPP = this.iSudFSTAPP;
         if (iSudFSTAPP != null) {
             iSudFSTAPP.reloadGame();
         }

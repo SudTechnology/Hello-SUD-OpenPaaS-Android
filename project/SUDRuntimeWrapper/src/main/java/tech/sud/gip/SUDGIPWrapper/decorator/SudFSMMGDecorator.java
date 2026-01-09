@@ -8,14 +8,14 @@ package tech.sud.gip.SUDGIPWrapper.decorator;
 import tech.sud.gip.SUDGIPWrapper.state.SudGIPMGState;
 import tech.sud.gip.SUDGIPWrapper.utils.ISudFSMStateHandleUtils;
 import tech.sud.gip.SUDGIPWrapper.utils.SudJsonUtils;
-import tech.sud.gip.core.ISudFSMMG;
-import tech.sud.gip.core.ISudFSMStateHandle;
+import tech.sud.gip.core.ISUDFSMMG;
+import tech.sud.gip.core.ISUDFSMStateHandle;
 
 /**
- * ISudFSMMG 游戏调APP回调装饰类
- * 参考文档：https://docs.sud.tech/zh-CN/app/Client/API/ISudFSMMG.html
+ * ISUDFSMMG 游戏调APP回调装饰类
+ * 参考文档：https://docs.sud.tech/zh-CN/app/Client/API/ISUDFSMMG.html
  */
-public class SudFSMMGDecorator implements ISudFSMMG {
+public class SudFSMMGDecorator implements ISUDFSMMG {
 
     // 回调
     private SudFSMMGListener sudFSMMGListener;
@@ -90,7 +90,7 @@ public class SudFSMMGDecorator implements ISudFSMMG {
      * @param dataJson {"code":"value"}
      */
     @Override
-    public void onExpireCode(ISudFSMStateHandle handle, String dataJson) {
+    public void onExpireCode(ISUDFSMStateHandle handle, String dataJson) {
         SudFSMMGListener listener = sudFSMMGListener;
         if (listener != null) {
             listener.onExpireCode(handle, dataJson);
@@ -105,7 +105,7 @@ public class SudFSMMGDecorator implements ISudFSMMG {
      * @param dataJson {}
      */
     @Override
-    public void onGetGameViewInfo(ISudFSMStateHandle handle, String dataJson) {
+    public void onGetGameViewInfo(ISUDFSMStateHandle handle, String dataJson) {
         SudFSMMGListener listener = sudFSMMGListener;
         if (listener != null) {
             listener.onGetGameViewInfo(handle, dataJson);
@@ -121,7 +121,7 @@ public class SudFSMMGDecorator implements ISudFSMMG {
      *                 最低版本：v1.1.30.xx
      */
     @Override
-    public void onGetGameCfg(ISudFSMStateHandle handle, String dataJson) {
+    public void onGetGameCfg(ISUDFSMStateHandle handle, String dataJson) {
         SudFSMMGListener listener = sudFSMMGListener;
         if (listener != null) {
             listener.onGetGameCfg(handle, dataJson);
@@ -137,7 +137,7 @@ public class SudFSMMGDecorator implements ISudFSMMG {
      * @param dataJson 状态值
      */
     @Override
-    public void onGameStateChange(ISudFSMStateHandle handle, String state, String dataJson) {
+    public void onGameStateChange(ISUDFSMStateHandle handle, String state, String dataJson) {
         SudFSMMGListener listener = sudFSMMGListener;
         if (listener != null && listener.onGameStateChange(handle, state, dataJson)) {
             return;
@@ -969,7 +969,7 @@ public class SudFSMMGDecorator implements ISudFSMMG {
      * @param dataJson 状态值
      */
     @Override
-    public void onPlayerStateChange(ISudFSMStateHandle handle, String userId, String state, String dataJson) {
+    public void onPlayerStateChange(ISUDFSMStateHandle handle, String userId, String state, String dataJson) {
         SudFSMMGListener listener = sudFSMMGListener;
         if (listener != null && listener.onPlayerStateChange(handle, userId, state, dataJson)) {
             return;

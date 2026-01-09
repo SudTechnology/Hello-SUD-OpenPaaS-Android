@@ -13,38 +13,40 @@ import android.widget.Toast;
 
 import androidx.lifecycle.MutableLiveData;
 
-import tech.sud.gip.r2.core.ISudRuntime2FSMGame;
-import tech.sud.gip.r2.core.ISudRuntime2FSTAPP;
-import tech.sud.gip.r2.core.ISudRuntime2ListenerInitSDK;
-import tech.sud.gip.r2.core.SudRuntime2;
-import tech.sud.gip.r2.core.SudRuntime2GameAudioSession;
-import tech.sud.gip.r2.core.SudRuntime2GameCoreHandle;
-import tech.sud.gip.r2.core.SudRuntime2GameHandle;
-import tech.sud.gip.r2.core.SudRuntime2GameRuntime;
-import tech.sud.gip.r2.core.SudRuntime2InitSDKParamModel;
-import tech.sud.gip.r2.core.SudRuntime2LoadGameParamModel;
+import java.util.Objects;
+
+import tech.sud.gip.r2.core.ISUDRuntime2FSMGame;
+import tech.sud.gip.r2.core.ISUDRuntime2FSTAPP;
+import tech.sud.gip.r2.core.ISUDRuntime2ListenerInitSDK;
+import tech.sud.gip.r2.core.SUDRuntime2;
+import tech.sud.gip.r2.core.SUDRuntime2GameAudioSession;
+import tech.sud.gip.r2.core.SUDRuntime2GameCoreHandle;
+import tech.sud.gip.r2.core.SUDRuntime2GameHandle;
+import tech.sud.gip.r2.core.SUDRuntime2GameRuntime;
+import tech.sud.gip.r2.core.SUDRuntime2InitSDKParamModel;
+import tech.sud.gip.r2.core.SUDRuntime2LoadGameParamModel;
 
 
 public abstract class BaseRuntime2GameViewModel {
 
     private String TAG = "BaseRuntime2GameViewModel";
     private Activity mActivity;
-    private SudRuntime2GameRuntime mRuntime;
-    private SudRuntime2GameCoreHandle mCoreHandle;
+    private SUDRuntime2GameRuntime mRuntime;
+    private SUDRuntime2GameCoreHandle mCoreHandle;
 
     public Handler handler = new Handler(Looper.getMainLooper());
     private String mGameId;
     private String mGameUrl;
     private String mGamePkgVersion;
-    private SudRuntime2GameHandle mGameHandle;
+    private SUDRuntime2GameHandle mGameHandle;
     private Boolean _isGameStateChanging = false;
-    private int _currentGameState = SudRuntime2GameHandle.GAME_STATE_UNAVAILABLE;
-    private int _expectGameState = SudRuntime2GameHandle.GAME_STATE_UNAVAILABLE;
+    private int _currentGameState = SUDRuntime2GameHandle.GAME_STATE_UNAVAILABLE;
+    private int _expectGameState = SUDRuntime2GameHandle.GAME_STATE_UNAVAILABLE;
     private Boolean _isGameInstalled = false;
     private boolean isMute;
     private boolean isGameStarted;
     private AudioManager _audioManager;
-    private ISudRuntime2FSTAPP mISudRuntime2FSTAPP;
+    private ISUDRuntime2FSTAPP mISUDRuntime2FSTAPP;
     private AudioManager.OnAudioFocusChangeListener afChangeListener;
     public MutableLiveData<String> gameMGCommonGameFinishLiveData = new MutableLiveData<>();
     public MutableLiveData<String> gameStartedLiveData = new MutableLiveData<>();
@@ -60,12 +62,7 @@ public abstract class BaseRuntime2GameViewModel {
      */
     public void switchGame(Activity activity, String gameId, String gameUrl, String gamePkgVersion) {
         mActivity = activity;
-        if (TextUtils.isEmpty(gameId) || TextUtils.isEmpty(gameUrl) || TextUtils.isEmpty(gamePkgVersion)) {
-            toastMsg("switchGame params can not be empty");
-            logW("switchGame params can not be empty");
-            return;
-        }
-        if (gameId.equals(mGameId)) {
+        if (Objects.equals(gameId, mGameId)) {
             return;
         }
         destroyGame();
@@ -75,6 +72,9 @@ public abstract class BaseRuntime2GameViewModel {
         mGameId = gameId;
         mGameUrl = gameUrl;
         mGamePkgVersion = gamePkgVersion;
+        if (TextUtils.isEmpty(mGameId) || TextUtils.isEmpty(gameUrl) || TextUtils.isEmpty(gamePkgVersion)) {
+            return;
+        }
         login(activity, gameId, gameUrl, gamePkgVersion);
         onResume();
     }
@@ -82,7 +82,7 @@ public abstract class BaseRuntime2GameViewModel {
     private void createRuntime(Activity activity, String gameId, String gameUrl, String gamePkgVersion) {
         SudRuntime2InitManager.createRuntime(activity, new SudRuntime2InitManager.CreateRuntimeListener() {
             @Override
-            public void onSuccess(SudRuntime2GameRuntime runtime) {
+            public void onSuccess(SUDRuntime2GameRuntime runtime) {
                 if (TextUtils.isEmpty(mGameId)) {
                     return;
                 }
@@ -135,14 +135,14 @@ public abstract class BaseRuntime2GameViewModel {
     }
 
     private void initSdk(Activity activity, String gameId, String gameUrl, String gamePkgVersion, String code) {
-        SudRuntime2InitSDKParamModel initSDKParamModel = new SudRuntime2InitSDKParamModel();
+        SUDRuntime2InitSDKParamModel initSDKParamModel = new SUDRuntime2InitSDKParamModel();
         initSDKParamModel.context = activity.getApplicationContext();
         initSDKParamModel.appId = getAppId();
         initSDKParamModel.appKey = getAppKey();
         initSDKParamModel.userId = getUserId();
         initSDKParamModel.code = code;
 
-        SudRuntime2.initSDK(initSDKParamModel, new ISudRuntime2ListenerInitSDK() {
+        SUDRuntime2.initSDK(initSDKParamModel, new ISUDRuntime2ListenerInitSDK() {
             @Override
             public void onSuccess() {
                 createRuntime(activity, gameId, gameUrl, gamePkgVersion);
@@ -161,13 +161,13 @@ public abstract class BaseRuntime2GameViewModel {
         if (TextUtils.isEmpty(mGameId)) {
             return;
         }
-        SudRuntime2LoadGameParamModel loadGameParamModel = new SudRuntime2LoadGameParamModel();
+        SUDRuntime2LoadGameParamModel loadGameParamModel = new SUDRuntime2LoadGameParamModel();
         loadGameParamModel.activity = activity;
         loadGameParamModel.userId = getUserId();
         loadGameParamModel.gameId = gameId;
         loadGameParamModel.pkgVersion = gamePkgVersion;
         loadGameParamModel.pkgUrl = gameUrl;
-        mISudRuntime2FSTAPP = SudRuntime2.loadPackage(loadGameParamModel, new ISudRuntime2FSMGame() {
+        mISUDRuntime2FSTAPP = SUDRuntime2.loadPackage(loadGameParamModel, new ISUDRuntime2FSMGame() {
             @Override
             public void onSuccess() {
                 if (TextUtils.isEmpty(mGameId)) {
@@ -212,7 +212,7 @@ public abstract class BaseRuntime2GameViewModel {
     private void loadCore(Activity activity, String gameId, String gameUrl, String gamePkgVersion) {
         SudRuntime2InitManager.loadCore(new SudRuntime2InitManager.LoadCoreListener() {
             @Override
-            public void onSuccess(SudRuntime2GameCoreHandle coreHandle) {
+            public void onSuccess(SUDRuntime2GameCoreHandle coreHandle) {
                 if (TextUtils.isEmpty(mGameId)) {
                     return;
                 }
@@ -236,10 +236,10 @@ public abstract class BaseRuntime2GameViewModel {
         }
         // 创建游戏实例
         Bundle createOptions = new Bundle();
-        createOptions.putString(SudRuntime2GameHandle.KEY_GAME_USER_ID, getUserId());
-        mRuntime.createGameHandle(mActivity, createOptions, mCoreHandle, new SudRuntime2GameRuntime.GameHandleCreateListener() {
+        createOptions.putString(SUDRuntime2GameHandle.KEY_GAME_USER_ID, getUserId());
+        mRuntime.createGameHandle(mActivity, createOptions, mCoreHandle, new SUDRuntime2GameRuntime.GameHandleCreateListener() {
             @Override
-            public void onSuccess(SudRuntime2GameHandle handle) {
+            public void onSuccess(SUDRuntime2GameHandle handle) {
                 mGameHandle = handle;
                 onAddGameView(handle.getGameView());
                 handle.setGameStateListener(_gameStateListener);
@@ -247,7 +247,7 @@ public abstract class BaseRuntime2GameViewModel {
                 initListener(handle);
                 setMute(isMute);
                 handle.getGameAudioSession().setGameQueryAudioOptionsListener(_audioListener);
-                handle.setGameDrawFrameListener(new SudRuntime2GameHandle.GameDrawFrameListener() {
+                handle.setGameDrawFrameListener(new SUDRuntime2GameHandle.GameDrawFrameListener() {
                     @Override
                     public void onDrawFrame(long l) {
                         handle.setGameDrawFrameListener(null);
@@ -263,12 +263,12 @@ public abstract class BaseRuntime2GameViewModel {
         });
     }
 
-    private final SudRuntime2GameAudioSession.GameQueryAudioOptionsListener _audioListener = new SudRuntime2GameAudioSession.GameQueryAudioOptionsListener() {
+    private final SUDRuntime2GameAudioSession.GameQueryAudioOptionsListener _audioListener = new SUDRuntime2GameAudioSession.GameQueryAudioOptionsListener() {
         @Override
-        public void onQueryAudioOptions(SudRuntime2GameAudioSession.GameQueryAudioOptionsHandle gameQueryAudioOptionsHandle, Bundle bundle) {
+        public void onQueryAudioOptions(SUDRuntime2GameAudioSession.GameQueryAudioOptionsHandle gameQueryAudioOptionsHandle, Bundle bundle) {
             // bundle 中参数
-            // bundle.getBoolean(SudRuntime2GameAudioSession.KEY_AUDIO_MIX_WITH_OTHER); 是否用扬声器播放，true 默认输出设备优先级：耳机 > 蓝牙 > 扬声器；false 用听筒播放
-            // bundle.getBoolean(SudRuntime2GameAudioSession.KEY_AUDIO_SPEAKER_ON); 音频是否支持与其他音频混播（包含其他应用、其他游戏实例的音频）
+            // bundle.getBoolean(SUDRuntime2GameAudioSession.KEY_AUDIO_MIX_WITH_OTHER); 是否用扬声器播放，true 默认输出设备优先级：耳机 > 蓝牙 > 扬声器；false 用听筒播放
+            // bundle.getBoolean(SUDRuntime2GameAudioSession.KEY_AUDIO_SPEAKER_ON); 音频是否支持与其他音频混播（包含其他应用、其他游戏实例的音频）
             if (afChangeListener == null) {
                 afChangeListener = new AudioManager.OnAudioFocusChangeListener() {
                     @Override
@@ -284,17 +284,17 @@ public abstract class BaseRuntime2GameViewModel {
         }
     };
 
-    private void initListener(SudRuntime2GameHandle handle) {
-        handle.setCustomCommandListener(new SudRuntime2GameHandle.CustomCommandListener() {
+    private void initListener(SUDRuntime2GameHandle handle) {
+        handle.setCustomCommandListener(new SUDRuntime2GameHandle.CustomCommandListener() {
             @Override
-            public void onCallCustomCommand(SudRuntime2GameHandle.CustomCommandHandle customCommandHandle, Bundle bundle) {
+            public void onCallCustomCommand(SUDRuntime2GameHandle.CustomCommandHandle customCommandHandle, Bundle bundle) {
                 logD("onCallCustomCommand :" + bundle);
                 onGameStateChange(bundle);
                 customCommandHandle.success();
             }
 
             @Override
-            public void onCallCustomCommandSync(SudRuntime2GameHandle.CustomCommandHandle customCommandHandle, Bundle bundle) {
+            public void onCallCustomCommandSync(SUDRuntime2GameHandle.CustomCommandHandle customCommandHandle, Bundle bundle) {
                 logD("onCallCustomCommandSync :" + bundle);
             }
         });
@@ -328,19 +328,19 @@ public abstract class BaseRuntime2GameViewModel {
     }
 
     public void onStart() {
-        _changeGameState(SudRuntime2GameHandle.GAME_STATE_RUNNING);
+        _changeGameState(SUDRuntime2GameHandle.GAME_STATE_RUNNING);
     }
 
     public void onResume() {
-        _changeGameState(SudRuntime2GameHandle.GAME_STATE_PLAYING);
+        _changeGameState(SUDRuntime2GameHandle.GAME_STATE_PLAYING);
     }
 
     public void onPause() {
-        _changeGameState(SudRuntime2GameHandle.GAME_STATE_RUNNING);
+        _changeGameState(SUDRuntime2GameHandle.GAME_STATE_RUNNING);
     }
 
     public void onStop() {
-        _changeGameState(SudRuntime2GameHandle.GAME_STATE_WAITING);
+        _changeGameState(SUDRuntime2GameHandle.GAME_STATE_WAITING);
     }
 
     /** 销毁游戏 */
@@ -353,14 +353,14 @@ public abstract class BaseRuntime2GameViewModel {
             mGameHandle.destroy();
         }
         onRemoveGameView();
-        mISudRuntime2FSTAPP = null;
+        mISUDRuntime2FSTAPP = null;
         mGameId = null;
         mGameUrl = null;
         mGamePkgVersion = null;
         mGameHandle = null;
         _isGameStateChanging = false;
-        _currentGameState = SudRuntime2GameHandle.GAME_STATE_UNAVAILABLE;
-        _expectGameState = SudRuntime2GameHandle.GAME_STATE_UNAVAILABLE;
+        _currentGameState = SUDRuntime2GameHandle.GAME_STATE_UNAVAILABLE;
+        _expectGameState = SUDRuntime2GameHandle.GAME_STATE_UNAVAILABLE;
         _isGameInstalled = false;
         isMute = false;
         isGameStarted = false;
@@ -371,7 +371,7 @@ public abstract class BaseRuntime2GameViewModel {
         }
     }
 
-    private final SudRuntime2GameHandle.GameStateChangeListener _gameStateListener = new SudRuntime2GameHandle.GameStateChangeListener() {
+    private final SUDRuntime2GameHandle.GameStateChangeListener _gameStateListener = new SUDRuntime2GameHandle.GameStateChangeListener() {
         @Override
         public void preStateChange(int fromState, int state) {
         }
@@ -379,7 +379,7 @@ public abstract class BaseRuntime2GameViewModel {
         @Override
         public void onStateChanged(int fromState, int state) {
             logD("状态变化 gameId:" + mGameId + " 状态为：" + getStringState(state));
-            if (!isGameStarted && state == SudRuntime2GameHandle.GAME_STATE_PLAYING) {
+            if (!isGameStarted && state == SUDRuntime2GameHandle.GAME_STATE_PLAYING) {
                 isGameStarted = true;
                 gameStartedLiveData.setValue(null);
             }
@@ -390,13 +390,13 @@ public abstract class BaseRuntime2GameViewModel {
 
         private String getStringState(int state) {
             switch (state) {
-                case SudRuntime2GameHandle.GAME_STATE_UNAVAILABLE:
+                case SUDRuntime2GameHandle.GAME_STATE_UNAVAILABLE:
                     return "UNAVAILABLE";
-                case SudRuntime2GameHandle.GAME_STATE_WAITING:
+                case SUDRuntime2GameHandle.GAME_STATE_WAITING:
                     return "WAITING";
-                case SudRuntime2GameHandle.GAME_STATE_RUNNING:
+                case SUDRuntime2GameHandle.GAME_STATE_RUNNING:
                     return "RUNNING";
-                case SudRuntime2GameHandle.GAME_STATE_PLAYING:
+                case SUDRuntime2GameHandle.GAME_STATE_PLAYING:
                     return "PLAYING";
                 default:
                     return "UNKNOW:" + state;
@@ -416,63 +416,63 @@ public abstract class BaseRuntime2GameViewModel {
         }
         logD("_changeGameState success: _currentGameState " + _currentGameState + " to " + newState);
         switch (_currentGameState) {
-            case SudRuntime2GameHandle.GAME_STATE_UNAVAILABLE: {
+            case SUDRuntime2GameHandle.GAME_STATE_UNAVAILABLE: {
                 switch (newState) {
-                    case SudRuntime2GameHandle.GAME_STATE_UNAVAILABLE:
+                    case SUDRuntime2GameHandle.GAME_STATE_UNAVAILABLE:
                         break;
-                    case SudRuntime2GameHandle.GAME_STATE_WAITING:
-                    case SudRuntime2GameHandle.GAME_STATE_RUNNING:
-                    case SudRuntime2GameHandle.GAME_STATE_PLAYING:
+                    case SUDRuntime2GameHandle.GAME_STATE_WAITING:
+                    case SUDRuntime2GameHandle.GAME_STATE_RUNNING:
+                    case SUDRuntime2GameHandle.GAME_STATE_PLAYING:
                         _isGameStateChanging = true;
                         Bundle bundle = new Bundle();
-                        bundle.putBoolean(SudRuntime2GameHandle.KEY_GAME_START_OPTIONS_ENABLE_THIRD_SCRIPT, true);
+                        bundle.putBoolean(SUDRuntime2GameHandle.KEY_GAME_START_OPTIONS_ENABLE_THIRD_SCRIPT, true);
                         mGameHandle.setGameStartOptions(mGameId, bundle);
                         mGameHandle.create();
                         break;
                 }
                 break;
             }
-            case SudRuntime2GameHandle.GAME_STATE_WAITING: {
+            case SUDRuntime2GameHandle.GAME_STATE_WAITING: {
                 switch (newState) {
-                    case SudRuntime2GameHandle.GAME_STATE_UNAVAILABLE:
+                    case SUDRuntime2GameHandle.GAME_STATE_UNAVAILABLE:
                         _isGameStateChanging = true;
                         mGameHandle.destroy();
                         break;
-                    case SudRuntime2GameHandle.GAME_STATE_WAITING:
+                    case SUDRuntime2GameHandle.GAME_STATE_WAITING:
                         break;
-                    case SudRuntime2GameHandle.GAME_STATE_RUNNING:
-                    case SudRuntime2GameHandle.GAME_STATE_PLAYING:
+                    case SUDRuntime2GameHandle.GAME_STATE_RUNNING:
+                    case SUDRuntime2GameHandle.GAME_STATE_PLAYING:
                         _isGameStateChanging = true;
                         mGameHandle.start(null);
                         break;
                 }
                 break;
             }
-            case SudRuntime2GameHandle.GAME_STATE_RUNNING: {
+            case SUDRuntime2GameHandle.GAME_STATE_RUNNING: {
                 switch (newState) {
-                    case SudRuntime2GameHandle.GAME_STATE_UNAVAILABLE:
-                    case SudRuntime2GameHandle.GAME_STATE_WAITING:
+                    case SUDRuntime2GameHandle.GAME_STATE_UNAVAILABLE:
+                    case SUDRuntime2GameHandle.GAME_STATE_WAITING:
                         _isGameStateChanging = true;
                         mGameHandle.stop(null);
                         break;
-                    case SudRuntime2GameHandle.GAME_STATE_RUNNING:
+                    case SUDRuntime2GameHandle.GAME_STATE_RUNNING:
                         break;
-                    case SudRuntime2GameHandle.GAME_STATE_PLAYING:
+                    case SUDRuntime2GameHandle.GAME_STATE_PLAYING:
                         _isGameStateChanging = true;
                         mGameHandle.play();
                         break;
                 }
                 break;
             }
-            case SudRuntime2GameHandle.GAME_STATE_PLAYING: {
+            case SUDRuntime2GameHandle.GAME_STATE_PLAYING: {
                 switch (newState) {
-                    case SudRuntime2GameHandle.GAME_STATE_UNAVAILABLE:
-                    case SudRuntime2GameHandle.GAME_STATE_WAITING:
-                    case SudRuntime2GameHandle.GAME_STATE_RUNNING:
+                    case SUDRuntime2GameHandle.GAME_STATE_UNAVAILABLE:
+                    case SUDRuntime2GameHandle.GAME_STATE_WAITING:
+                    case SUDRuntime2GameHandle.GAME_STATE_RUNNING:
                         _isGameStateChanging = true;
                         mGameHandle.pause();
                         break;
-                    case SudRuntime2GameHandle.GAME_STATE_PLAYING:
+                    case SUDRuntime2GameHandle.GAME_STATE_PLAYING:
                         break;
                 }
                 break;
@@ -486,7 +486,7 @@ public abstract class BaseRuntime2GameViewModel {
     public void setMute(boolean isMute) {
         this.isMute = isMute;
         if (mGameHandle != null) {
-            SudRuntime2GameAudioSession gameAudioSession = mGameHandle.getGameAudioSession();
+            SUDRuntime2GameAudioSession gameAudioSession = mGameHandle.getGameAudioSession();
             if (gameAudioSession != null) {
                 gameAudioSession.mute(isMute);
             }

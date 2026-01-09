@@ -7,7 +7,7 @@ package tech.sud.gip.SUDGIPWrapper.model;
 
 /**
  * 游戏视图
- * 参考文档：https://docs.sud.tech/zh-CN/app/Client/API/ISudFSMMG/onGetGameViewInfo.html
+ * 参考文档：https://docs.sud.tech/zh-CN/app/Client/API/ISUDFSMMG/onGetGameViewInfo.html
  */
 public class GameViewInfoModel {
     // 返回码

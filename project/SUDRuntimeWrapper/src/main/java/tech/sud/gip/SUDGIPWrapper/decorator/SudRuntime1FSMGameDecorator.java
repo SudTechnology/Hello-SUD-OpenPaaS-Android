@@ -8,14 +8,14 @@ package tech.sud.gip.SUDGIPWrapper.decorator;
 import tech.sud.gip.SUDGIPWrapper.state.SudGIPMGState;
 import tech.sud.gip.SUDGIPWrapper.utils.ISudFSMStateHandleUtils;
 import tech.sud.gip.SUDGIPWrapper.utils.SudJsonUtils;
-import tech.sud.gip.core.ISudFSMStateHandle;
-import tech.sud.gip.r1.core.ISudRuntime1FSMGame;
+import tech.sud.gip.core.ISUDFSMStateHandle;
+import tech.sud.gip.r1.core.ISUDRuntime1FSMGame;
 
 /**
- * ISudFSMMG 游戏调APP回调装饰类
- * 参考文档：https://docs.sud.tech/zh-CN/app/Client/API/ISudFSMMG.html
+ * ISUDFSMMG 游戏调APP回调装饰类
+ * 参考文档：https://docs.sud.tech/zh-CN/app/Client/API/ISUDFSMMG.html
  */
-public class SudRuntime1FSMGameDecorator implements ISudRuntime1FSMGame {
+public class SudRuntime1FSMGameDecorator implements ISUDRuntime1FSMGame {
 
     // 回调
     private SudFSMMGListener sudFSMMGListener;
@@ -68,7 +68,7 @@ public class SudRuntime1FSMGameDecorator implements ISudRuntime1FSMGame {
      * @param dataJson 状态值
      */
     @Override
-    public void onGameStateChange(ISudFSMStateHandle handle, String state, String dataJson) {
+    public void onGameStateChange(ISUDFSMStateHandle handle, String state, String dataJson) {
         SudFSMMGListener listener = sudFSMMGListener;
         if (listener != null && listener.onGameStateChange(handle, state, dataJson)) {
             return;
@@ -852,7 +852,7 @@ public class SudRuntime1FSMGameDecorator implements ISudRuntime1FSMGame {
      * @param dataJson 状态值
      */
     @Override
-    public void onPlayerStateChange(ISudFSMStateHandle handle, String userId, String state, String dataJson) {
+    public void onPlayerStateChange(ISUDFSMStateHandle handle, String userId, String state, String dataJson) {
         SudFSMMGListener listener = sudFSMMGListener;
         if (listener != null && listener.onPlayerStateChange(handle, userId, state, dataJson)) {
             return;

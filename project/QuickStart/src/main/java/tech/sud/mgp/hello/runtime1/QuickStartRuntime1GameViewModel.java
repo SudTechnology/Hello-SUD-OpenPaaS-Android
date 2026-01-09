@@ -21,8 +21,8 @@ import tech.sud.gip.SUDGIPWrapper.decorator.SudFSMMGListener;
 import tech.sud.gip.SUDGIPWrapper.decorator.SudFSTAPPDecorator;
 import tech.sud.gip.SUDGIPWrapper.model.GameViewInfoModel;
 import tech.sud.gip.SUDGIPWrapper.state.SudGIPMGState;
-import tech.sud.gip.core.ISudFSMMG;
-import tech.sud.gip.core.ISudFSMStateHandle;
+import tech.sud.gip.core.ISUDFSMMG;
+import tech.sud.gip.core.ISUDFSMStateHandle;
 import tech.sud.mgp.hello.QuickStartUtils;
 
 /**
@@ -169,11 +169,11 @@ public class QuickStartRuntime1GameViewModel extends BaseRuntime1GameViewModel {
     }
 
     /**
-     * 设置游戏的安全操作区域，{@link ISudFSMMG}.onGetGameViewInfo()的实现。
-     * 参考文档：https://docs.sud.tech/zh-CN/app/Client/API/ISudFSMMG/onGetGameViewInfo.html
+     * 设置游戏的安全操作区域，{@link ISUDFSMMG}.onGetGameViewInfo()的实现。
+     * 参考文档：https://docs.sud.tech/zh-CN/app/Client/API/ISUDFSMMG/onGetGameViewInfo.html
      * <p>
-     * Set the secure operation area for the game, implementation of {@link ISudFSMMG}.onGetGameViewInfo().
-     * Reference documentation: https://docs.sud.tech/en-US/app/Client/API/ISudFSMMG/onGetGameViewInfo.html
+     * Set the secure operation area for the game, implementation of {@link ISUDFSMMG}.onGetGameViewInfo().
+     * Reference documentation: https://docs.sud.tech/en-US/app/Client/API/ISUDFSMMG/onGetGameViewInfo.html
      *
      * @param gameViewInfoModel 游戏视图模型
      *                          Game view model
@@ -251,7 +251,7 @@ public class QuickStartRuntime1GameViewModel extends BaseRuntime1GameViewModel {
      * These states are further divided into two different interfaces for callbacks: onGameStateChange and onPlayerStateChange. However, they are already encapsulated, and you only need to focus on the corresponding callbacks in SudFSMMGListener.
      */
     @Override
-    public void onGameMGCommonGameState(ISudFSMStateHandle handle, SudGIPMGState.MGCommonGameState model) {
+    public void onGameMGCommonGameState(ISUDFSMStateHandle handle, SudGIPMGState.MGCommonGameState model) {
         super.onGameMGCommonGameState(handle, model);
     }
 

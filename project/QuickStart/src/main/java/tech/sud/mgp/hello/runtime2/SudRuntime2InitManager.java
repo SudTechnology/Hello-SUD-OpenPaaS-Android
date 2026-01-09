@@ -6,16 +6,16 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import tech.sud.gip.r2.core.SudRuntime2;
-import tech.sud.gip.r2.core.SudRuntime2GameCoreHandle;
-import tech.sud.gip.r2.core.SudRuntime2GameRuntime;
+import tech.sud.gip.r2.core.SUDRuntime2;
+import tech.sud.gip.r2.core.SUDRuntime2GameCoreHandle;
+import tech.sud.gip.r2.core.SUDRuntime2GameRuntime;
 
 
 /** 用于初始化环境 */
 public class SudRuntime2InitManager {
 
-    private static SudRuntime2GameRuntime sGameRuntime;
-    private static SudRuntime2GameCoreHandle sGameCoreHandle;
+    private static SUDRuntime2GameRuntime sGameRuntime;
+    private static SUDRuntime2GameCoreHandle sGameCoreHandle;
     private static boolean isInitializingRuntime;
     private static boolean isInitializingCore;
     private static List<CreateRuntimeListener> sRuntimeListenerList;
@@ -43,9 +43,9 @@ public class SudRuntime2InitManager {
                 return;
             }
             isInitializingRuntime = true;
-            SudRuntime2.createRuntime(context, null, new SudRuntime2GameRuntime.RuntimeCreateListener() {
+            SUDRuntime2.createRuntime(context, null, new SUDRuntime2GameRuntime.RuntimeCreateListener() {
                 @Override
-                public void onSuccess(SudRuntime2GameRuntime runtime) {
+                public void onSuccess(SUDRuntime2GameRuntime runtime) {
                     sGameRuntime = runtime;
                     listener.onSuccess(runtime);
                     notifyInitRuntimeOnSuccess();
@@ -82,9 +82,9 @@ public class SudRuntime2InitManager {
             isInitializingCore = true;
             long start = System.currentTimeMillis();
             // 不是动态core 不传 core 的 options
-            sGameRuntime.loadCore(null, new SudRuntime2GameRuntime.CoreLoadListener() {
+            sGameRuntime.loadCore(null, new SUDRuntime2GameRuntime.CoreLoadListener() {
                 @Override
-                public void onSuccess(SudRuntime2GameCoreHandle coreHandle) {
+                public void onSuccess(SUDRuntime2GameCoreHandle coreHandle) {
                     sGameCoreHandle = coreHandle;
                     listener.onSuccess(coreHandle);
                     notifyInitCoreOnSuccess();
@@ -150,13 +150,13 @@ public class SudRuntime2InitManager {
     }
 
     public interface CreateRuntimeListener {
-        void onSuccess(SudRuntime2GameRuntime runtime);
+        void onSuccess(SUDRuntime2GameRuntime runtime);
 
         void onFailure(Throwable error);
     }
 
     public interface LoadCoreListener {
-        void onSuccess(SudRuntime2GameCoreHandle coreHandle);
+        void onSuccess(SUDRuntime2GameCoreHandle coreHandle);
 
         void onFailure(Throwable error);
     }

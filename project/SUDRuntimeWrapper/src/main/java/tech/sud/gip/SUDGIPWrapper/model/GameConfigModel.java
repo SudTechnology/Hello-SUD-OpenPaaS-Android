@@ -9,7 +9,7 @@ import java.io.Serializable;
 
 /**
  * 游戏配置模型
- * 参考文档：https://docs.sud.tech/zh-CN/app/Client/API/ISudFSMMG/onGetGameCfg.html
+ * 参考文档：https://docs.sud.tech/zh-CN/app/Client/API/ISUDFSMMG/onGetGameCfg.html
  */
 public class GameConfigModel implements Serializable {
 
