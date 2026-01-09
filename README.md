@@ -1,1 +1,1 @@
-Hello-SUD-OpenPaaS-Android
+[QuickStart](docs/README.md)
