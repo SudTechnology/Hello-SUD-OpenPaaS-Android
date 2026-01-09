@@ -80,7 +80,7 @@ public abstract class BaseRuntime2GameViewModel {
     }
 
     private void createRuntime(Activity activity, String gameId, String gameUrl, String gamePkgVersion) {
-        SudRuntime2InitManager.createRuntime(activity, new SudRuntime2InitManager.CreateRuntimeListener() {
+        SUDRuntime2InitManager_.createRuntime(activity, new SUDRuntime2InitManager_.CreateRuntimeListener() {
             @Override
             public void onSuccess(SUDRuntime2GameRuntime runtime) {
                 if (TextUtils.isEmpty(mGameId)) {
@@ -210,7 +210,7 @@ public abstract class BaseRuntime2GameViewModel {
     }
 
     private void loadCore(Activity activity, String gameId, String gameUrl, String gamePkgVersion) {
-        SudRuntime2InitManager.loadCore(new SudRuntime2InitManager.LoadCoreListener() {
+        SUDRuntime2InitManager_.loadCore(new SUDRuntime2InitManager_.LoadCoreListener() {
             @Override
             public void onSuccess(SUDRuntime2GameCoreHandle coreHandle) {
                 if (TextUtils.isEmpty(mGameId)) {

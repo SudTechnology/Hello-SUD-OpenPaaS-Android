@@ -6,7 +6,7 @@ import com.google.gson.GsonBuilder;
 /**
  * json解析工具
  */
-public class SudJsonUtils {
+public class SUDJsonUtils_ {
 
     /**
      * 解析json

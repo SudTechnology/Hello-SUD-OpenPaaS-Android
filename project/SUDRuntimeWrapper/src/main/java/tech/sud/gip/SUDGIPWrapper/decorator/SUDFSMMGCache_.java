@@ -9,13 +9,13 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Objects;
 
-import tech.sud.gip.SUDGIPWrapper.state.SudGIPMGState;
+import tech.sud.gip.SUDGIPWrapper.state.SUDGIPMGState_;
 
 /**
  * 游戏回调数据缓存
  * Game callback data cache.
  */
-public class SudFSMMGCache {
+public class SUDFSMMGCache_ {
 
     /**
      * 记录当前队长的用户id
@@ -27,7 +27,7 @@ public class SudFSMMGCache {
      * 全局游戏状态
      * Global game state.
      */
-    private SudGIPMGState.MGCommonGameState mgCommonGameStateModel;
+    private SUDGIPMGState_.MGCommonGameState mgCommonGameStateModel;
 
     /**
      * 是否数字炸弹
@@ -51,13 +51,13 @@ public class SudFSMMGCache {
      * 记录玩家的游戏状态
      * Record the game state of the player.
      */
-    private final HashMap<String, SudGIPMGState.MGCommonPlayerPlaying> playerPlayingMap = new HashMap<>();
+    private final HashMap<String, SUDGIPMGState_.MGCommonPlayerPlaying> playerPlayingMap = new HashMap<>();
 
     /**
      * 队长状态 处理
      * Captain's status handling.
      */
-    public void onPlayerMGCommonPlayerCaptain(String userId, SudGIPMGState.MGCommonPlayerCaptain model) {
+    public void onPlayerMGCommonPlayerCaptain(String userId, SUDGIPMGState_.MGCommonPlayerCaptain model) {
         if (model != null) {
             if (model.isCaptain) {
                 captainUserId = userId;
@@ -73,7 +73,7 @@ public class SudFSMMGCache {
      * 游戏状态 处理
      * Game state processing.
      */
-    public void onGameMGCommonGameState(SudGIPMGState.MGCommonGameState model) {
+    public void onGameMGCommonGameState(SUDGIPMGState_.MGCommonGameState model) {
         mgCommonGameStateModel = model;
     }
 
@@ -81,7 +81,7 @@ public class SudFSMMGCache {
      * 玩家加入状态处理
      * Player join status processing.
      */
-    public void onPlayerMGCommonPlayerIn(String userId, SudGIPMGState.MGCommonPlayerIn model) {
+    public void onPlayerMGCommonPlayerIn(String userId, SUDGIPMGState_.MGCommonPlayerIn model) {
         if (model != null) {
             if (model.isIn) {
                 playerInSet.add(userId);
@@ -96,7 +96,7 @@ public class SudFSMMGCache {
      * 玩家准备状态
      * Player readiness status.
      */
-    public void onPlayerMGCommonPlayerReady(String userId, SudGIPMGState.MGCommonPlayerReady model) {
+    public void onPlayerMGCommonPlayerReady(String userId, SUDGIPMGState_.MGCommonPlayerReady model) {
         if (model != null) {
             if (model.isReady) {
                 playerReadySet.add(userId);
@@ -110,7 +110,7 @@ public class SudFSMMGCache {
      * 玩家游戏状态
      * Player game status.
      */
-    public void onPlayerMGCommonPlayerPlaying(String userId, SudGIPMGState.MGCommonPlayerPlaying model) {
+    public void onPlayerMGCommonPlayerPlaying(String userId, SUDGIPMGState_.MGCommonPlayerPlaying model) {
         if (model != null) {
             playerPlayingMap.put(userId, model);
         }
@@ -120,7 +120,7 @@ public class SudFSMMGCache {
      * 关键词状态
      * Keyword status.
      */
-    public void onGameMGCommonKeyWordToHit(SudGIPMGState.MGCommonKeyWordToHit model) {
+    public void onGameMGCommonKeyWordToHit(SUDGIPMGState_.MGCommonKeyWordToHit model) {
         if (model != null) {
             isHitBomb = model.wordType.equals("number");
         }
@@ -131,7 +131,7 @@ public class SudFSMMGCache {
      * Return whether the player is currently in-game.
      */
     public boolean playerIsPlaying(String userId) {
-        SudGIPMGState.MGCommonPlayerPlaying mgCommonPlayerPlaying = playerPlayingMap.get(userId);
+        SUDGIPMGState_.MGCommonPlayerPlaying mgCommonPlayerPlaying = playerPlayingMap.get(userId);
         if (mgCommonPlayerPlaying != null) {
             return mgCommonPlayerPlaying.isPlaying;
         }
@@ -211,19 +211,19 @@ public class SudFSMMGCache {
      * 获取玩家游戏状态集合
      * Retrieve the set of player game states.
      */
-    public HashMap<String, SudGIPMGState.MGCommonPlayerPlaying> getPlayerPlayingMap() {
+    public HashMap<String, SUDGIPMGState_.MGCommonPlayerPlaying> getPlayerPlayingMap() {
         return new HashMap<>(playerPlayingMap);
     }
 
     /**
-     * 返回当前游戏的状态，数值参数{@link SudGIPMGState.MGCommonGameState}
-     * Return the current game state, numerical parameter {@link SudGIPMGState.MGCommonGameState}.
+     * 返回当前游戏的状态，数值参数{@link SUDGIPMGState_.MGCommonGameState}
+     * Return the current game state, numerical parameter {@link SUDGIPMGState_.MGCommonGameState}.
      */
     public int getGameState() {
         if (mgCommonGameStateModel != null) {
             return mgCommonGameStateModel.gameState;
         }
-        return SudGIPMGState.MGCommonGameState.UNKNOW;
+        return SUDGIPMGState_.MGCommonGameState.UNKNOW;
     }
 
 }

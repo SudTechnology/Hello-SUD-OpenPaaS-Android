@@ -12,7 +12,7 @@ import tech.sud.gip.r2.core.SUDRuntime2GameRuntime;
 
 
 /** 用于初始化环境 */
-public class SudRuntime2InitManager {
+public class SUDRuntime2InitManager_ {
 
     private static SUDRuntime2GameRuntime sGameRuntime;
     private static SUDRuntime2GameCoreHandle sGameCoreHandle;

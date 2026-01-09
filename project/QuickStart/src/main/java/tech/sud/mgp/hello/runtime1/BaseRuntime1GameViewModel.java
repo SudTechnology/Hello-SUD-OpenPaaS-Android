@@ -13,12 +13,12 @@ import androidx.lifecycle.MutableLiveData;
 
 import java.util.Objects;
 
-import tech.sud.gip.SUDGIPWrapper.decorator.SudFSMMGListener;
-import tech.sud.gip.SUDGIPWrapper.decorator.SudRuntime1FSMGameDecorator;
-import tech.sud.gip.SUDGIPWrapper.decorator.SudRuntime1FSTAPPDecorator;
+import tech.sud.gip.SUDGIPWrapper.decorator.SUDFSMMGListener_;
+import tech.sud.gip.SUDGIPWrapper.decorator.SUDRuntime1FSMGameDecorator_;
+import tech.sud.gip.SUDGIPWrapper.decorator.SUDRuntime1FSTAPPDecorator_;
 import tech.sud.gip.SUDGIPWrapper.model.GameConfigModel;
 import tech.sud.gip.SUDGIPWrapper.model.GameViewInfoModel;
-import tech.sud.gip.SUDGIPWrapper.utils.SudJsonUtils;
+import tech.sud.gip.SUDGIPWrapper.utils.SUDJsonUtils_;
 import tech.sud.gip.core.ISUDFSMStateHandle;
 import tech.sud.gip.r1.core.ISUDRuntime1FSTAPP;
 import tech.sud.gip.r1.core.ISUDRuntime1ListenerInitSDK;
@@ -39,7 +39,7 @@ import tech.sud.gip.r1.core.SUDRuntime1LoadGameParamModel;
  * 3. Call onDestroy() when the page is destroyed.
  * 4. This class is a base class, and typically, there's no need to modify it. If time allows, understanding the implementation logic of this class is sufficient.
  */
-public abstract class BaseRuntime1GameViewModel implements SudFSMMGListener {
+public abstract class BaseRuntime1GameViewModel implements SUDFSMMGListener_ {
     private String TAG = "BaseRuntime1GameViewModel";
     /**
      * 当前使用的游戏id
@@ -51,13 +51,13 @@ public abstract class BaseRuntime1GameViewModel implements SudFSMMGListener {
      * app调用sdk的封装类
      * The app's wrapper class for calling the SDK.
      */
-    public final SudRuntime1FSTAPPDecorator sudFSTAPPDecorator = new SudRuntime1FSTAPPDecorator();
+    public final SUDRuntime1FSTAPPDecorator_ sudFSTAPPDecorator = new SUDRuntime1FSTAPPDecorator_();
 
     /**
      * 用于处理游戏SDK部分回调业务
      * Used to handle game SDK callback business.
      */
-    private final SudRuntime1FSMGameDecorator sudFSMGameDecorator = new SudRuntime1FSMGameDecorator();
+    private final SUDRuntime1FSMGameDecorator_ sudFSMGameDecorator = new SUDRuntime1FSMGameDecorator_();
 
     /**
      * 游戏View
@@ -353,7 +353,7 @@ public abstract class BaseRuntime1GameViewModel implements SudFSMMGListener {
      */
     @Override
     public void onGameLog(String str) {
-        SudFSMMGListener.super.onGameLog(str);
+        SUDFSMMGListener_.super.onGameLog(str);
     }
 
     /**
@@ -468,7 +468,7 @@ public abstract class BaseRuntime1GameViewModel implements SudFSMMGListener {
 
         // 给游戏侧进行返回
         // Return to the game side.
-        String json = SudJsonUtils.toJson(gameViewInfoModel);
+        String json = SUDJsonUtils_.toJson(gameViewInfoModel);
         // 如果设置安全区有疑问，可将下面的日志打印出来，分析json数据
         // 正确的格式为：{"ret_code":0,"view_game_rect":{"bottom":156,"left":0,"right":0,"top":196},"view_size":{"height":1920,"width":1080}}
         // 如果发生debug版本游戏正常，release版本游戏不正常，请检查是否混淆了GameViewInfoModel类，导致json序列化类的成员发生了变化
@@ -510,7 +510,7 @@ public abstract class BaseRuntime1GameViewModel implements SudFSMMGListener {
      * Documentation: https://docs.sud.tech/en-US/app/Client/API/ISUDFSMMG/onGetGameCfg.html
      */
     public void processOnGetGameCfg(ISUDFSMStateHandle handle, String dataJson) {
-        handle.success(SudJsonUtils.toJson(gameConfigModel));
+        handle.success(SUDJsonUtils_.toJson(gameConfigModel));
     }
 
     /**
@@ -525,7 +525,7 @@ public abstract class BaseRuntime1GameViewModel implements SudFSMMGListener {
 
     @Override
     public void onGameLoadingProgress(int stage, int retCode, int progress) {
-        SudFSMMGListener.super.onGameLoadingProgress(stage, retCode, progress);
+        SUDFSMMGListener_.super.onGameLoadingProgress(stage, retCode, progress);
         progressLiveData.setValue(new ProgressModel(stage, retCode, progress));
         logD("onGameLoadingProgress:" + stage + " retCode:" + retCode + " progress:" + progress);
     }
