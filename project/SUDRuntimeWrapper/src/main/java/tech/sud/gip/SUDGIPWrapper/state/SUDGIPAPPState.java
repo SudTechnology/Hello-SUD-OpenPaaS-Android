@@ -12,7 +12,7 @@ import java.util.List;
  * APP to MG 的通用状态定义
  * 参考文档：https://docs.sud.tech/zh-CN/app/Client/APPFST/
  */
-public class SUDGIPAPPState_ implements Serializable {
+public class SUDGIPAPPState implements Serializable {
 
     // region 通用状态
     /**

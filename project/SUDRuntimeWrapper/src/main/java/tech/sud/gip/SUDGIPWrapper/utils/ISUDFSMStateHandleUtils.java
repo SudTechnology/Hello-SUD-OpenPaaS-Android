@@ -8,7 +8,7 @@ package tech.sud.gip.SUDGIPWrapper.utils;
 import tech.sud.gip.SUDGIPWrapper.state.MGStateResponse;
 import tech.sud.gip.core.ISUDFSMStateHandle;
 
-public class ISUDFSMStateHandleUtils_ {
+public class ISUDFSMStateHandleUtils {
 
     /**
      * 回调游戏，成功
@@ -19,7 +19,7 @@ public class ISUDFSMStateHandleUtils_ {
         MGStateResponse response = new MGStateResponse();
         response.ret_code = MGStateResponse.SUCCESS;
         response.ret_msg = "success";
-        handle.success(SUDJsonUtils_.toJson(response));
+        handle.success(SUDJsonUtils.toJson(response));
     }
 
 }

@@ -17,10 +17,10 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-import tech.sud.gip.SUDGIPWrapper.decorator.SUDFSMMGListener_;
-import tech.sud.gip.SUDGIPWrapper.decorator.SUDFSTAPPDecorator_;
+import tech.sud.gip.SUDGIPWrapper.decorator.SUDFSMMGListener;
+import tech.sud.gip.SUDGIPWrapper.decorator.SUDFSTAPPDecorator;
 import tech.sud.gip.SUDGIPWrapper.model.GameViewInfoModel;
-import tech.sud.gip.SUDGIPWrapper.state.SUDGIPMGState_;
+import tech.sud.gip.SUDGIPWrapper.state.SUDGIPMGState;
 import tech.sud.gip.core.ISUDFSMMG;
 import tech.sud.gip.core.ISUDFSMStateHandle;
 import tech.sud.mgp.hello.QuickStartUtils;
@@ -217,7 +217,7 @@ public class QuickStartRuntime1GameViewModel extends BaseRuntime1GameViewModel {
     /**
      * 1.App向游戏发送状态
      * 这里演示的是发送：1. 加入状态；
-     * 开发者可自由定义方法，能发送的状态都封装在{@link SUDFSTAPPDecorator_}
+     * 开发者可自由定义方法，能发送的状态都封装在{@link SUDFSTAPPDecorator}
      * 参考文档：https://docs.sud.tech/zh-CN/app/Client/APPFST/
      * 注意：
      * 1，App向游戏发送状态，因为需要走网络，所以向游戏发送状态之后，不能马上销毁游戏或者finish Activity，否则状态无法发送成功。
@@ -226,7 +226,7 @@ public class QuickStartRuntime1GameViewModel extends BaseRuntime1GameViewModel {
      * <p> English
      * App sending states to the game
      * Here, we demonstrate sending the "join" state.
-     * Developers can freely define methods to send different states, all encapsulated in {@link SUDFSTAPPDecorator_}.
+     * Developers can freely define methods to send different states, all encapsulated in {@link SUDFSTAPPDecorator}.
      * Reference documentation: https://docs.sud.tech/en-US/app/Client/APPFST/
      * Note:
      * When sending states from the App to the game, as it involves network communication, the game should not be immediately destroyed or the Activity finished after sending the state; otherwise, the state may not be successfully sent.
@@ -239,19 +239,19 @@ public class QuickStartRuntime1GameViewModel extends BaseRuntime1GameViewModel {
     /**
      * 2.游戏向App回调状态
      * 这里演示的是接收游戏回调状态：10. 游戏状态 mg_common_game_state
-     * 游戏回调的每个状态都对应着一个方法，方法定义在：{@link SUDFSMMGListener_}
+     * 游戏回调的每个状态都对应着一个方法，方法定义在：{@link SUDFSMMGListener}
      * 在文档(https://docs.sud.tech/zh-CN/app/Client/MGFSM/)里面定义的都是游戏向APP回调状态的定义
      * 其中又细分为通过两个不同接口进行回调，分别是：onGameStateChange和onPlayerStateChange，但是都已封装好，只需关心SudFSMMGListener对应回调即可
      *
      * <p> English
      * 2. Game callback states to the App
      * Here, we demonstrate receiving the game callback state: 10. Game state mg_common_game_state
-     * Each callback state from the game corresponds to a method defined in {@link SUDFSMMGListener_}.
+     * Each callback state from the game corresponds to a method defined in {@link SUDFSMMGListener}.
      * The definitions for game callback states are provided in the documentation (https://docs.sud.tech/en-US/app/Client/MGFSM/).
      * These states are further divided into two different interfaces for callbacks: onGameStateChange and onPlayerStateChange. However, they are already encapsulated, and you only need to focus on the corresponding callbacks in SudFSMMGListener.
      */
     @Override
-    public void onGameMGCommonGameState(ISUDFSMStateHandle handle, SUDGIPMGState_.MGCommonGameState model) {
+    public void onGameMGCommonGameState(ISUDFSMStateHandle handle, SUDGIPMGState.MGCommonGameState model) {
         super.onGameMGCommonGameState(handle, model);
     }
 

@@ -14,7 +14,7 @@ import java.util.List;
  * MG to APP 的状态定义
  * 参考文档：https://docs.sud.tech/zh-CN/app/Client/MGFSM/
  */
-public class SUDGIPMGState_ implements Serializable {
+public class SUDGIPMGState implements Serializable {
 
     // region MG状态机-通用状态-游戏
     // 参考文档：https://docs.sud.tech/zh-CN/app/Client/MGFSM/CommonStateGame.html
