@@ -1,6 +1,6 @@
 configurations.maybeCreate("default")
-//artifacts.add("default", file('SUD-GIP-v0.0.0-984.aar'))
+//artifacts.add("default", file('SUD-GIP-v2.0.0.1284-beta.aar'))
 // 带static标识的就是内置core版本
-artifacts.add("default", file('SUD-GIP-static-v0.0.0-984.aar'))
+artifacts.add("default", file('SUD-GIP-static-v2.0.0.1284-beta.aar'))
 dependencies {
 }
