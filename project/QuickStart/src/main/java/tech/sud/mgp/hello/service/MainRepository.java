@@ -27,6 +27,12 @@ public class MainRepository {
 
         list.add(buildGameModel("sud.game.flappy.linkclear", "Runtime2-linkclear", "https://hello-sud-plus.sudden.ltd/ad/resource/game/linkclear.cpk",
                 "1.6", R.drawable.nhwc, R.drawable.ic_nhwc, 2));
+
+        list.add(buildGameModel("game.runtime1_assets", "Runtime1_assets", "ass_performance.sp",
+                "1.1", R.drawable.lrs, R.drawable.ic_lrs, 1));
+
+        list.add(buildGameModel("game.runtime2_assets", "Runtime2_assets", "ass_FlappyBird.cpk",
+                "1.1", R.drawable.ddsh, R.drawable.ic_ddsh, 2));
         return list;
     }
 
