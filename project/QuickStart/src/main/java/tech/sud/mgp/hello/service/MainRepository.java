@@ -19,25 +19,20 @@ public class MainRepository {
     /** 获取游戏列表 */
     public static List<GameModel> getRuntimeGameList() {
         ArrayList<GameModel> list = new ArrayList<>();
-        list.add(buildGameModel("game.runtime1", "Runtime1", "https://hello-sud-plus.sudden.ltd/ad/resource/rungame/performance.sp",
-                "1.1", R.drawable.ppwzq, R.drawable.ic_ppwzq, 1));
 
-        list.add(buildGameModel("sud.game.flappy.bird", "Runtime2-FlappyBird", "https://hello-sud-plus.sudden.ltd/ad/resource/game/FlappyBird.cpk",
-                "1.1", R.drawable.fbdr, R.drawable.ic_fbdr, 2));
+        list.add(buildGameModel("sud.game.flappy.bird", "Runtime-FlappyBird", "https://hello-sud-plus.sudden.ltd/ad/resource/game/FlappyBird.cpk",
+                "1.1", R.drawable.fbdr, R.drawable.ic_fbdr));
 
-        list.add(buildGameModel("sud.game.flappy.linkclear", "Runtime2-linkclear", "https://hello-sud-plus.sudden.ltd/ad/resource/game/linkclear.cpk",
-                "1.6", R.drawable.nhwc, R.drawable.ic_nhwc, 2));
+        list.add(buildGameModel("sud.game.flappy.linkclear", "Runtime-linkclear", "https://hello-sud-plus.sudden.ltd/ad/resource/game/linkclear.cpk",
+                "1.6", R.drawable.nhwc, R.drawable.ic_nhwc));
 
-        list.add(buildGameModel("game.runtime1_assets", "Runtime1_assets", "ass_performance.sp",
-                "1.1", R.drawable.lrs, R.drawable.ic_lrs, 1));
-
-        list.add(buildGameModel("game.runtime2_assets", "Runtime2_assets", "ass_FlappyBird.cpk",
-                "1.1", R.drawable.ddsh, R.drawable.ic_ddsh, 2));
+        list.add(buildGameModel("game.runtime_assets", "Runtime_assets", "ass_FlappyBird.cpk",
+                "1.1", R.drawable.ddsh, R.drawable.ic_ddsh));
         return list;
     }
 
     /** 构建GameModel */
-    public static GameModel buildGameModel(String gameId, String gameName, String gameUrl, String gamePkgVersion, int homeGamePic, int gamePic, int runtime) {
+    public static GameModel buildGameModel(String gameId, String gameName, String gameUrl, String gamePkgVersion, int homeGamePic, int gamePic) {
         GameModel model = new GameModel();
         model.gameId = gameId;
         model.gameName = gameName;
@@ -45,7 +40,6 @@ public class MainRepository {
         model.gamePkgVersion = gamePkgVersion;
         model.homeGamePic = homeGamePic;
         model.gamePic = gamePic;
-        model.runtime = runtime;
         return model;
     }
 

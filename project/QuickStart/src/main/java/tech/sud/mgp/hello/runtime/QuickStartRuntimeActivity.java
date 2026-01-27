@@ -35,7 +35,6 @@ public class QuickStartRuntimeActivity extends BaseActivity {
     private GameRoomTopView topView;
     private final QuickStartRuntimeGameViewModel gameViewModel = new QuickStartRuntimeGameViewModel();
     private TextView tvProgress;
-    private int runtime;
 
     /**
      * 外部调用，打开游戏页面
@@ -61,7 +60,6 @@ public class QuickStartRuntimeActivity extends BaseActivity {
         gameId = model.gameId;
         gameUrl = model.gameUrl;
         gamePkgVersion = model.gamePkgVersion;
-        runtime = model.runtime;
         return super.beforeSetContentView();
     }
 

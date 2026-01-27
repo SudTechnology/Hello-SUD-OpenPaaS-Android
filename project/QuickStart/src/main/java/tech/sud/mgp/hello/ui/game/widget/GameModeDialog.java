@@ -16,7 +16,6 @@ import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 
 import java.util.List;
-import java.util.ListIterator;
 
 import tech.sud.mgp.hello.R;
 import tech.sud.mgp.hello.common.base.BaseDialogFragment;
@@ -99,13 +98,6 @@ public class GameModeDialog extends BaseDialogFragment {
     protected void initData() {
         super.initData();
         List<GameModel> runtimeGameList = MainRepository.getRuntimeGameList();
-        ListIterator<GameModel> gameModelListIterator = runtimeGameList.listIterator();
-        while (gameModelListIterator.hasNext()) {
-            GameModel next = gameModelListIterator.next();
-            if (next.runtime != runtime) {
-                gameModelListIterator.remove();
-            }
-        }
         gameModeAdapter.setList(runtimeGameList);
         gameModeAdapter.addData(0, new GameModel()); // 添加一个关闭游戏选项
     }

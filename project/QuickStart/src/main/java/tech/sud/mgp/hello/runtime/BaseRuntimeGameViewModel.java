@@ -29,7 +29,7 @@ import tech.sud.gip.runtime.core.SUDRuntimeLoadGameParamModel;
 
 public abstract class BaseRuntimeGameViewModel {
 
-    private String TAG = "BaseRuntime2GameViewModel";
+    private String TAG = "BaseRuntimeGameViewModel";
     private Activity mActivity;
     private SUDRuntimeGameRuntime mRuntime;
     private SUDRuntimeGameCoreHandle mCoreHandle;
@@ -81,7 +81,6 @@ public abstract class BaseRuntimeGameViewModel {
 
     private void createRuntime(Activity activity, String gameId, String gameUrl, String gamePkgVersion) {
         Bundle options = new Bundle();
-        options.putInt(SUDRuntimeGameRuntime.KEY_RUNTIME_TYPE, SUDRuntimeGameRuntime.RUNTIME_TYPE_1);
         SUDRuntime.createRuntime(activity, options, new SUDRuntimeGameRuntime.RuntimeCreateListener() {
             @Override
             public void onSuccess(SUDRuntimeGameRuntime runtime) {
@@ -269,8 +268,8 @@ public abstract class BaseRuntimeGameViewModel {
         @Override
         public void onQueryAudioOptions(SUDRuntimeGameAudioSession.GameQueryAudioOptionsHandle gameQueryAudioOptionsHandle, Bundle bundle) {
             // bundle 中参数
-            // bundle.getBoolean(SUDRuntime2GameAudioSession.KEY_AUDIO_MIX_WITH_OTHER); 是否用扬声器播放，true 默认输出设备优先级：耳机 > 蓝牙 > 扬声器；false 用听筒播放
-            // bundle.getBoolean(SUDRuntime2GameAudioSession.KEY_AUDIO_SPEAKER_ON); 音频是否支持与其他音频混播（包含其他应用、其他游戏实例的音频）
+            // bundle.getBoolean(SUDRuntimeGameAudioSession.KEY_AUDIO_MIX_WITH_OTHER); 是否用扬声器播放，true 默认输出设备优先级：耳机 > 蓝牙 > 扬声器；false 用听筒播放
+            // bundle.getBoolean(SUDRuntimeGameAudioSession.KEY_AUDIO_SPEAKER_ON); 音频是否支持与其他音频混播（包含其他应用、其他游戏实例的音频）
             if (afChangeListener == null) {
                 afChangeListener = new AudioManager.OnAudioFocusChangeListener() {
                     @Override
