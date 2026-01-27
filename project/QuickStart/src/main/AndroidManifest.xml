@@ -39,15 +39,7 @@
 
         <!-- 游戏页 -->
         <activity
-            android:name=".runtime1.QuickStartRuntime1Activity"
-            android:exported="false"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan"
-            tools:ignore="LockedOrientationActivity" />
-        <!-- 游戏页 -->
-        <activity
-            android:name=".runtime2.QuickStartRuntime2Activity"
+            android:name=".runtime.QuickStartRuntimeActivity"
             android:exported="false"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"

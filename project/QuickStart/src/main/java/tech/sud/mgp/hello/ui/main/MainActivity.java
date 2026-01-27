@@ -28,8 +28,7 @@ import tech.sud.mgp.hello.common.utils.DensityUtils;
 import tech.sud.mgp.hello.common.utils.ViewUtils;
 import tech.sud.mgp.hello.common.widget.view.SimpleTextWatcher;
 import tech.sud.mgp.hello.common.widget.view.round.RoundedImageView;
-import tech.sud.mgp.hello.runtime1.QuickStartRuntime1Activity;
-import tech.sud.mgp.hello.runtime2.QuickStartRuntime2Activity;
+import tech.sud.mgp.hello.runtime.QuickStartRuntimeActivity;
 import tech.sud.mgp.hello.service.MainRepository;
 
 /**
@@ -142,11 +141,7 @@ public class MainActivity extends BaseActivity {
     /** 点击了游戏列表中的游戏 */
     private void onClickItemGame(int position) {
         GameModel model = adapter.getItem(position);
-        if (model.runtime == 1) {
-            QuickStartRuntime1Activity.start(this, model);
-        } else if (model.runtime == 2) {
-            QuickStartRuntime2Activity.start(this, model);
-        }
+        QuickStartRuntimeActivity.start(this, model);
     }
 
     // 游戏列表适配器
