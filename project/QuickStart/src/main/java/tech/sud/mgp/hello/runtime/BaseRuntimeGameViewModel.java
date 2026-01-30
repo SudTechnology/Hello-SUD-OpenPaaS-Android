@@ -72,7 +72,7 @@ public abstract class BaseRuntimeGameViewModel {
         mGameId = gameId;
         mGameUrl = gameUrl;
         mGamePkgVersion = gamePkgVersion;
-        if (TextUtils.isEmpty(mGameId) || TextUtils.isEmpty(gameUrl) || TextUtils.isEmpty(gamePkgVersion)) {
+        if (TextUtils.isEmpty(mGameId) || TextUtils.isEmpty(mGamePkgVersion)) {
             return;
         }
         login(activity, gameId, gameUrl, gamePkgVersion);

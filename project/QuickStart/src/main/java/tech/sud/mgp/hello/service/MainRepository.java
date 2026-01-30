@@ -28,6 +28,9 @@ public class MainRepository {
 
         list.add(buildGameModel("game.runtime_assets", "Runtime_assets", "ass_FlappyBird.cpk",
                 "1.1", R.drawable.ddsh, R.drawable.ic_ddsh));
+
+        list.add(buildGameModel("2017065825404788738", "gameIdTest", null,
+                "1.1", R.drawable.fxq, R.drawable.ic_fxq));
         return list;
     }
 
