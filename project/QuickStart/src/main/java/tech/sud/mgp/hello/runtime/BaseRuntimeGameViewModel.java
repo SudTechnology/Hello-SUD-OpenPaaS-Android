@@ -15,16 +15,16 @@ import androidx.lifecycle.MutableLiveData;
 
 import java.util.Objects;
 
-import tech.sud.gip.runtime.core.ISUDRuntimeFSMGame;
-import tech.sud.gip.runtime.core.ISUDRuntimeFSTAPP;
-import tech.sud.gip.runtime.core.ISUDRuntimeListenerInitSDK;
-import tech.sud.gip.runtime.core.SUDRuntime;
-import tech.sud.gip.runtime.core.SUDRuntimeGameAudioSession;
-import tech.sud.gip.runtime.core.SUDRuntimeGameCoreHandle;
-import tech.sud.gip.runtime.core.SUDRuntimeGameHandle;
-import tech.sud.gip.runtime.core.SUDRuntimeGameRuntime;
-import tech.sud.gip.runtime.core.SUDRuntimeInitSDKParamModel;
-import tech.sud.gip.runtime.core.SUDRuntimeLoadGameParamModel;
+import tech.sud.gi.runtime.core.ISUDRuntimeFSMGame;
+import tech.sud.gi.runtime.core.ISUDRuntimeFSTAPP;
+import tech.sud.gi.runtime.core.ISUDRuntimeListenerInitSDK;
+import tech.sud.gi.runtime.core.SUDRuntime;
+import tech.sud.gi.runtime.core.SUDRuntimeGameAudioSession;
+import tech.sud.gi.runtime.core.SUDRuntimeGameCoreHandle;
+import tech.sud.gi.runtime.core.SUDRuntimeGameHandle;
+import tech.sud.gi.runtime.core.SUDRuntimeGameRuntime;
+import tech.sud.gi.runtime.core.SUDRuntimeInitSDKParamModel;
+import tech.sud.gi.runtime.core.SUDRuntimeLoadGameParamModel;
 
 
 public abstract class BaseRuntimeGameViewModel {

@@ -1,4 +1,4 @@
 rootProject.name = "Hello-SUD-OpenPaaS-Android"
 include ':QuickStart'
-include ':SUD-GIP-SDK'
+include ':SUD-GI-SDK'
 include ':SUDRuntimeWrapper'
