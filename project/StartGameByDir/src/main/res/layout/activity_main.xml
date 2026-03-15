@@ -71,7 +71,17 @@
             android:layout_height="wrap_content"
             android:textSize="17sp"
             android:textColor="@color/black"
-            android:text="请先选择游戏包目录，然后再启动游戏" />
+            android:text="请先选择游戏包目录，然后再启动游戏，也可在下方输入框直接输入目录路径" />
+
+        <EditText
+            android:id="@+id/et_path"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="可以直接输入目录路径"
+            android:textColorHint="#aaaaaa"
+            android:textSize="17sp"
+            android:textColor="@color/black" />
 
         <Button
             android:id="@+id/btn_select"
