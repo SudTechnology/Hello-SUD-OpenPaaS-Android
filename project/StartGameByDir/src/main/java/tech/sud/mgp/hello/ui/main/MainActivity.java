@@ -17,6 +17,7 @@ import com.blankj.utilcode.util.UriUtils;
 
 import java.io.File;
 
+import global.sud.op.runtime.core.model.SUDOPGamePathType;
 import tech.sud.mgp.hello.R;
 import tech.sud.mgp.hello.common.base.BaseActivity;
 import tech.sud.mgp.hello.ui.game.QuickStartGameActivity;
@@ -27,7 +28,7 @@ import tech.sud.mgp.hello.ui.game.QuickStartGameActivity;
 public class MainActivity extends BaseActivity {
     private static final int _REQUEST_CODE_PICK_JSON = 20001;
 
-    private File appDir;
+    private File gamePkgDir;
     private TextView tvInfo;
 
     @Override
@@ -85,17 +86,19 @@ public class MainActivity extends BaseActivity {
     }
 
     private void onClickStart() {
-        if (appDir == null) {
-            ToastUtils.showShort("请选择选择run.json文件");
+        if (gamePkgDir == null) {
+            ToastUtils.showShort("请先选择游戏包目录");
             return;
         }
 
         GameModel gameModel = new GameModel();
-        gameModel.gameName = appDir.getParentFile().getName();
+        gameModel.gameName = gamePkgDir.getParentFile().getName();
         gameModel.gameId = gameModel.gameName;
         gameModel.gamePkgVersion = "1.0.0";
-        gameModel.gameUrl = appDir.getAbsolutePath();
+        gameModel.gameUrl = gamePkgDir.getAbsolutePath();
+        gameModel.pathType = SUDOPGamePathType.DIR;
 //        gameModel.gameUrl = "/sdcard/Download/aqua/app";
+        gameModel.gameUrl = "/sdcard/Download/hayypmaster25.oppo.nearme.gamecente";
         QuickStartGameActivity.start(this, gameModel);
     }
 
@@ -117,14 +120,14 @@ public class MainActivity extends BaseActivity {
             return;
         }
         File file = UriUtils.uri2File(uri);
-        File appDir = new File(file.getParentFile(), "app");
+        File gamePkgDir = file.getParentFile();
         LogUtils.d("file:" + file);
-        if (!appDir.exists()) {
-            ToastUtils.showShort("app目录不存在");
+        if (gamePkgDir == null || !gamePkgDir.exists()) {
+            ToastUtils.showShort("游戏包目录不存在");
             return;
         }
-        this.appDir = appDir;
-        tvInfo.setText("当前选择运行的游戏app路径为:" + appDir);
+        this.gamePkgDir = gamePkgDir;
+        tvInfo.setText("当前选择运行的游戏包路径为:" + gamePkgDir);
     }
 
 }

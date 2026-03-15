@@ -2,6 +2,8 @@ package tech.sud.mgp.hello.ui.main;
 
 import java.io.Serializable;
 
+import global.sud.op.runtime.core.model.SUDOPGamePathType;
+
 public class GameModel implements Serializable {
     public String gameName; // 游戏名称
     public String gameId; // 游戏id
@@ -9,4 +11,5 @@ public class GameModel implements Serializable {
     public String gamePkgVersion; // 游戏包版本
     public int homeGamePic; // 首页展示的游戏图标
     public int gamePic; // 游戏图标
+    public SUDOPGamePathType pathType;
 }

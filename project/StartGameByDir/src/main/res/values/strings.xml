@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">QuickStart</string>
+    <string name="app_name">StartGameByDir</string>
 
     <string name="cancel">取消</string>
     <string name="confirm">确定</string>

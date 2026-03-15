@@ -54,6 +54,7 @@ public abstract class BaseGameViewModel {
     public MutableLiveData<String> gameMGCommonGameFinishLiveData = new MutableLiveData<>();
     public MutableLiveData<String> gameStartedLiveData = new MutableLiveData<>();
     public MutableLiveData<ProgressModel> progressLiveData = new MutableLiveData<>();
+    private SUDOPGamePathType pathType;
 
     /**
      * 启动游戏
@@ -63,7 +64,7 @@ public abstract class BaseGameViewModel {
      * @param gameUrl        游戏包的url
      * @param gamePkgVersion 游戏包版本
      */
-    public void switchGame(Activity activity, String gameId, String gameUrl, String gamePkgVersion) {
+    public void switchGame(Activity activity, String gameId, String gameUrl, String gamePkgVersion, SUDOPGamePathType pathType) {
         mActivity = activity;
         if (Objects.equals(gameId, mGameId)) {
             return;
@@ -75,6 +76,7 @@ public abstract class BaseGameViewModel {
         mGameId = gameId;
         mGameUrl = gameUrl;
         mGamePkgVersion = gamePkgVersion;
+        this.pathType = pathType;
         if (TextUtils.isEmpty(mGameId) || TextUtils.isEmpty(mGamePkgVersion)) {
             return;
         }
@@ -186,7 +188,7 @@ public abstract class BaseGameViewModel {
         loadGameParamModel.gameId = gameId;
         loadGameParamModel.version = gamePkgVersion;
         loadGameParamModel.path = gameUrl;
-        loadGameParamModel.pathType = SUDOPGamePathType.DIR;
+        loadGameParamModel.pathType = pathType;
         mSUDRTFSTAPP = mRuntime.loadPackage(loadGameParamModel, new SUDRTFSMGame() {
             @Override
             public void onSuccess() {
@@ -260,6 +262,7 @@ public abstract class BaseGameViewModel {
         mRuntime.createGameHandle(mActivity, createOptions, mCoreHandle, new SUDRT.GameHandleCreateListener() {
             @Override
             public void onSuccess(SUDRTGameHandle handle) {
+                handle.registerExtendedClient("qg", new LoginDemo());
                 mGameHandle = handle;
                 onAddGameView(handle.getGameView());
                 handle.setGameStateListener(_gameStateListener);
@@ -446,7 +449,9 @@ public abstract class BaseGameViewModel {
                         _isGameStateChanging = true;
                         Bundle bundle = new Bundle();
                         bundle.putBoolean(SUDRTGameHandle.KEY_GAME_START_OPTIONS_ENABLE_THIRD_SCRIPT, true);
-                        bundle.putString(SUDRTGamePackageManager.KEY_PACKAGE_CONTENT_PATH, mGameUrl);
+                        if (pathType != null && pathType == SUDOPGamePathType.DIR) {
+                            bundle.putString(SUDRTGamePackageManager.KEY_PACKAGE_CONTENT_PATH, mGameUrl);
+                        }
                         mGameHandle.setGameStartOptions(mGameId, bundle);
                         mGameHandle.create();
                         break;

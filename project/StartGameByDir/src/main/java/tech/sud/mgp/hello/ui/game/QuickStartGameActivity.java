@@ -14,6 +14,7 @@ import com.gyf.immersionbar.ImmersionBar;
 
 import java.util.Locale;
 
+import global.sud.op.runtime.core.model.SUDOPGamePathType;
 import tech.sud.mgp.hello.R;
 import tech.sud.mgp.hello.common.base.BaseActivity;
 import tech.sud.mgp.hello.common.http.param.RetCode;
@@ -31,6 +32,7 @@ public class QuickStartGameActivity extends BaseActivity {
     private String gameId;
     private String gameUrl;
     private String gamePkgVersion;
+    private SUDOPGamePathType pathType;
     private GameRoomTopView topView;
     private final QuickStartGameViewModel gameViewModel = new QuickStartGameViewModel();
     private TextView tvProgress;
@@ -59,6 +61,7 @@ public class QuickStartGameActivity extends BaseActivity {
         gameId = model.gameId;
         gameUrl = model.gameUrl;
         gamePkgVersion = model.gamePkgVersion;
+        pathType = model.pathType;
         return super.beforeSetContentView();
     }
 
@@ -84,7 +87,7 @@ public class QuickStartGameActivity extends BaseActivity {
 
         // 调用此方法，加载对应的游戏，开发者可根据业务决定什么时候加载游戏。
         // Call this method to load the corresponding game. Developers can decide when to load the game based on their business logic.
-        gameViewModel.switchGame(this, gameId, gameUrl, gamePkgVersion);
+        gameViewModel.switchGame(this, gameId, gameUrl, gamePkgVersion, pathType);
         updateStatusBar();
     }
 
