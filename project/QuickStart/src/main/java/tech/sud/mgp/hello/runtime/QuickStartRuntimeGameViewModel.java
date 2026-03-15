@@ -61,8 +61,9 @@ public class QuickStartRuntimeGameViewModel extends BaseRuntimeGameViewModel {
         }
 
         RequestBody body = RequestBody.create(req, MediaType.get("application/json; charset=utf-8"));
+        String url = "https://prod-hellosud-base.s00.tech/login/v3";
         Request request = new Request.Builder()
-                .url("https://prod-hellosud-base.s00.tech/login/v3")
+                .url(url)
                 .post(body)
                 .build();
         client.newCall(request).enqueue(new Callback() {
@@ -83,7 +84,7 @@ public class QuickStartRuntimeGameViewModel extends BaseRuntimeGameViewModel {
                     JSONObject jsonObject = new JSONObject(dataJson);
                     int ret_code = jsonObject.getInt("ret_code");
                     JSONObject dataObject = jsonObject.getJSONObject("data");
-                    String code = dataObject.getString("runtime_code");
+                    String code = dataObject.getString("user_signature");
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
