@@ -71,7 +71,7 @@
             android:layout_height="wrap_content"
             android:textSize="17sp"
             android:textColor="@color/black"
-            android:text="请先选择游戏包目录，然后再启动游戏，选择游戏包目录下面任意一个文件即可" />
+            android:text="请先选择游戏包目录，然后再启动游戏" />
 
         <Button
             android:id="@+id/btn_select"

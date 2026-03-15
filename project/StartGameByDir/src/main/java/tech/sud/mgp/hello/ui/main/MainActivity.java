@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
 import android.provider.Settings;
+import android.text.TextUtils;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -14,6 +15,7 @@ import androidx.annotation.Nullable;
 import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.blankj.utilcode.util.UriUtils;
+import com.codekidlabs.storagechooser.StorageChooser;
 
 import java.io.File;
 
@@ -103,10 +105,34 @@ public class MainActivity extends BaseActivity {
     }
 
     private void onClickSelect() {
-        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-        intent.addCategory(Intent.CATEGORY_OPENABLE);
-        intent.setType("*/*");
-        startActivityForResult(intent, _REQUEST_CODE_PICK_JSON);
+//        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+//        intent.addCategory(Intent.CATEGORY_OPENABLE);
+//        intent.setType("*/*");
+//        startActivityForResult(intent, _REQUEST_CODE_PICK_JSON);
+
+        StorageChooser chooser = new StorageChooser.Builder()
+                .withActivity(this)
+                .withFragmentManager(getFragmentManager())
+                .allowCustomPath(true)
+//                .withPredefinedPath(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath())
+                .setType(StorageChooser.DIRECTORY_CHOOSER)
+                .build();
+
+        chooser.setOnSelectListener(path -> {
+            if (TextUtils.isEmpty(path)) {
+                return;
+            }
+            File gamePkgDir = new File(path);
+            if (!gamePkgDir.exists()) {
+                ToastUtils.showShort("游戏包目录不存在");
+                return;
+            }
+            this.gamePkgDir = gamePkgDir;
+            tvInfo.setText("当前选择运行的游戏包路径为:" + gamePkgDir);
+        });
+
+        chooser.show();
+
     }
 
     @Override
