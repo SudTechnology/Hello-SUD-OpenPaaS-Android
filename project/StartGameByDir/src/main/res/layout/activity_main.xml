@@ -73,6 +73,22 @@
             android:textColor="@color/black"
             android:text="请先选择游戏包目录，然后再启动游戏，也可在下方输入框直接输入目录路径" />
 
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_manifest_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="17sp"
+                android:textColor="@color/black"
+                android:layout_marginTop="8dp"
+                android:singleLine="true"
+                android:text="如果manifest.json不在游戏包目录下，则自定义选择" />
+
+        </HorizontalScrollView>
+
         <EditText
             android:id="@+id/et_path"
             android:layout_width="match_parent"
@@ -90,6 +106,16 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="16dp"
             android:text="选择游戏包目录"
+            android:textSize="17sp"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/btn_select_manifestjson"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            android:text="选择manifest.json"
             android:textSize="17sp"
             android:textColor="@color/white" />
 

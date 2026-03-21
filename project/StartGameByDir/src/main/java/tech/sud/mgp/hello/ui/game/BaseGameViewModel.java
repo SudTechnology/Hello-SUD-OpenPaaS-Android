@@ -55,6 +55,7 @@ public abstract class BaseGameViewModel {
     public MutableLiveData<String> gameStartedLiveData = new MutableLiveData<>();
     public MutableLiveData<ProgressModel> progressLiveData = new MutableLiveData<>();
     private SUDOPGamePathType pathType;
+    private String manifestJson;
 
     /**
      * 启动游戏
@@ -64,7 +65,7 @@ public abstract class BaseGameViewModel {
      * @param gameUrl        游戏包的url
      * @param gamePkgVersion 游戏包版本
      */
-    public void switchGame(Activity activity, String gameId, String gameUrl, String gamePkgVersion, SUDOPGamePathType pathType) {
+    public void switchGame(Activity activity, String gameId, String gameUrl, String gamePkgVersion, SUDOPGamePathType pathType, String manifestJson) {
         mActivity = activity;
         if (Objects.equals(gameId, mGameId)) {
             return;
@@ -77,6 +78,7 @@ public abstract class BaseGameViewModel {
         mGameUrl = gameUrl;
         mGamePkgVersion = gamePkgVersion;
         this.pathType = pathType;
+        this.manifestJson = manifestJson;
         if (TextUtils.isEmpty(mGameId) || TextUtils.isEmpty(mGamePkgVersion)) {
             return;
         }
@@ -308,6 +310,23 @@ public abstract class BaseGameViewModel {
     };
 
     private void initListener(SUDRTGameHandle handle) {
+        handle.setGameLoadSubpackageListener(new SUDRTGameHandle.GameLoadSubpackageListener() {
+            /**
+             * 当小游戏请求加载分包时回调
+             *
+             * @param handle 通过此 handle<br/>把下载并安装分包的结果返回给小游戏
+             * @param root   根据该值计算分包的 URL
+             */
+            @Override
+            public void onLoadSubpackage(SUDRTGameHandle.GameLoadSubpackageHandle handle, String root) {
+                logD("onLoadSubpackage:" + root);
+                if ("SubJs/".equals(root) || "SubRes/".equals(root)) {
+                    handle.success("/sdcard/Download/api-subpackage/subpackages/");
+                } else {
+                    handle.success(null);
+                }
+            }
+        });
         handle.setCustomCommandListener(new SUDRTGameHandle.CustomCommandListener() {
             @Override
             public void onCallCustomCommand(SUDRTGameHandle.CustomCommandHandle customCommandHandle, Bundle bundle) {
@@ -319,6 +338,12 @@ public abstract class BaseGameViewModel {
             @Override
             public void onCallCustomCommandSync(SUDRTGameHandle.CustomCommandHandle customCommandHandle, Bundle bundle) {
                 logD("onCallCustomCommandSync :" + bundle);
+            }
+        });
+        handle.setGameQueryPermissionListener(new SUDRTGameHandle.GameQueryPermissionListener() {
+            @Override
+            public void onQueryPermission(SUDRTGameHandle.GameQueryPermissionHandle handle, String permission, String appId) {
+                logD("onQueryPermission permission:" + permission + " appId:" + appId);
             }
         });
     }
@@ -392,6 +417,7 @@ public abstract class BaseGameViewModel {
             _audioManager.abandonAudioFocus(afChangeListener);
             afChangeListener = null;
         }
+        manifestJson = null;
     }
 
     private final SUDRTGameHandle.GameStateChangeListener _gameStateListener = new SUDRTGameHandle.GameStateChangeListener() {
@@ -451,6 +477,11 @@ public abstract class BaseGameViewModel {
                         bundle.putBoolean(SUDRTGameHandle.KEY_GAME_START_OPTIONS_ENABLE_THIRD_SCRIPT, true);
                         if (pathType != null && pathType == SUDOPGamePathType.DIR) {
                             bundle.putString(SUDRTGamePackageManager.KEY_PACKAGE_CONTENT_PATH, mGameUrl);
+                        }
+//                        bundle.putBoolean(SUDRTGameHandle.KEY_GAME_DEBUG_OPTION_ENABLE_DEBUGGER, true);
+//                        bundle.putBoolean(SUDRTGameHandle.KEY_GAME_DEBUG_OPTION_ENABLE_V_CONSOLE, true);
+                        if (manifestJson != null) {
+                            bundle.putString(SUDRTGameHandle.KEY_GAME_START_OPTIONS_CUSTOM_CONFIG, manifestJson);
                         }
                         mGameHandle.setGameStartOptions(mGameId, bundle);
                         mGameHandle.create();

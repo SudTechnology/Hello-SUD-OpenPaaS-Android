@@ -12,4 +12,5 @@ public class GameModel implements Serializable {
     public int homeGamePic; // 首页展示的游戏图标
     public int gamePic; // 游戏图标
     public SUDOPGamePathType pathType;
+    public String manifestJson; // 自定义的manifestJson内容
 }

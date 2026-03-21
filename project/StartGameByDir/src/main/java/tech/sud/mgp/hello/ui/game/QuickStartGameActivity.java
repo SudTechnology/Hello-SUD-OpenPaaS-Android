@@ -33,6 +33,7 @@ public class QuickStartGameActivity extends BaseActivity {
     private String gameUrl;
     private String gamePkgVersion;
     private SUDOPGamePathType pathType;
+    private String manifestJson;
     private GameRoomTopView topView;
     private final QuickStartGameViewModel gameViewModel = new QuickStartGameViewModel();
     private TextView tvProgress;
@@ -62,6 +63,7 @@ public class QuickStartGameActivity extends BaseActivity {
         gameUrl = model.gameUrl;
         gamePkgVersion = model.gamePkgVersion;
         pathType = model.pathType;
+        manifestJson = model.manifestJson;
         return super.beforeSetContentView();
     }
 
@@ -87,7 +89,7 @@ public class QuickStartGameActivity extends BaseActivity {
 
         // 调用此方法，加载对应的游戏，开发者可根据业务决定什么时候加载游戏。
         // Call this method to load the corresponding game. Developers can decide when to load the game based on their business logic.
-        gameViewModel.switchGame(this, gameId, gameUrl, gamePkgVersion, pathType);
+        gameViewModel.switchGame(this, gameId, gameUrl, gamePkgVersion, pathType, manifestJson);
         updateStatusBar();
     }
 

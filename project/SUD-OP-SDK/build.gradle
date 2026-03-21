@@ -1,5 +1,5 @@
 configurations.maybeCreate("default")
 // 带static标识的就是内置core版本
-artifacts.add("default", file('SUD-OP-static-v0.0.0-1023.aar'))
+artifacts.add("default", file('SUD-OP-static-v0.0.0-1026.aar'))
 dependencies {
 }
