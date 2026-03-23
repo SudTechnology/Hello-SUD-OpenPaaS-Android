@@ -1,4 +1,4 @@
-package tech.sud.mgp.hello.common.http.rx;
+package global.sud.op.hello.common.http.rx;
 
 import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.ThreadUtils;
@@ -7,10 +7,10 @@ import com.blankj.utilcode.util.Utils;
 
 import io.reactivex.rxjava3.core.Observer;
 import io.reactivex.rxjava3.disposables.Disposable;
-import tech.sud.mgp.hello.R;
-import tech.sud.mgp.hello.common.http.param.BaseResponse;
-import tech.sud.mgp.hello.common.http.param.RetCode;
-import tech.sud.mgp.hello.common.utils.ResponseUtils;
+import global.sud.op.hello.R;
+import global.sud.op.hello.common.http.param.BaseResponse;
+import global.sud.op.hello.common.http.param.RetCode;
+import global.sud.op.hello.common.utils.ResponseUtils;
 
 /**
  * 请求回调

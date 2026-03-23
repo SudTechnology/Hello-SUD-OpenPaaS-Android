@@ -1,4 +1,4 @@
-package tech.sud.mgp.hello.common.http.interceptor;
+package global.sud.op.hello.common.http.interceptor;
 
 import androidx.annotation.NonNull;
 
@@ -9,7 +9,7 @@ import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
-import tech.sud.mgp.hello.common.http.param.IBaseUrl;
+import global.sud.op.hello.common.http.param.IBaseUrl;
 
 public class RequestBaseUrlInterceptor implements Interceptor {
 

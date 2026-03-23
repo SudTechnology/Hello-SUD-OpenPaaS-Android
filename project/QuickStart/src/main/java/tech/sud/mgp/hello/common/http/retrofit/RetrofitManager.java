@@ -1,4 +1,4 @@
-package tech.sud.mgp.hello.common.http.retrofit;
+package global.sud.op.hello.common.http.retrofit;
 
 import com.google.gson.Gson;
 
@@ -11,10 +11,10 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
-import tech.sud.mgp.hello.BuildConfig;
-import tech.sud.mgp.hello.common.http.interceptor.RequestBaseUrlInterceptor;
-import tech.sud.mgp.hello.common.http.interceptor.RequestHeaderInterceptor;
-import tech.sud.mgp.hello.common.http.param.BaseUrlManager;
+import global.sud.op.hello.BuildConfig;
+import global.sud.op.hello.common.http.interceptor.RequestBaseUrlInterceptor;
+import global.sud.op.hello.common.http.interceptor.RequestHeaderInterceptor;
+import global.sud.op.hello.common.http.param.BaseUrlManager;
 
 public class RetrofitManager {
 

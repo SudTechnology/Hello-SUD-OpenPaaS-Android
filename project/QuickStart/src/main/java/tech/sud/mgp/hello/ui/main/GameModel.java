@@ -1,4 +1,4 @@
-package tech.sud.mgp.hello.ui.main;
+package global.sud.op.hello.ui.main;
 
 import java.io.Serializable;
 

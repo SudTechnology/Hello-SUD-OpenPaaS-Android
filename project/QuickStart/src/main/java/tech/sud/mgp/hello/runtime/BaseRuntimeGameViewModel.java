@@ -1,4 +1,4 @@
-package tech.sud.mgp.hello.runtime;
+package global.sud.op.hello.runtime;
 
 import android.app.Activity;
 import android.content.Context;

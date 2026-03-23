@@ -1,6 +1,6 @@
 rootProject.name = "Hello-SUD-OpenPaaS-Android"
 //include ':QuickStart'
-include ':StartGameByDir'
+include ':QuickStartCompatibility'
 include ':storagechooser'
 include ':SUD-OP-SDK'
 include ':SUDRuntimeWrapper'

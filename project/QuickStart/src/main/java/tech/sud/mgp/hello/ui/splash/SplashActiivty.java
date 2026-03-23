@@ -1,10 +1,10 @@
-package tech.sud.mgp.hello.ui.splash;
+package global.sud.op.hello.ui.splash;
 
 import android.content.Intent;
 
 import me.jessyan.autosize.internal.CancelAdapt;
-import tech.sud.mgp.hello.common.base.BaseActivity;
-import tech.sud.mgp.hello.ui.main.MainActivity;
+import global.sud.op.hello.common.base.BaseActivity;
+import global.sud.op.hello.ui.main.MainActivity;
 
 public class SplashActiivty extends BaseActivity implements CancelAdapt {
 

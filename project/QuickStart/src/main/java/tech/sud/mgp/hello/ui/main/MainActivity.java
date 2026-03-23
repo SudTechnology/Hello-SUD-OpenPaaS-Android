@@ -1,4 +1,4 @@
-package tech.sud.mgp.hello.ui.main;
+package global.sud.op.hello.ui.main;
 
 import android.text.TextUtils;
 import android.view.MotionEvent;
@@ -22,14 +22,14 @@ import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 
 import java.util.List;
 
-import tech.sud.mgp.hello.R;
-import tech.sud.mgp.hello.common.base.BaseActivity;
-import tech.sud.mgp.hello.common.utils.DensityUtils;
-import tech.sud.mgp.hello.common.utils.ViewUtils;
-import tech.sud.mgp.hello.common.widget.view.SimpleTextWatcher;
-import tech.sud.mgp.hello.common.widget.view.round.RoundedImageView;
-import tech.sud.mgp.hello.runtime.QuickStartRuntimeActivity;
-import tech.sud.mgp.hello.service.MainRepository;
+import global.sud.op.hello.R;
+import global.sud.op.hello.common.base.BaseActivity;
+import global.sud.op.hello.common.utils.DensityUtils;
+import global.sud.op.hello.common.utils.ViewUtils;
+import global.sud.op.hello.common.widget.view.SimpleTextWatcher;
+import global.sud.op.hello.common.widget.view.round.RoundedImageView;
+import global.sud.op.hello.runtime.QuickStartRuntimeActivity;
+import global.sud.op.hello.service.MainRepository;
 
 /**
  * 主页

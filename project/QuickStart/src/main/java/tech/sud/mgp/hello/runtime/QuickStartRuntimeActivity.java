@@ -1,4 +1,4 @@
-package tech.sud.mgp.hello.runtime;
+package global.sud.op.hello.runtime;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,14 +14,14 @@ import com.gyf.immersionbar.ImmersionBar;
 
 import java.util.Locale;
 
-import tech.sud.mgp.hello.R;
-import tech.sud.mgp.hello.common.base.BaseActivity;
-import tech.sud.mgp.hello.common.http.param.RetCode;
-import tech.sud.mgp.hello.common.utils.ViewUtils;
-import tech.sud.mgp.hello.ui.game.widget.GameModeDialog;
-import tech.sud.mgp.hello.ui.game.widget.GameRoomMoreDialog;
-import tech.sud.mgp.hello.ui.game.widget.GameRoomTopView;
-import tech.sud.mgp.hello.ui.main.GameModel;
+import global.sud.op.hello.R;
+import global.sud.op.hello.common.base.BaseActivity;
+import global.sud.op.hello.common.http.param.RetCode;
+import global.sud.op.hello.common.utils.ViewUtils;
+import global.sud.op.hello.ui.game.widget.GameModeDialog;
+import global.sud.op.hello.ui.game.widget.GameRoomMoreDialog;
+import global.sud.op.hello.ui.game.widget.GameRoomTopView;
+import global.sud.op.hello.ui.main.GameModel;
 
 /**
  * 游戏页面

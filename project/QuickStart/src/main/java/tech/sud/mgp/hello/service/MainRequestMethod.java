@@ -1,11 +1,11 @@
-package tech.sud.mgp.hello.service;
+package global.sud.op.hello.service;
 
 import io.reactivex.rxjava3.core.Observable;
 import retrofit2.http.Body;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
-import tech.sud.mgp.hello.common.http.param.BaseResponse;
-import tech.sud.mgp.hello.common.http.param.IBaseUrl;
+import global.sud.op.hello.common.http.param.BaseResponse;
+import global.sud.op.hello.common.http.param.IBaseUrl;
 
 /**
  * 网络请求方法和地址
