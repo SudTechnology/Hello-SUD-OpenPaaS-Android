@@ -12,6 +12,7 @@ import android.text.TextUtils;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.blankj.utilcode.util.SPUtils;
 import com.blankj.utilcode.util.ThreadUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.codekidlabs.storagechooser.StorageChooser;
@@ -40,6 +41,8 @@ public class MainActivity extends BaseActivity {
     private static final int _REQUEST_CODE_PICK_JSON = 20001;
     private String manifestJson;
     private TextView tvManifestInfo;
+    private SPUtils spUtils;
+    private final String KEY_GAME_DIR_PATH = "key_game_dir_path";
 
     @Override
     protected int getLayoutId() {
@@ -49,9 +52,11 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initWidget() {
         super.initWidget();
+        spUtils = SPUtils.getInstance("demo_test.sp");
         tvInfo = findViewById(R.id.tv_info);
         etPath = findViewById(R.id.et_path);
         tvManifestInfo = findViewById(R.id.tv_manifest_info);
+        etPath.setText(spUtils.getString(KEY_GAME_DIR_PATH));
         initPermission();
     }
 
@@ -119,8 +124,13 @@ public class MainActivity extends BaseActivity {
 
     private void onClickSelect() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            ToastUtils.showLong("当前目录选择器不支持高于Android10的版本，请手动输入");
-            return;
+            if (!Environment.isExternalStorageManager()) {
+                Intent intent = new Intent(
+                        Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION);
+                intent.setData(Uri.parse("package:" + getPackageName()));
+                startActivity(intent);
+                return;
+            }
         } else {
             String[] permissions = new String[]{
                     Manifest.permission.READ_EXTERNAL_STORAGE,
@@ -143,7 +153,6 @@ public class MainActivity extends BaseActivity {
                 .withActivity(this)
                 .withFragmentManager(getFragmentManager())
                 .allowCustomPath(true)
-//                .withPredefinedPath(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath())
                 .setType(StorageChooser.DIRECTORY_CHOOSER)
                 .build();
         chooser.setOnSelectListener(path -> {
@@ -153,7 +162,6 @@ public class MainActivity extends BaseActivity {
             etPath.setText(path);
         });
         chooser.show();
-
     }
 
     private void onClickStart() {
@@ -171,8 +179,8 @@ public class MainActivity extends BaseActivity {
         gameModel.gameUrl = gameDir.getAbsolutePath();
         gameModel.pathType = SUDOPGamePathType.DIR;
         gameModel.manifestJson = manifestJson;
-//        gameModel.gameUrl = "/sdcard/Download/aqua/app";
         QuickStartGameActivity.start(this, gameModel);
+        spUtils.put(KEY_GAME_DIR_PATH, gameModel.gameUrl);
     }
 
     private String getInputPath() {
@@ -255,6 +263,10 @@ public class MainActivity extends BaseActivity {
                     String name = subpackageObj.getString("name");
                     subpackageObj.put("root", name + "/");
                 }
+            }
+            JSONObject pluginsObj = obj.optJSONObject("plugins");
+            if (pluginsObj != null) {
+                obj.put("resolvedPlugins", pluginsObj); // 这是因为runtime3，只解析这个字段了
             }
             return obj.toString();
         } catch (Exception e) {
