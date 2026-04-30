@@ -19,3 +19,15 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+# json序列化的混淆
+-keep class global.sud.op.hello.service.req.** {*;}
+-keep class global.sud.op.hello.service.resp.** {*;}
+-keep class global.sud.op.hello.common.http.param.BaseBody {*;}
+-keep class global.sud.op.hello.common.http.param.BaseResponse {*;}
+-keep class global.sud.op.hello.ui.game.model.** {*;}
+
+# Rx的混淆
+-keep class retrofit2.adapter.rxjava3.** {*;}
+-keep class retrofit2.converter.gson.** {*;}
+-keep class io.reactivex.rxjava3.** {*;}

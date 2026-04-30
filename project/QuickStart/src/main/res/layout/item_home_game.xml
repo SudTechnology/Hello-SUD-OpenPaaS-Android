@@ -6,7 +6,7 @@
     android:layout_marginTop="10dp"
     android:layout_marginHorizontal="5dp">
 
-    <tech.sud.mgp.hello.common.widget.view.round.RoundedImageView
+    <global.sud.op.hello.common.widget.view.round.RoundedImageView
         android:id="@+id/iv_icon"
         android:scaleType="centerCrop"
         app:riv_corner_radius="8dp"

@@ -22,7 +22,7 @@
 
     <!-- 顶部View -->
     <!-- Top view. -->
-    <tech.sud.mgp.hello.ui.game.widget.GameRoomTopView
+    <global.sud.op.hello.ui.game.widget.GameRoomTopView
         android:id="@+id/room_top_view"
         android:layout_width="match_parent"
         android:layout_height="44dp"
@@ -30,7 +30,7 @@
 
     <!-- 底部的View -->
     <!-- Bottom view. -->
-    <tech.sud.mgp.hello.ui.game.widget.GameRoomBottomView
+    <global.sud.op.hello.ui.game.widget.GameRoomBottomView
         android:id="@+id/room_bottom_view"
         android:layout_width="match_parent"
         android:layout_height="40dp"

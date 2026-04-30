@@ -31,7 +31,7 @@
         app:layout_constraintTop_toBottomOf="@id/tv_title"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <tech.sud.mgp.hello.common.widget.view.MarqueeTextView
+    <global.sud.op.hello.common.widget.view.MarqueeTextView
         android:id="@+id/tv_right"
         android:layout_width="104dp"
         android:layout_height="36dp"
