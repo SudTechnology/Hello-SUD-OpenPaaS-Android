@@ -1,6 +1,5 @@
 rootProject.name = "Hello-SUD-OpenPaaS-Android"
 include ':QuickStart'
 include ':storagechooser'
-include ':SUDGI-SDK'
 include ':SUDGIWrapper'
 include ':SUDGIExtLibSDK'
