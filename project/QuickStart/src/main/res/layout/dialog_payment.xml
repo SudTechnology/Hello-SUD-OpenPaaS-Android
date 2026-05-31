@@ -31,27 +31,40 @@
         android:layout_marginBottom="16dp">
 
         <Button
-            android:id="@+id/btn_success"
+            android:id="@+id/btn_payment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingHorizontal="46dp"
-            android:text="成功"
+            android:text="支付"
             android:textSize="18sp"
             android:textColor="@color/white"
             app:layout_constraintHorizontal_chainStyle="spread"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/btn_fail"
+            app:layout_constraintEnd_toStartOf="@id/btn_cancel"
             app:layout_constraintBottom_toBottomOf="parent" />
 
         <Button
-            android:id="@+id/btn_fail"
+            android:id="@+id/btn_cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingHorizontal="46dp"
-            android:text="失败"
+            android:text="取消"
             android:textSize="18sp"
             android:textColor="@color/c_ff2959"
-            app:layout_constraintStart_toEndOf="@id/btn_success"
+            app:layout_constraintStart_toEndOf="@id/btn_payment"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <Button
+            android:id="@+id/btn_check_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="46dp"
+            android:text="查询结果"
+            android:textSize="18sp"
+            android:textColor="@color/c_ff2959"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" />
 

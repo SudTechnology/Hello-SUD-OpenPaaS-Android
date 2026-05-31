@@ -1,0 +1,5 @@
+configurations.maybeCreate("default")
+// 带static标识的就是内置core版本
+artifacts.add("default", file('SUDGI-static-v0.0.0-1098.aar'))
+dependencies {
+}

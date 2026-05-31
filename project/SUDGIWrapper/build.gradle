@@ -1,0 +1,38 @@
+plugins {
+    id 'com.android.library'
+}
+
+android {
+    compileSdkVersion 36
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 36
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            consumerProguardFiles 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    namespace 'tech.sud.gi.SUDGIWrapper'
+}
+
+dependencies {
+    api project(':SUDGI-SDK')
+    // 依赖okhttp
+    api 'com.squareup.okhttp3:okhttp:3.11.0'
+
+    // gson
+    api 'com.google.code.gson:gson:2.8.6'
+
+    compileOnly 'androidx.lifecycle:lifecycle-livedata-core:2.10.0'
+
+}

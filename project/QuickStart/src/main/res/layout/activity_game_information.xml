@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical">
+
+    <!-- 顶部标题栏 -->
+    <FrameLayout
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#FFFFFF">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:padding="10dp"
+            android:layout_gravity="start|center_vertical"
+            android:src="@drawable/ic_back"
+            android:contentDescription="back" />
+
+        <TextView
+            android:id="@+id/tv_page_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="游戏信息"
+            android:textColor="#333333"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </FrameLayout>
+
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:id="@+id/content_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp"
+            android:paddingBottom="40dp">
+
+            <!-- 游戏头部信息 -->
+            <LinearLayout
+                android:id="@+id/game_header_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:orientation="horizontal">
+
+                <global.sud.gi.hello.common.widget.view.round.RoundedImageView
+                    android:id="@+id/iv_game_icon"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    app:riv_corner_radius="12dp"
+                    android:scaleType="centerCrop" />
+
+                <LinearLayout
+                    android:id="@+id/game_title_container"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="14dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_game_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:textColor="#333333"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:id="@+id/subject_top_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_subject_name_top"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:textColor="#666666"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:id="@+id/tv_verified_top"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_marginLeft="6dp"
+                            android:background="@drawable/sudop_bg_verified"
+                            android:gravity="center"
+                            android:text="✓"
+                            android:textColor="#FFFFFF"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_game_introduction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:lineSpacingExtra="3dp"
+                android:textColor="#444444"
+                android:textSize="15sp" />
+
+            <View
+                android:id="@+id/divider_1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="28dp"
+                android:background="#E5E5E5" />
+
+            <!-- 基础信息 -->
+            <TextView
+                android:id="@+id/tv_basic_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:textColor="#333333"
+                android:text="基础信息"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/basic_info_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:orientation="vertical">
+
+                <!-- 认证主体 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="13dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/SUDOPGameInfoLabel"
+                        android:text="认证主体" />
+
+                    <TextView
+                        android:id="@+id/tv_subject_name"
+                        style="@style/SUDOPGameInfoValue" />
+
+                    <TextView
+                        android:id="@+id/tv_verified_basic"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_marginLeft="6dp"
+                        android:background="@drawable/sudop_bg_verified"
+                        android:gravity="center"
+                        android:text="✓"
+                        android:textColor="#FFFFFF"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <!-- 认证类型 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="13dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/SUDOPGameInfoLabel"
+                        android:text="认证类型" />
+
+                    <TextView
+                        android:id="@+id/tv_subject_type"
+                        style="@style/SUDOPGameInfoValue" />
+
+                </LinearLayout>
+
+                <!-- Game ID -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="13dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/SUDOPGameInfoLabel"
+                        android:text="Game ID" />
+
+                    <TextView
+                        android:id="@+id/tv_game_id"
+                        style="@style/SUDOPGameInfoValue" />
+
+                </LinearLayout>
+
+                <!-- 游戏分类 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="13dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/SUDOPGameInfoLabel"
+                        android:text="游戏分类" />
+
+                    <TextView
+                        android:id="@+id/tv_category"
+                        style="@style/SUDOPGameInfoValue" />
+
+                </LinearLayout>
+
+                <!-- 更新时间 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="13dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/SUDOPGameInfoLabel"
+                        android:text="更新时间" />
+
+                    <TextView
+                        android:id="@+id/tv_update_time"
+                        style="@style/SUDOPGameInfoValue" />
+
+                </LinearLayout>
+
+                <!-- 客服电话 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="13dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/SUDOPGameInfoLabel"
+                        android:text="客服电话" />
+
+                    <TextView
+                        android:id="@+id/tv_service_phone"
+                        style="@style/SUDOPGameInfoValue" />
+
+                </LinearLayout>
+
+                <!-- 客服邮箱 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/SUDOPGameInfoLabel"
+                        android:text="客服邮箱" />
+
+                    <TextView
+                        android:id="@+id/tv_service_email"
+                        style="@style/SUDOPGameInfoValue" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/divider_2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="28dp"
+                android:background="#E5E5E5" />
+
+            <!-- 服务隐私 -->
+            <TextView
+                android:id="@+id/tv_privacy_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:text="服务隐私"
+                android:textColor="#333333"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_privacy_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:lineSpacingExtra="3dp"
+                android:textColor="#333333"
+                android:textSize="15sp" />
+
+            <View
+                android:id="@+id/divider_3"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="28dp"
+                android:background="#E5E5E5" />
+
+            <!-- 服务声明 -->
+            <TextView
+                android:id="@+id/tv_statement_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:text="服务声明"
+                android:textColor="#333333"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_service_statement"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:lineSpacingExtra="3dp"
+                android:textColor="#333333"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
