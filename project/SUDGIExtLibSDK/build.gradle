@@ -1,0 +1,4 @@
+configurations.maybeCreate("default")
+artifacts.add("default", file('ext_lib_shine_release.aar'))
+dependencies {
+}

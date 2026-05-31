@@ -27,6 +27,7 @@ android {
 
 dependencies {
     api project(':SUDGI-SDK')
+    api project(':SUDGIExtLibSDK')
     // 依赖okhttp
     api 'com.squareup.okhttp3:okhttp:3.11.0'
 
