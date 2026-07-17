@@ -1,0 +1,14 @@
+package global.sud.gi.hello.app.common.http.param;
+
+public class BaseUrlManager {
+
+    private static final IBaseUrl iBaseUrl = new UrlImpl();
+
+    /**
+     * 获取基础服务
+     */
+    public static String getBaseUrl() {
+        return iBaseUrl.getBaseUrl();
+    }
+
+}

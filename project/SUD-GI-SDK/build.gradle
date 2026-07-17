@@ -1,0 +1,4 @@
+configurations.maybeCreate("default")
+artifacts.add("default", file('SUDGI-static-v0.0.0-1156.aar'))
+dependencies {
+}

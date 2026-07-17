@@ -1,2 +1,3 @@
-# SudMGPWrapper keep
--keep class tech.sud.gi.SudGIPWrapper.** {*;}
+-keep class okhttp3.** {*;}
+-keep class androidx.**{ *; }
+-keep class okio.**{*;}

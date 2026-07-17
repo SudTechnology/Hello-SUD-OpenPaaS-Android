@@ -64,7 +64,6 @@
         app:layout_constraintTop_toBottomOf="@id/top_bar"
         app:layout_constraintBottom_toBottomOf="parent">
 
-
         <Button
             android:id="@+id/btn_game_id"
             android:layout_width="match_parent"
@@ -94,6 +93,17 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="16dp"
             android:text="加载存量游戏包"
+            android:textAllCaps="false"
+            android:textSize="17sp"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/btn_quick_start_game"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            android:text="打开快速开始游戏页面"
             android:textAllCaps="false"
             android:textSize="17sp"
             android:textColor="@color/white" />

@@ -1,3 +1,9 @@
 # Hello-SUD-OpenPaaS-Android
 
-中文文档 [SUD OpenPaaS](https://developer.sud.tech/openpaas/app/guide/guide-dev/start.html)
+## 三分钟快速接入
+
+### 要求
+
+SDK运行要求：minSdk 26
+demo快速接入要求：Gradle 4+
+

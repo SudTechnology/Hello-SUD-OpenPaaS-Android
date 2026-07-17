@@ -62,7 +62,7 @@
                 android:layout_marginTop="22dp"
                 android:orientation="horizontal">
 
-                <global.sud.gi.hello.common.widget.view.round.RoundedImageView
+                <global.sud.gi.hello.app.common.widget.view.round.RoundedImageView
                     android:id="@+id/iv_game_icon"
                     android:layout_width="64dp"
                     android:layout_height="64dp"
@@ -104,14 +104,12 @@
                             android:textColor="#666666"
                             android:textSize="15sp" />
 
-                        <TextView
-                            android:id="@+id/tv_verified_top"
+                        <ImageView
                             android:layout_width="16dp"
                             android:layout_height="16dp"
                             android:layout_marginLeft="6dp"
-                            android:background="@drawable/sudop_bg_verified"
+                            android:background="@drawable/ic_certified"
                             android:gravity="center"
-                            android:text="✓"
                             android:textColor="#FFFFFF"
                             android:textSize="11sp"
                             android:textStyle="bold" />
@@ -172,14 +170,12 @@
                         android:id="@+id/tv_subject_name"
                         style="@style/SUDOPGameInfoValue" />
 
-                    <TextView
-                        android:id="@+id/tv_verified_basic"
+                    <ImageView
                         android:layout_width="16dp"
                         android:layout_height="16dp"
                         android:layout_marginLeft="6dp"
-                        android:background="@drawable/sudop_bg_verified"
+                        android:background="@drawable/ic_certified"
                         android:gravity="center"
-                        android:text="✓"
                         android:textColor="#FFFFFF"
                         android:textSize="11sp"
                         android:textStyle="bold" />
