@@ -43,8 +43,7 @@ public class GameActivity extends BaseActivity implements CustomAdapt {
     private String manifestJson;
     private final AppGameViewModel gameViewModel = new AppGameViewModel();
     private FrameLayout gameContainer;
-    private ConstraintLayout adContainer;
-    private ConstraintLayout topContainer;
+    private ConstraintLayout widgetContainer;
 
     private String userId;
 
@@ -101,8 +100,7 @@ public class GameActivity extends BaseActivity implements CustomAdapt {
     protected void initWidget() {
         super.initWidget();
         gameContainer = findViewById(R.id.game_container); // 获取游戏View容器 English: Retrieve the game view container.
-        adContainer = findViewById(R.id.ad_container);
-        topContainer = findViewById(R.id.top_container);
+        widgetContainer = findViewById(R.id.widget_container);
 
         containerMore = findViewById(R.id.container_more);
         ViewUtils.addMarginTop(containerMore, ImmersionBar.getStatusBarHeight(this));
@@ -116,7 +114,7 @@ public class GameActivity extends BaseActivity implements CustomAdapt {
         }
 
         // 设置WrappedClient
-        gameViewModel.setSUDOPWrappedClient(new AppSUDOPWrappedClient(gameViewModel, this, gameContainer, adContainer, topContainer) {
+        gameViewModel.setSUDOPWrappedClient(new AppSUDOPWrappedClient(gameViewModel, this, gameContainer, widgetContainer) {
             @Override
             public MenuButtonBoundingClientRect getMenuButtonBoundingClientRect() {
                 MenuButtonBoundingClientRect rect = new MenuButtonBoundingClientRect();
@@ -271,8 +269,8 @@ public class GameActivity extends BaseActivity implements CustomAdapt {
 
     @Override
     public void onBackPressed() {
-//        gameViewModel.destroyGame();
-//        super.onBackPressed();
+        gameViewModel.destroyGame();
+        super.onBackPressed();
     }
 
     @Override

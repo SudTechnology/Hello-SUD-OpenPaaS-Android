@@ -25,6 +25,8 @@ android {
 dependencies {
 
     // Dependencies required by the SDK
+    // 如果需要上架Google Play，需要修改引入的SDK类型，参考文档：https://github.com/SUD-GLOBAL/sud-gi-android
+    // // If you need to publish on Google Play, you must modify the type of SDK imported. Refer to the documentation：https://github.com/SUD-GLOBAL/sud-gi-android
     api project(':SUD-GI-SDK')
     api 'com.squareup.okhttp3:okhttp:3.11.0'
 

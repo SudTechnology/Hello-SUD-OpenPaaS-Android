@@ -27,9 +27,8 @@ public class QuickStartGameActivity extends AppCompatActivity {
         // 初始化容器及监听
         // Initialize the container and set up the listener.
         FrameLayout gameContainer = findViewById(R.id.game_container);
-        ConstraintLayout adContainer = findViewById(R.id.ad_container);
-        ConstraintLayout topContainer = findViewById(R.id.top_container);
-        gameViewModel.setSUDOPWrappedClient(new QuickStartSUDOPWrappedClient(gameViewModel, this, gameContainer, adContainer, topContainer));
+        ConstraintLayout widgetContainer = findViewById(R.id.widget_container);
+        gameViewModel.setSUDOPWrappedClient(new QuickStartSUDOPWrappedClient(gameViewModel, this, gameContainer, widgetContainer));
 
         // 监听游戏View的添加或者删除事件
         // Listen for the addition or deletion events of the game View
@@ -50,4 +49,33 @@ public class QuickStartGameActivity extends AppCompatActivity {
         gameViewModel.switchGame(this, gameId);
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        gameViewModel.onStart();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        gameViewModel.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        gameViewModel.onPause();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        gameViewModel.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        gameViewModel.destroyGame();
+    }
 }

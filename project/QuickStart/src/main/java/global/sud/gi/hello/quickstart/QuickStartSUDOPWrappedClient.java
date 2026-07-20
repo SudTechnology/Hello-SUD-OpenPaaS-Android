@@ -54,23 +54,21 @@ public class QuickStartSUDOPWrappedClient implements SUDOPWrappedClient {
     private final BaseGameViewModel gameViewModel;
     private final FragmentActivity activity;
     private final FrameLayout gameContainer;
-    private final ConstraintLayout adContainer;
-    private final ConstraintLayout topContainer;
+    private final ConstraintLayout widgetContainer;
 
     private GameUiManager gameUiManager;
     private ImageManager imageManager;
 
-    public QuickStartSUDOPWrappedClient(BaseGameViewModel gameViewModel, FragmentActivity activity, FrameLayout gameContainer, ConstraintLayout adContainer, ConstraintLayout topContainer) {
+    public QuickStartSUDOPWrappedClient(BaseGameViewModel gameViewModel, FragmentActivity activity, FrameLayout gameContainer, ConstraintLayout widgetContainer) {
         this.gameViewModel = gameViewModel;
         this.activity = activity;
         this.gameContainer = gameContainer;
-        this.adContainer = adContainer;
-        this.topContainer = topContainer;
+        this.widgetContainer = widgetContainer;
         initData();
     }
 
     private void initData() {
-        gameUiManager = new GameUiManager(activity, topContainer);
+        gameUiManager = new GameUiManager(activity, widgetContainer);
         imageManager = new ImageManager(activity);
     }
 
@@ -186,10 +184,10 @@ public class QuickStartSUDOPWrappedClient implements SUDOPWrappedClient {
             return;
         }
         PreviewImageView previewImageView = new PreviewImageView(activity);
-        topContainer.addView(previewImageView, ConstraintLayout.LayoutParams.MATCH_PARENT, ConstraintLayout.LayoutParams.MATCH_PARENT);
+        widgetContainer.addView(previewImageView, ConstraintLayout.LayoutParams.MATCH_PARENT, ConstraintLayout.LayoutParams.MATCH_PARENT);
         previewImageView.setImages(params.urls, params.current);
         previewImageView.setOnImageClickListener((position, url) -> {
-            topContainer.removeView(previewImageView);
+            widgetContainer.removeView(previewImageView);
         });
     }
 

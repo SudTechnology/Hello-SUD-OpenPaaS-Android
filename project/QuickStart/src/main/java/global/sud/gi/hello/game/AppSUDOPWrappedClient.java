@@ -50,26 +50,24 @@ public abstract class AppSUDOPWrappedClient implements SUDOPWrappedClient {
     private final BaseGameViewModel gameViewModel;
     private final FragmentActivity activity;
     private final FrameLayout gameContainer;
-    private final ConstraintLayout adContainer;
-    private final ConstraintLayout topContainer;
+    private final ConstraintLayout widgetContainer;
 
     private AdManager adManager;
     private GameUiManager gameUiManager;
     private ImageManager imageManager;
     private PayManager payManager;
 
-    public AppSUDOPWrappedClient(BaseGameViewModel gameViewModel, FragmentActivity activity, FrameLayout gameContainer, ConstraintLayout adContainer, ConstraintLayout topContainer) {
+    public AppSUDOPWrappedClient(BaseGameViewModel gameViewModel, FragmentActivity activity, FrameLayout gameContainer, ConstraintLayout widgetContainer) {
         this.gameViewModel = gameViewModel;
         this.activity = activity;
         this.gameContainer = gameContainer;
-        this.adContainer = adContainer;
-        this.topContainer = topContainer;
+        this.widgetContainer = widgetContainer;
         initData();
     }
 
     private void initData() {
-        adManager = new AdManager(activity, adContainer);
-        gameUiManager = new GameUiManager(activity, topContainer);
+        adManager = new AdManager(activity, widgetContainer);
+        gameUiManager = new GameUiManager(activity, widgetContainer);
         imageManager = new ImageManager(activity);
         payManager = new PayManager(activity, gameViewModel);
     }
@@ -158,10 +156,10 @@ public abstract class AppSUDOPWrappedClient implements SUDOPWrappedClient {
             return;
         }
         PreviewImageView previewImageView = new PreviewImageView(activity);
-        topContainer.addView(previewImageView, ConstraintLayout.LayoutParams.MATCH_PARENT, ConstraintLayout.LayoutParams.MATCH_PARENT);
+        widgetContainer.addView(previewImageView, ConstraintLayout.LayoutParams.MATCH_PARENT, ConstraintLayout.LayoutParams.MATCH_PARENT);
         previewImageView.setImages(params.urls, params.current);
         previewImageView.setOnImageClickListener((position, url) -> {
-            topContainer.removeView(previewImageView);
+            widgetContainer.removeView(previewImageView);
         });
     }
 

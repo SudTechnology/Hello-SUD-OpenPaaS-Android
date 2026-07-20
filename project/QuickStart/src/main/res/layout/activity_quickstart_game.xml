@@ -11,13 +11,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
+    <!-- 一些toast、弹框、视频所使用的容器 -->
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/ad_container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/top_container"
+        android:id="@+id/widget_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
