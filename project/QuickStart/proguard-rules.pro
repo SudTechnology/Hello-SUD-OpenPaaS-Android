@@ -21,11 +21,11 @@
 #-renamesourcefileattribute SourceFile
 
 # json序列化的混淆
--keep class global.sud.op.hello.service.req.** {*;}
--keep class global.sud.op.hello.service.resp.** {*;}
--keep class global.sud.op.hello.common.http.param.BaseBody {*;}
--keep class global.sud.op.hello.common.http.param.BaseResponse {*;}
--keep class global.sud.op.hello.ui.game.model.** {*;}
+-keep class global.sud.gi.hello.service.req.** {*;}
+-keep class global.sud.gi.hello.service.resp.** {*;}
+-keep class global.sud.gi.hello.common.http.param.BaseBody {*;}
+-keep class global.sud.gi.hello.common.http.param.BaseResponse {*;}
+-keep class global.sud.gi.hello.ui.game.model.** {*;}
 
 # Rx的混淆
 -keep class retrofit2.adapter.rxjava3.** {*;}
