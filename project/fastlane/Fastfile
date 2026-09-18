@@ -28,26 +28,12 @@ platform :android do
         parentOutputDir = OUTPUT_DIR
         versionCode=options[:code]
         moduleName=options[:moduleName]
-        nftEnv=options[:nftEnv]
-        mgpEnv=options[:mgpEnv]
-        baseUrlConfig=options[:baseUrlConfig]
-        baseUrl=options[:baseUrl]
-        interactBaseUrl=options[:interactBaseUrl]
-        gameBaseUrl=options[:gameBaseUrl]
         buildType=options[:buildType]
         flavor=options[:flavor]
         puts versionCode
         if moduleName.nil? || moduleName.empty?
             puts "moduleName is empty"
             moduleName = "app"
-        end
-        if nftEnv.nil? || nftEnv.empty?
-            puts "nftEnv is empty"
-            nftEnv = "pro"
-        end
-        if mgpEnv.nil? || mgpEnv.empty?
-            puts "mgpEnv is empty"
-            mgpEnv = "pro"
         end
         # outputDir = parentOutputDir + "/fat/" + versionCode
         # puts outputDir
@@ -58,12 +44,6 @@ platform :android do
             print_command: true,
             properties: {
                 "versionCode" => versionCode,
-                "nftEnv" => nftEnv,
-                "mgpEnv" => mgpEnv,
-                "baseUrl" => baseUrl,
-                "interactBaseUrl" => interactBaseUrl,
-                "gameBaseUrl" => gameBaseUrl,
-                "baseUrlConfig" => baseUrlConfig
             }
         )
     end
@@ -72,11 +52,7 @@ platform :android do
     lane :pro do |options|
         parentOutputDir = OUTPUT_DIR
         versionCode=options[:code]
-        baseUrl=options[:baseUrl]
-        interactBaseUrl=options[:interactBaseUrl]
-        gameBaseUrl=options[:gameBaseUrl]
         buglyAppId=options[:buglyAppId]
-        gameIsTestEnv=options[:gameIsTestEnv]
         jksPropertyPath=options[:jksPropertyPath]
         flavor=options[:flavor]
         puts versionCode
@@ -90,14 +66,7 @@ platform :android do
             properties: {
                 "versionCode" => versionCode,
                 "jksPropertyPath" => jksPropertyPath,
-                "baseUrlConfig" => "pro",
-                "nftEnv" => "pro",
-                "mgpEnv" => "pro",
-                "baseUrl" => baseUrl,
-                "interactBaseUrl" => interactBaseUrl,
-                "gameBaseUrl" => gameBaseUrl,
                 "buglyAppId" => buglyAppId,
-                "gameIsTestEnv" => gameIsTestEnv
             }
         )
     end

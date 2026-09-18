@@ -1,0 +1,60 @@
+package global.sud.gi.hello.app.ui.main;
+
+import android.text.Editable;
+import android.text.TextUtils;
+import android.widget.EditText;
+
+import com.blankj.utilcode.util.ToastUtils;
+
+import global.sud.gi.hello.R;
+import global.sud.gi.hello.app.base.AppConfig;
+import global.sud.gi.hello.app.common.base.BaseActivity;
+import global.sud.gi.hello.app.common.utils.GlobalSP;
+import global.sud.gi.hello.app.ui.main.model.GameModel;
+import global.sud.gi.hello.game.GameActivity;
+import global.sud.op.runtime.core.model.SUDOPGamePathType;
+
+public class LoadGameIdActivity extends BaseActivity {
+
+    private EditText etGameId;
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_load_game_id;
+    }
+
+    @Override
+    protected void initWidget() {
+        super.initWidget();
+        etGameId = findViewById(R.id.et_gameid);
+        etGameId.setText(GlobalSP.getSP().getString(GlobalSP.KEY_GAME_ID, AppConfig.TEST_GAME_ID));
+    }
+
+    @Override
+    protected void setListeners() {
+        super.setListeners();
+        findViewById(R.id.btn_start).setOnClickListener(v -> startGame());
+    }
+
+    private void startGame() {
+        String gameId = getInputContent();
+        if (TextUtils.isEmpty(gameId)) {
+            ToastUtils.showShort(getString(R.string.toast_enter_game_id));
+            return;
+        }
+        GameModel gameModel = new GameModel();
+        gameModel.gameId = gameId;
+        gameModel.pathType = SUDOPGamePathType.GAME_ID;
+        GameActivity.start(this, gameModel);
+        GlobalSP.getSP().put(GlobalSP.KEY_GAME_ID, gameId);
+    }
+
+    private String getInputContent() {
+        Editable text = etGameId.getText();
+        if (text == null) {
+            return null;
+        }
+        return text.toString();
+    }
+
+}

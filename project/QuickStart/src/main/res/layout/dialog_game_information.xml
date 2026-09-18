@@ -18,7 +18,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <global.sud.gi.hello.common.widget.view.round.RoundedImageView
+            <global.sud.gi.hello.app.common.widget.view.round.RoundedImageView
                 android:id="@+id/iv_icon"
                 android:layout_width="36dp"
                 android:layout_height="36dp"
@@ -145,7 +145,7 @@
         android:textSize="14sp"
         android:textColor="@color/c_303133"
         android:gravity="center"
-        android:text="@string/cancel"
+        android:text="@string/sud_op_wck_common_cancel"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent" />
 

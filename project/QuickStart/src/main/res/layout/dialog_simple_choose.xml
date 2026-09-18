@@ -27,11 +27,11 @@
         android:textColor="#000000"
         android:gravity="center"
         android:layout_marginTop="32dp"
-        android:text="@string/cancel"
+        android:text="@string/sud_op_wck_common_cancel"
         app:layout_constraintTop_toBottomOf="@id/tv_title"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <global.sud.gi.hello.common.widget.view.MarqueeTextView
+    <global.sud.gi.hello.app.common.widget.view.MarqueeTextView
         android:id="@+id/tv_right"
         android:layout_width="104dp"
         android:layout_height="36dp"
@@ -39,7 +39,7 @@
         android:textSize="14sp"
         android:textColor="#ffffff"
         android:gravity="center"
-        android:text="@string/confirm"
+        android:text="@string/sud_op_wck_common_confirm"
         app:layout_constraintTop_toTopOf="@id/tv_left"
         app:layout_constraintEnd_toEndOf="parent" />
 

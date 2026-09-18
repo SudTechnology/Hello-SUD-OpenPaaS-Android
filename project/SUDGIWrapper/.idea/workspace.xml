@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fedd5aa2-70ac-4fc6-abc1-2a114504758d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../SUD-GI-SDK/SUDGI-static-v0.0.0-1156.aar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SUD-GI-SDK/SUDGI-v0.0.0-1150.aar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SUD-GI-SDK/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/global/sud/gi/SUDGIWrapper/custom/image/ImageManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/global/sud/gi/SUDGIWrapper/custom/ui/GameUiManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/global/sud/gi/SUDGIWrapper/custom/ui/widget/dialog/ActionSheetDialog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/global/sud/gi/SUDGIWrapper/custom/ui/widget/dialog/ModalDialog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/global/sud/gi/SUDGIWrapper/custom/ui/widget/view/GameToastView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/global/sud/gi/SUDGIWrapper/custom/ui/widget/view/LoadingHintView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/global/sud/gi/SUDGIWrapper/custom/ui/widget/view/PreviewImageView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/global/sud/gi/SUDGIWrapper/custom/video/VideoContainer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/global/sud/gi/SUDGIWrapper/custom/video/VideoGestureView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/drawable-xhdpi/ic_big_play.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/video_seekbar_progress.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/video_seekbar_thumb.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/layout/dialog_action_sheet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/layout/dialog_modal.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/layout/view_video_container.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/values/strings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/values/styles.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/common/base/BaseViewModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/common/http/param/BaseBody.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/common/http/param/UrlImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/common/performance/PerformanceDataManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/common/performance/PerformanceFloatingView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/common/performance/PerformanceManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/common/performance/SudPermissionUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/common/widget/dialog/SimpleChooseDialog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/service/MainRequestMethod.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/service/req/GetMeterialReq.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/service/req/ReportRewardReq.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/service/req/RewardCompletedReq.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/service/resp/GetMeterialResp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/service/resp/ReportRewardResp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/ui/main/SmokeTestActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/game/AppSUDOPWrappedClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/game/GameActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/game/ad/AdManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/game/ad/widget/view/DemoInterstitialAdView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/game/ad/widget/view/GameBannerView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/game/ad/widget/view/GameDrawerAdView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/game/ad/widget/view/GamePortalAdView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/game/ad/widget/view/MiniGameNativeAdView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/game/ad/widget/view/RewardedAdView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/game/pay/PayManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/quickstart/QuickStartGameActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/quickstart/QuickStartGameViewModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/quickstart/QuickStartSUDOPWrappedClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/src/main/res/drawable-xhdpi/ic_certified.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/src/main/res/layout/dialog_action_sheet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/src/main/res/layout/view_performance_floating.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../SUD-GI-SDK/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/official/release/QuickStart-official-release.apk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/official/release/output-metadata.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/proguard-rules.pro" beforeDir="false" afterPath="$PROJECT_DIR$/../app/proguard-rules.pro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/app/AppConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/app/CrashHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/base/CrashHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/app/HelloSudApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/base/MyApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/common/base/BaseActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/common/base/BaseActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/common/base/BaseDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/global/sud/gi/SUDGIWrapper/custom/base/BaseDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/common/base/BaseDialogFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/global/sud/gi/SUDGIWrapper/custom/base/BaseDialogFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/common/base/BaseFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/common/base/BaseFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/common/base/BaseViewModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/common/http/interceptor/RequestBaseUrlInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/common/http/interceptor/RequestBaseUrlInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/common/http/interceptor/RequestHeaderInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/common/http/interceptor/RequestHeaderInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/common/http/param/BaseBody.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/common/http/param/BaseResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/common/http/param/BaseResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/common/http/param/BaseUrlManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/common/http/param/BaseUrlManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/common/http/param/IBaseUrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/common/http/param/IBaseUrl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/common/http/param/RetCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/common/http/param/RetCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/common/http/param/UrlImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/common/http/retrofit/RetrofitManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/common/http/retrofit/RetrofitManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/common/http/rx/RxCallback.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/common/http/rx/RxCallback.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/common/http/rx/RxUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/common/http/rx/RxUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/common/utils/DensityUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/global/sud/gi/SUDGIWrapper/custom/base/utils/DensityUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/common/utils/GlobalSP.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/common/utils/GlobalSP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/common/utils/HSTextUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/global/sud/gi/SUDGIWrapper/custom/base/utils/HSTextUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/common/utils/ImageLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/common/utils/ImageLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/common/utils/ResponseUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/common/utils/ResponseUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/common/utils/SystemUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/global/sud/gi/SUDGIWrapper/custom/base/utils/SystemUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/common/utils/ViewUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/common/utils/ViewUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/common/widget/dialog/SimpleChooseDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/common/performance/SimpleChooseDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/common/widget/view/MarqueeTextView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/common/widget/view/MarqueeTextView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/common/widget/view/SimpleTextWatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/common/widget/view/SimpleTextWatcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/common/widget/view/TopFadingEdgeRecyclerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/common/widget/view/TopFadingEdgeRecyclerView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/common/widget/view/round/Corner.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/common/widget/view/round/Corner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/common/widget/view/round/RoundedDrawable.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/common/widget/view/round/RoundedDrawable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/common/widget/view/round/RoundedImageView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/common/widget/view/round/RoundedImageView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/common/widget/view/round/RoundedTransformationBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/common/widget/view/round/RoundedTransformationBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/service/MainRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/service/MainRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/service/MainRequestMethod.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/service/req/CreateOrderReq.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/service/req/CreateOrderReq.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/service/req/GameLoginReq.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/service/req/GameLoginReq.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/service/req/GetUserProfileReq.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/service/req/GetUserProfileReq.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/service/req/MockPaymentReq.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/service/req/MockPaymentReq.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/service/req/PaymentReq.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/service/req/PaymentReq.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/service/req/QueryOrderReq.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/service/req/QueryOrderReq.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/service/req/ValidatePaymentReq.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/service/req/ValidatePaymentReq.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/service/resp/CreateOrderResp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/service/resp/CreateOrderResp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/service/resp/GameLoginResp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/service/resp/GameLoginResp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/service/resp/GetUserProfileResp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/service/resp/GetUserProfileResp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/service/resp/MockPaymentResp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/service/resp/MockPaymentResp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/service/resp/PaymentResp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/service/resp/PaymentResp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/service/resp/QueryOrderResp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/service/resp/QueryOrderResp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/service/resp/ValidatePaymentResp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/service/resp/ValidatePaymentResp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/ui/game/GameInformationActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/ui/game/GameInformationActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/ui/game/QuickStartGameActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/ui/game/QuickStartGameViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/game/AppGameViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/ui/game/client/QgExtendedClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/global/sud/gi/SUDGIWrapper/custom/client/QgExtendedClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/ui/game/mgr/AdManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/ui/game/model/ChooseImageResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/global/sud/gi/SUDGIWrapper/custom/ui/model/ChooseImageResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/ui/game/model/PaymentSignData.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/game/pay/PaymentSignData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/ui/game/page/PreviewImageActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/ui/game/utils/ImageCompressUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/global/sud/gi/SUDGIWrapper/custom/base/utils/ImageCompressUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/ui/game/utils/IntentUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/global/sud/gi/SUDGIWrapper/custom/base/utils/IntentUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/ui/game/utils/QgClientUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/global/sud/gi/SUDGIWrapper/custom/base/utils/ImageUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/ui/game/utils/QuickStartUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/global/sud/gi/SUDGIWrapper/custom/base/utils/QuickStartUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/ui/game/utils/UriCopyUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/global/sud/gi/SUDGIWrapper/custom/base/utils/UriCopyUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/ui/game/widget/dialog/ChooseImageDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/global/sud/gi/SUDGIWrapper/custom/ui/widget/dialog/ChooseImageDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/ui/game/widget/dialog/GameInformationDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/ui/game/GameInformationDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/ui/game/widget/dialog/GameModeDialog.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/ui/game/widget/dialog/GameRoomMoreDialog.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/ui/game/widget/dialog/PaymentDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/game/pay/PaymentDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/ui/game/widget/view/VideoContainer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/ui/game/widget/view/ad/BannerAdView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/game/ad/widget/view/BannerAdView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/ui/main/LoadGameIdActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/ui/main/LoadGameIdActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/ui/main/LoadGameSignatureActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/ui/main/LoadGameSignatureActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/ui/main/LoadOldGameActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/ui/main/LoadOldGameActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/ui/main/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/ui/main/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/ui/main/model/GameModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/ui/main/model/GameModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/ui/main/widget/SmokeSetTimeDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/ui/main/widget/SmokeSetTimeDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/ui/main/widget/SmokeTestDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/ui/main/widget/SmokeTestDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/java/global/sud/gi/hello/ui/splash/SplashActiivty.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/global/sud/gi/hello/app/ui/splash/SplashActiivty.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/anim/audio_bottomview_anim_enter.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/anim/audio_bottomview_anim_enter.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/anim/audio_bottomview_anim_exit.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/anim/audio_bottomview_anim_exit.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/anim/topview_anim_enter.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/anim/topview_anim_enter.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/anim/topview_anim_exit.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/anim/topview_anim_exit.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-v23/branded_launch_screens.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable-v23/branded_launch_screens.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/ddsh.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/dice.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/dz.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/fbdr.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/fkgw.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/fxq.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/hbq.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/ic_back.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable-xhdpi/ic_back.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/ic_close.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable-xhdpi/ic_close.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/ic_close_game.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable-xhdpi/ic_close_game.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/ic_ddsh.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/ic_default_avatar.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable-xhdpi/ic_default_avatar.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/ic_dice.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/ic_dz.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/ic_fbdr.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/ic_fbird.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/ic_fkgw.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/ic_fxq.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/ic_game_information.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable-xhdpi/ic_game_information.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/ic_gift.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable-xhdpi/ic_gift.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/ic_hbq.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/ic_kxjsq.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/ic_lrs.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/ic_lxjd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/ic_mfdld.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/ic_mic_closed.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable-xhdpi/ic_mic_closed.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/ic_mic_opened.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable-xhdpi/ic_mic_opened.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/ic_mjddp.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable-xhdpi/ic_mjddp.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/ic_more.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable-xhdpi/ic_more.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/ic_nhwc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/ic_nswc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/ic_picopark.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable-xhdpi/ic_picopark.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/ic_plb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/ic_ppwzq.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable-xhdpi/ic_ppwzq.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/ic_quick_start.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable-xhdpi/ic_quick_start.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/ic_restart.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable-xhdpi/ic_restart.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/ic_right_arrow.webp" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable-xhdpi/ic_right_arrow.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/ic_room_bg.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable-xhdpi/ic_room_bg.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/ic_room_close.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable-xhdpi/ic_room_close.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/ic_room_more.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable-xhdpi/ic_room_more.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/ic_room_top_mask.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable-xhdpi/ic_room_top_mask.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/ic_select_game_arrow.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable-xhdpi/ic_select_game_arrow.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/ic_sl.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/ic_splash_logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable-xhdpi/ic_splash_logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/ic_stjdb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/ic_szzd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/ic_szzl.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/ic_teen_patti.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/ic_twmj.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/ic_umo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/ic_video_exit_fullscreen.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/drawable-xhdpi/ic_video_destroy.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/ic_video_fullscreen.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/drawable-xhdpi/ic_video_fullscreen.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/ic_video_pause.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/drawable-xhdpi/ic_video_pause.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/ic_video_play.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/drawable-xhdpi/ic_video_play.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/ic_wzq.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/ic_zq.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/icon_game_default.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable-xhdpi/icon_game_default.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/icon_scene_default.webp" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable-xhdpi/icon_scene_default.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/kxjsq.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/lrs.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/lxjd.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/mfdld.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/mjddp.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/nhwc.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/nswc.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/picopark.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/plb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/ppwzq.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/sl.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/stjdb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/szzd.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/szzl.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/teen_patti.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/twmj.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/umo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/wzq.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable-xhdpi/zq.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable/branded_launch_screens.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/branded_launch_screens.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable/common_shape_dialog_bg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/common_shape_dialog_bg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/ic_launcher_background.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable/shape_content_bg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/shape_content_bg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable/shape_game_top_container_bg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/shape_game_top_container_bg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable/shape_room_top_btn_bg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/shape_room_top_btn_bg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable/shape_round12_ffffff.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/drawable/shape_round12_ffffff.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable/shape_round_66dbdeec.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/shape_round_66dbdeec.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable/shape_top_r12_ffffff.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/drawable/shape_top_r12_ffffff.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable/shape_top_round12_f5f6fb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/drawable/shape_top_round12_f5f6fb.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable/shape_top_round12_ffffff.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/drawable/shape_top_round12_ffffff.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable/shape_white_top_round.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/shape_white_top_round.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable/spinner_selector.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/spinner_selector.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/drawable/sudop_bg_verified.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/sudop_bg_verified.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/layout/activity_game.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/activity_game.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/layout/activity_game_information.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/activity_game_information.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/layout/activity_load_game_id.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/activity_load_game_id.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/layout/activity_load_game_signature.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/activity_load_game_signature.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/layout/activity_load_old_game.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/activity_load_old_game.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/layout/activity_preview_image.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/layout/activity_splash_actiivty.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/activity_splash_actiivty.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/layout/activity_test_open_pass.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/activity_test_open_pass.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/layout/dialog_choose_image.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/dialog_choose_image.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/layout/dialog_game_information.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/dialog_game_information.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/layout/dialog_game_mode.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/layout/dialog_payment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/dialog_payment.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/layout/dialog_room_more.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/dialog_room_more.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/layout/dialog_simple_choose.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/dialog_simple_choose.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/layout/dialog_smoke_set_time.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/dialog_smoke_set_time.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/layout/dialog_smoke_test.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/dialog_smoke_test.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/layout/item_empty.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/item_empty.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/layout/item_game_mode.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/item_game_mode.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/layout/item_home_game.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/item_home_game.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/layout/item_info.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/item_info.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/layout/item_name_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/item_name_list.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/layout/item_preview_image.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/item_preview_image.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/layout/spinner_dropdown_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/spinner_dropdown_item.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/layout/spinner_selected_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/spinner_selected_item.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/layout/view_game_mode_head.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/view_game_mode_head.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/layout/view_game_room_bottom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/layout/view_game_room_top.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/layout/view_video_container.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/view_video_container.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-hdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-mdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/values-night-v29/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/values-night-v29/themes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/values/attrs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/values/attrs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/values/dimens.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/values/dimens.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/values/styles.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/values/themes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/xml/file_paths.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/xml/file_paths.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickStart/src/main/res/xml/network_security_config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/xml/network_security_config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/consumer-rules.pro" beforeDir="false" afterPath="$PROJECT_DIR$/consumer-rules.pro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/global/sud/gi/SUDGIWrapper/viewmodel/BaseGameViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/global/sud/gi/SUDGIWrapper/base/BaseGameViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../settings.gradle" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3GbzatrEeeY7nWGqyCTIHfAmbOS" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;android.gradle.sync.needed&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/refactor&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fedd5aa2-70ac-4fc6-abc1-2a114504758d" name="Changes" comment="" />
+      <created>1784255122904</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1784255122904</updated>
+    </task>
+    <servers />
+  </component>
+</project>

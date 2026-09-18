@@ -70,7 +70,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:hint="输入gameId"
+            android:hint="@string/input_game_id_hint"
             android:textColorHint="#aaaaaa"
             android:textSize="17sp"
             android:textColor="@color/black" />
@@ -81,7 +81,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="16dp"
-            android:text="启动游戏"
+            android:text="@string/start_game"
             android:textSize="17sp"
             android:textColor="@color/white" />
 

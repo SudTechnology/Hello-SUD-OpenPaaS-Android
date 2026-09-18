@@ -21,13 +21,16 @@
 #-renamesourcefileattribute SourceFile
 
 # json序列化的混淆
--keep class global.sud.gi.hello.service.req.** {*;}
--keep class global.sud.gi.hello.service.resp.** {*;}
--keep class global.sud.gi.hello.common.http.param.BaseBody {*;}
--keep class global.sud.gi.hello.common.http.param.BaseResponse {*;}
--keep class global.sud.gi.hello.ui.game.model.** {*;}
+-keep class global.sud.gi.hello.app.service.req.** {*;}
+-keep class global.sud.gi.hello.app.service.resp.** {*;}
+-keep class global.sud.gi.hello.app.common.http.param.BaseBody {*;}
+-keep class global.sud.gi.hello.app.common.http.param.BaseResponse {*;}
 
 # Rx的混淆
 -keep class retrofit2.adapter.rxjava3.** {*;}
 -keep class retrofit2.converter.gson.** {*;}
 -keep class io.reactivex.rxjava3.** {*;}
+
+# bugly混淆
+-dontwarn com.tencent.bugly.**
+-keep public class com.tencent.bugly.**{*;}

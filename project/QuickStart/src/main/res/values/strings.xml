@@ -1,30 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="sud_gi_language_entry">Language settings: %1$s</string>
+    <string name="sud_gi_language_title">Language settings</string>
+    <string name="sud_gi_language_system">Follow system</string>
+    <string name="sud_gi_language_notice">Tap a language to apply it immediately. Your choice is saved for the next launch. This changes app resources to test Wrapper defaults; text provided by games is not automatically translated.</string>
     <string name="app_name">SUDOP</string>
-
-    <string name="cancel">取消</string>
-    <string name="confirm">确定</string>
-    <string name="net_error_hint">网络错误，请检查网络连接</string>
-    <string name="common_go_setting">去设置</string>
-    <string name="common_camera">相机</string>
-    <string name="common_storage">存储</string>
-    <string name="common_correlation">相关</string>
-    <string name="common_record_audio">录音</string>
-    <string name="common_phone">电话</string>
-    <string name="common_setting_permission_info">请在设置中开启%1$s权限，以正常使用 %2$s APP功能</string>
+    <string name="net_error_hint">Network error. Check your connection.</string>
+    <string name="common_camera">Camera</string>
+    <string name="common_storage">Storage</string>
+    <string name="common_correlation">related</string>
+    <string name="common_record_audio">Microphone</string>
+    <string name="common_phone">Phone</string>
+    <string name="common_setting_permission_info">Enable %1$s permission in Settings to use %2$s features normally.</string>
     <string name="main_top_title">SUDGI</string>
     <string name="main_top_url">www.sud.tech</string>
-    <string name="select_game">选择游戏</string>
-    <string name="audio_chat_hint">聊一聊~</string>
-    <string name="audio_gameing">游戏中</string>
-    <string name="close_game">关闭游戏</string>
-    <string name="room_name">来一起玩游戏吧</string>
-    <string name="enter">进入</string>
-    <string name="room_number">房号</string>
-    <string name="exit_room">退出房间</string>
+    <string name="select_game">Select a game</string>
+    <string name="audio_chat_hint">Say something…</string>
+    <string name="audio_gameing">In game</string>
+    <string name="close_game">Close game</string>
+    <string name="room_name">Let’s play together</string>
+    <string name="enter">Enter</string>
+    <string name="room_number">Room number</string>
+    <string name="exit_room">Leave room</string>
+    <string name="restart">Re-enter</string>
+    <string name="game_information">Game information</string>
 
-    <string name="photograph">拍照</string>
-    <string name="select_album">从手机相册选择</string>
-    <string name="restart">重新进入</string>
-    <string name="game_information">游戏信息</string>
+    <string name="main_start_by_game_id">Start with Game ID</string>
+    <string name="main_start_by_game_signature">Start with Game Signature</string>
+    <string name="main_load_existing_game">Load an existing game package</string>
+    <string name="input_game_id_hint">Enter Game ID</string>
+    <string name="input_game_signature_hint">Enter Game Signature</string>
+    <string name="start_game">Start game</string>
+    <string name="load_old_instruction">Select the game package directory before starting, or enter its path below.</string>
+    <string name="load_old_manifest_instruction">Select a custom manifest.json if it is not in the game package directory.</string>
+    <string name="load_old_path_hint">Enter the directory path</string>
+    <string name="select_game_directory">Select game package directory</string>
+    <string name="select_manifest_json">Select manifest.json</string>
+    <string name="payment_mock_title">Simulated payment</string>
+    <string name="payment_pay">Pay</string>
+    <string name="payment_query_result">View result</string>
+    <string name="common_back">Back</string>
 
+    <string name="game_info_basic">Basic information</string>
+    <string name="game_info_verified_subject">Verified entity</string>
+    <string name="game_info_verification_type">Verification type</string>
+    <string name="game_info_game_id">Game ID</string>
+    <string name="game_info_category">Game category</string>
+    <string name="game_info_update_time">Last updated</string>
+    <string name="game_info_service_phone">Support phone</string>
+    <string name="game_info_service_email">Support email</string>
+    <string name="game_info_service_privacy">Service privacy</string>
+    <string name="game_info_service_statement">Service statement</string>
+    <string name="game_info_statement_content">This service is provided to users by the developer. The developer is fully responsible for the authenticity, legality, and validity of the service information, data, and operations. OpenPaaS provides technical support services to the developer.</string>
+    <string name="game_info_default_game_name">this game</string>
+    <string name="game_info_privacy_guide">%1$s Privacy Guide</string>
+    <string name="game_info_privacy_handling">The developer processes your personal information strictly in accordance with %1$s.</string>
+    <string name="game_info_subject_personal">Individual</string>
+    <string name="game_info_subject_company">Company</string>
+    <string name="game_info_category_role_playing">Role-playing</string>
+    <string name="game_info_category_strategy">Strategy</string>
+    <string name="game_info_category_casual">Casual and puzzle</string>
+    <string name="game_info_category_action">Action and adventure</string>
+    <string name="game_info_category_shooter">Shooter</string>
+    <string name="game_info_category_sports">Sports and racing</string>
+    <string name="game_info_category_board">Board and card</string>
+    <string name="game_info_category_music">Music and dance</string>
+
+    <string name="toast_enter_game_id">Enter a Game ID.</string>
+    <string name="toast_enter_game_signature">Enter a Game Signature.</string>
+    <string name="toast_invalid_game_signature">Invalid signature format.</string>
+    <string name="toast_permission_denied">Permission was not granted.</string>
+    <string name="toast_game_directory_missing">The game directory does not exist.</string>
+    <string name="toast_manifest_loaded">manifest.json loaded.</string>
+    <string name="toast_exception">Error: %1$s</string>
+    <string name="toast_game_error">Error — code: %1$d; message: %2$s</string>
+    <string name="toast_sudm_init_failed">SUDM initialization failed: %1$d (%2$s)</string>
+    <string name="toast_crash_quit">The app crashed and will close.</string>
+
+    <string name="ad_hot_games">Popular game picks</string>
+    <string name="ad_banner_description">Great rewards and easy gameplay. Try it now.</string>
+    <string name="ad_download_now">Download now</string>
+    <string name="ad_image_placeholder">Image</string>
+    <string name="ad_recommended_mini_games">Featured mini games</string>
+    <string name="ad_mini_games">Mini game picks</string>
+    <string name="ad_more_fun">More\nFun</string>
+    <string name="ad_label">Ad</string>
+    <string name="ad_interstitial_title">Hongguo Free Short Dramas</string>
+    <string name="ad_interstitial_description">Enjoy a huge collection of short dramas on Hongguo.</string>
+    <string name="ad_watch_short_dramas_free">Watch free short dramas</string>
+    <string name="ad_interstitial_footer">Privacy | Permissions | About | V7.1.5… | Beijing Bimoliuxiang Technology Co., Ltd.</string>
+    <string name="ad_back">‹ Back</string>
+    <string name="ad_native_app_name">App name</string>
+    <string name="ad_native_app_description">App description</string>
+    <string name="ad_install">Install</string>
+    <string name="ad_native_footer">3.1.5 | XXXX Co., Ltd. | Privacy | Permissions</string>
+    <string name="ad_reward_countdown">Watch for %1$d s to earn the reward</string>
+    <string name="ad_reward_earned">Reward requirement met</string>
+    <string name="ad_reward_exit_message">Watch for %1$d more seconds to earn the reward. Leave now?</string>
+    <string name="ad_close_video">Close video</string>
+    <string name="ad_continue_watching">Keep watching</string>
+    <string name="ad_sound_on">Sound</string>
+    <string name="ad_sound_off">Muted</string>
+
+    <string-array name="ad_portal_game_names">
+        <item>Bunny Blast</item>
+        <item>Mini Blocks…</item>
+        <item>Idol Stylist</item>
+        <item>Super Class Rep</item>
+        <item>Sushi Rush</item>
+        <item>Wood Carving 6</item>
+        <item>Warriors Feast</item>
+        <item>Foot Care Master</item>
+        <item>Chain Blast…</item>
+    </string-array>
+    <string-array name="ad_portal_icon_texts">
+        <item>B</item>
+        <item>M</item>
+        <item>I</item>
+        <item>S</item>
+        <item>S</item>
+        <item>W</item>
+        <item>F</item>
+        <item>F</item>
+        <item>G</item>
+    </string-array>
+    <string-array name="ad_drawer_game_names">
+        <item>Cosmic Dream Ball</item>
+        <item>Cyclone Beetle</item>
+        <item>Warzone Heroes</item>
+        <item>Travel World</item>
+        <item>Super Cow</item>
+        <item>Don’t Step on the Blocks</item>
+    </string-array>
+    <string-array name="ad_drawer_icon_texts">
+        <item>C</item>
+        <item>B</item>
+        <item>W</item>
+        <item>T</item>
+        <item>C</item>
+        <item>B</item>
+    </string-array>
+    <string-array name="ad_banner_game_names">
+        <item>Foot Care Master</item>
+        <item>Wood Carving 6</item>
+        <item>Bunny Blast</item>
+        <item>Piano Tiles 2</item>
+        <item>Super Class Rep</item>
+    </string-array>
+    <string-array name="ad_banner_icon_texts">
+        <item>F</item>
+        <item>W</item>
+        <item>B</item>
+        <item>2</item>
+        <item>S</item>
+    </string-array>
+
+    <string name="main_get_game_list">Get game list</string>
+    <string name="sud_op_selection_game_list">Get games by selection ID</string>
+    <string name="sud_op_selection_list">Get game selection list</string>
+    <string name="sud_op_selection_list_hint">Request a page of selections. Tap a record to query its games.</string>
+    <string name="sud_op_selection_item_format">selectionId: %1$s\nname: %2$s\nTap to query games</string>
+    <string name="sud_op_selection_id_hint">Selection ID (selectionId)</string>
+    <string name="sud_op_selection_id_invalid">Enter a valid selection ID (0–9223372036854775807)</string>
+    <string name="sud_op_selection_game_list_hint">Enter a selection ID and pagination, then tap Request</string>
+    <string name="game_list_api_test_title">Game list API test</string>
+    <string name="game_list_api_page_no_label">pageNo</string>
+    <string name="game_list_api_page_size_label">pageSize</string>
+    <string name="game_list_api_page_no_hint">Page number (from 0)</string>
+    <string name="game_list_api_page_size_hint">Items per page</string>
+    <string name="game_list_api_request">Request game list</string>
+    <string name="game_list_api_previous">Previous</string>
+    <string name="game_list_api_next">Next</string>
+    <string name="game_list_api_initial_status">Enter pagination parameters, then tap Request</string>
+    <string name="game_list_api_requesting">Requesting…</string>
+    <string name="game_list_api_init_failed">SDK initialization failed: %1$d, %2$s</string>
+    <string name="game_list_api_request_failed">Request failed: %1$d, %2$s</string>
+    <string name="game_list_api_request_success">Success: page %1$d, %2$d items, %3$d total (server pageSize=%4$d)</string>
+    <string name="game_list_api_unknown_error">Unknown error</string>
+    <string name="game_list_api_item_format">gameId: %1$s\ngameName: %2$s\nicon: %3$s\nversion: %4$s</string>
+    <string name="sud_gi_language_custom">Custom</string>
+    <string name="sud_gi_language_custom_hint">Language tag, e.g. vi-VN</string>
+    <string name="sud_gi_language_custom_empty">Enter a language tag</string>
+    <string name="sud_gi_language_custom_invalid">Invalid language tag, e.g. vi-VN</string>
 </resources>

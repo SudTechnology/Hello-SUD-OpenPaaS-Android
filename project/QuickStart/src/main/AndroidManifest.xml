@@ -11,17 +11,20 @@
     <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_MEDIA_VISUAL_USER_SELECTED" />
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
-
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.CAMERA" />
 
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
     <application
-        android:name="global.sud.gi.hello.app.HelloSudApplication"
+        android:name="global.sud.gi.hello.app.base.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="${mainAppName}"
         android:networkSecurityConfig="@xml/network_security_config"
         android:requestLegacyExternalStorage="true"
         android:supportsRtl="true"
@@ -32,7 +35,7 @@
 
         <!-- 启动页 -->
         <activity
-            android:name="global.sud.gi.hello.ui.splash.SplashActiivty"
+            android:name="global.sud.gi.hello.app.ui.splash.SplashActiivty"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme"
@@ -44,9 +47,32 @@
             </intent-filter>
         </activity>
 
+        <!-- 支付回跳仅恢复 App，不以链接参数判定支付结果。 -->
+        <activity
+            android:name="global.sud.gi.hello.game.pay.SUDGIPaymentReturnActivity"
+            android:exported="true"
+            android:excludeFromRecents="true"
+            android:launchMode="singleTask"
+            android:taskAffinity=""
+            android:theme="@android:style/Theme.NoDisplay">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:scheme="${SUDOP_DEMO_PAYMENT_RETURN_SCHEME}"
+                    android:host="pay"
+                    android:path="/result" />
+            </intent-filter>
+        </activity>
+
         <!-- 首页 -->
         <activity
-            android:name="global.sud.gi.hello.ui.main.MainActivity"
+            android:name="global.sud.gi.hello.app.ui.main.SUDGILanguageActivity"
+            android:exported="false" />
+
+        <activity
+            android:name="global.sud.gi.hello.app.ui.main.MainActivity"
             android:exported="false"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
@@ -54,7 +80,14 @@
             tools:ignore="LockedOrientationActivity" />
 
         <activity
-            android:name="global.sud.gi.hello.ui.main.LoadGameIdActivity"
+            android:name="global.sud.gi.hello.app.ui.main.GameListAPITestActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"
+            tools:ignore="LockedOrientationActivity" />
+
+        <activity
+            android:name="global.sud.gi.hello.app.ui.main.LoadGameIdActivity"
             android:exported="false"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
@@ -62,7 +95,7 @@
             tools:ignore="LockedOrientationActivity" />
 
         <activity
-            android:name="global.sud.gi.hello.ui.main.LoadOldGameActivity"
+            android:name="global.sud.gi.hello.app.ui.main.LoadOldGameActivity"
             android:exported="false"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
@@ -71,7 +104,7 @@
 
         <!-- 游戏页 -->
         <activity
-            android:name="global.sud.gi.hello.ui.game.QuickStartGameActivity"
+            android:name="global.sud.gi.hello.game.GameActivity"
             android:exported="false"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
@@ -80,7 +113,7 @@
             tools:ignore="LockedOrientationActivity" />
 
         <activity
-            android:name="global.sud.gi.hello.ui.main.LoadGameSignatureActivity"
+            android:name="global.sud.gi.hello.app.ui.main.LoadGameSignatureActivity"
             android:exported="false"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
@@ -88,15 +121,7 @@
             tools:ignore="LockedOrientationActivity" />
 
         <activity
-            android:name="global.sud.gi.hello.ui.game.page.PreviewImageActivity"
-            android:exported="false"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan"
-            tools:ignore="LockedOrientationActivity" />
-
-        <activity
-            android:name="global.sud.gi.hello.ui.game.GameInformationActivity"
+            android:name="global.sud.gi.hello.app.ui.game.GameInformationActivity"
             android:exported="false"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
@@ -108,6 +133,10 @@
         <meta-data
             android:name="design_width_in_dp"
             android:value="375" />
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="${SUDM_DEMO_ADMOB_APP_ID}" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

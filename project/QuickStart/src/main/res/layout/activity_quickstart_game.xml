@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <!-- 游戏View容器，容器不能设置为android:visibility="gone"或者invisible，可能会出现未知问题 -->
+    <!-- Game View container, the container should not be set to android:visibility="gone" or invisible as it may cause unknown issues. -->
+    <FrameLayout
+        android:id="@+id/game_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- 一些toast、弹框、视频所使用的容器 -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/widget_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

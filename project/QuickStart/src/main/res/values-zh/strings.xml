@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sud_gi_language_entry">语言设置：%1$s</string>
+    <string name="sud_gi_language_title">语言设置</string>
+    <string name="sud_gi_language_system">跟随系统</string>
+    <string name="sud_gi_language_notice">点击语言立即生效，下次启动沿用。通过切换应用资源语言验证 Wrapper 默认文案；小游戏自行提供的文案不会自动翻译。</string>
+    <string name="app_name">SUDOP</string>
+    <string name="net_error_hint">网络错误，请检查网络连接</string>
+    <string name="common_camera">相机</string>
+    <string name="common_storage">存储</string>
+    <string name="common_correlation">相关</string>
+    <string name="common_record_audio">录音</string>
+    <string name="common_phone">电话</string>
+    <string name="common_setting_permission_info">请在设置中开启%1$s权限，以正常使用 %2$s APP功能</string>
+    <string name="main_top_title">SUDGI</string>
+    <string name="main_top_url">www.sud.tech</string>
+    <string name="select_game">选择游戏</string>
+    <string name="audio_chat_hint">聊一聊~</string>
+    <string name="audio_gameing">游戏中</string>
+    <string name="close_game">关闭游戏</string>
+    <string name="room_name">来一起玩游戏吧</string>
+    <string name="enter">进入</string>
+    <string name="room_number">房号</string>
+    <string name="exit_room">退出房间</string>
+    <string name="restart">重新进入</string>
+    <string name="game_information">游戏信息</string>
+    <string name="main_start_by_game_id">通过 Game ID 启动游戏</string>
+    <string name="main_start_by_game_signature">通过 Game Signature 启动游戏</string>
+    <string name="main_load_existing_game">加载存量游戏包</string>
+    <string name="input_game_id_hint">输入 Game ID</string>
+    <string name="input_game_signature_hint">输入 Game Signature</string>
+    <string name="start_game">启动游戏</string>
+    <string name="load_old_instruction">请先选择游戏包目录，然后再启动游戏，也可在下方输入框直接输入目录路径</string>
+    <string name="load_old_manifest_instruction">如果 manifest.json 不在游戏包目录下，则自定义选择</string>
+    <string name="load_old_path_hint">可以直接输入目录路径</string>
+    <string name="select_game_directory">选择游戏包目录</string>
+    <string name="select_manifest_json">选择 manifest.json</string>
+    <string name="payment_mock_title">模拟支付</string>
+    <string name="payment_pay">支付</string>
+    <string name="payment_query_result">查询结果</string>
+    <string name="common_back">返回</string>
+    <string name="game_info_basic">基础信息</string>
+    <string name="game_info_verified_subject">认证主体</string>
+    <string name="game_info_verification_type">认证类型</string>
+    <string name="game_info_game_id">Game ID</string>
+    <string name="game_info_category">游戏分类</string>
+    <string name="game_info_update_time">更新时间</string>
+    <string name="game_info_service_phone">客服电话</string>
+    <string name="game_info_service_email">客服邮箱</string>
+    <string name="game_info_service_privacy">服务隐私</string>
+    <string name="game_info_service_statement">服务声明</string>
+    <string name="game_info_statement_content">本服务由开发者向用户提供，开发者对服务信息内容、数据资料及其运营行为等的真实性、合法性及有效性承担全部责任。OpenPaaS 向开发者提供技术支持服务。</string>
+    <string name="game_info_default_game_name">本游戏</string>
+    <string name="game_info_privacy_guide">《%1$s的隐私保护指引》</string>
+    <string name="game_info_privacy_handling">开发者严格按照 %1$s 处理你的个人信息。</string>
+    <string name="game_info_subject_personal">个人</string>
+    <string name="game_info_subject_company">企业</string>
+    <string name="game_info_category_role_playing">角色扮演</string>
+    <string name="game_info_category_strategy">经营策略</string>
+    <string name="game_info_category_casual">休闲益智</string>
+    <string name="game_info_category_action">动作冒险</string>
+    <string name="game_info_category_shooter">射击游戏</string>
+    <string name="game_info_category_sports">体育竞速</string>
+    <string name="game_info_category_board">棋牌游戏</string>
+    <string name="game_info_category_music">音乐舞蹈</string>
+    <string name="toast_enter_game_id">请输入 Game ID</string>
+    <string name="toast_enter_game_signature">请输入 Game Signature</string>
+    <string name="toast_invalid_game_signature">Signature 格式不对</string>
+    <string name="toast_permission_denied">没有拿到权限</string>
+    <string name="toast_game_directory_missing">游戏目录不存在</string>
+    <string name="toast_manifest_loaded">读取 manifest.json 完成</string>
+    <string name="toast_exception">异常：%1$s</string>
+    <string name="toast_game_error">错误码：%1$d；错误信息：%2$s</string>
+    <string name="toast_sudm_init_failed">SUDM 初始化失败：%1$d（%2$s）</string>
+    <string name="toast_crash_quit">应用发生异常，即将退出</string>
+    <string name="ad_hot_games">热门游戏推荐</string>
+    <string name="ad_banner_description">超高返利，轻松上手，立即体验精彩内容</string>
+    <string name="ad_download_now">立即下载</string>
+    <string name="ad_image_placeholder">图片</string>
+    <string name="ad_recommended_mini_games">精品小游戏推荐</string>
+    <string name="ad_mini_games">小游戏推荐</string>
+    <string name="ad_more_fun">更\n多\n好\n玩</string>
+    <string name="ad_label">广告</string>
+    <string name="ad_interstitial_title">红果免费短剧</string>
+    <string name="ad_interstitial_description">畅享海量短剧，尽在红果免费短剧</string>
+    <string name="ad_watch_short_dramas_free">免费看短剧</string>
+    <string name="ad_interstitial_footer">隐私 | 权限 | 介绍 | V7.1.5… | 北京笔墨留香科技有限公司</string>
+    <string name="ad_back">‹ 返回</string>
+    <string name="ad_native_app_name">应用名称</string>
+    <string name="ad_native_app_description">应用介绍</string>
+    <string name="ad_install">安装</string>
+    <string name="ad_native_footer">3.1.5 | XXXX 有限公司 | 隐私 | 权限</string>
+    <string name="ad_reward_countdown">看 %1$d 秒可领取奖励</string>
+    <string name="ad_reward_earned">已满足奖励条件</string>
+    <string name="ad_reward_exit_message">继续观看 %1$d 秒即可领取奖励，确定要离开吗？</string>
+    <string name="ad_close_video">关闭视频</string>
+    <string name="ad_continue_watching">继续观看</string>
+    <string name="ad_sound_on">声</string>
+    <string name="ad_sound_off">静</string>
+    <string-array name="ad_portal_game_names">
+        <item>炸飞小兔兔</item>
+        <item>迷你方块…</item>
+        <item>装扮爱豆</item>
+        <item>超级课代表</item>
+        <item>寿司奥利给</item>
+        <item>削木头贼6</item>
+        <item>吞食天地</item>
+        <item>修脚大师</item>
+        <item>全民爆索…</item>
+    </string-array>
+    <string-array name="ad_portal_icon_texts">
+        <item>兔</item>
+        <item>方</item>
+        <item>妆</item>
+        <item>课</item>
+        <item>寿</item>
+        <item>剑</item>
+        <item>鱼</item>
+        <item>脚</item>
+        <item>梗</item>
+    </string-array>
+    <string-array name="ad_drawer_game_names">
+        <item>宇宙梦幻球</item>
+        <item>旋风甲壳虫</item>
+        <item>战区英雄</item>
+        <item>旅行世界</item>
+        <item>超级奶牛</item>
+        <item>别踩小方块</item>
+    </string-array>
+    <string-array name="ad_drawer_icon_texts">
+        <item>宇</item>
+        <item>虫</item>
+        <item>战</item>
+        <item>旅</item>
+        <item>牛</item>
+        <item>方</item>
+    </string-array>
+    <string-array name="ad_banner_game_names">
+        <item>修脚大师</item>
+        <item>削木头贼6</item>
+        <item>炸飞小兔兔</item>
+        <item>钢琴块2</item>
+        <item>超级课代表</item>
+    </string-array>
+    <string-array name="ad_banner_icon_texts">
+        <item>脚</item>
+        <item>剑</item>
+        <item>兔</item>
+        <item>2</item>
+        <item>课</item>
+    </string-array>
+    <string name="main_get_game_list">获取游戏列表</string>
+    <string name="sud_op_selection_game_list">按选品单 ID 获取游戏列表</string>
+    <string name="sud_op_selection_list">获取游戏选品单列表</string>
+    <string name="sud_op_selection_list_hint">请求选品单列表，点击结果可查询该选品单的游戏</string>
+    <string name="sud_op_selection_item_format">selectionId: %1$s\nname: %2$s\n点击查询游戏</string>
+    <string name="sud_op_selection_id_hint">选品单 ID（selectionId）</string>
+    <string name="sud_op_selection_id_invalid">请输入有效选品单 ID（0–9223372036854775807）</string>
+    <string name="sud_op_selection_game_list_hint">填写选品单 ID 和分页参数后点击请求</string>
+    <string name="game_list_api_test_title">游戏列表接口测试</string>
+    <string name="game_list_api_page_no_label">pageNo</string>
+    <string name="game_list_api_page_size_label">pageSize</string>
+    <string name="game_list_api_page_no_hint">页码（从 0 开始）</string>
+    <string name="game_list_api_page_size_hint">每页数量</string>
+    <string name="game_list_api_request">请求游戏列表</string>
+    <string name="game_list_api_previous">上一页</string>
+    <string name="game_list_api_next">下一页</string>
+    <string name="game_list_api_initial_status">填写分页参数后点击请求</string>
+    <string name="game_list_api_requesting">请求中…</string>
+    <string name="game_list_api_init_failed">SDK 初始化失败：%1$d，%2$s</string>
+    <string name="game_list_api_request_failed">请求失败：%1$d，%2$s</string>
+    <string name="game_list_api_request_success">请求成功：第 %1$d 页，本页 %2$d 条，共 %3$d 条（服务端 pageSize=%4$d）</string>
+    <string name="game_list_api_unknown_error">未知错误</string>
+    <string name="game_list_api_item_format">gameId: %1$s\ngameName: %2$s\nicon: %3$s\nversion: %4$s</string>
+    <string name="sud_gi_language_custom">自定义</string>
+    <string name="sud_gi_language_custom_hint">语言标签，例如 vi-VN</string>
+    <string name="sud_gi_language_custom_empty">语言不能为空</string>
+    <string name="sud_gi_language_custom_invalid">请输入有效的语言标签，例如 vi-VN</string>
+</resources>

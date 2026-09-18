@@ -3,7 +3,6 @@ buildscript {
     repositories {
         google()
         mavenCentral()
-        jcenter()
     }
     dependencies {
         // 至少需要AndroidStudio版本是： Narwhal 功能更新 | 2025.1.2
@@ -20,19 +19,12 @@ ext {
 
     versionCode = "1"
     versionName = "1.8.6"
-    baseUrlConfig = "fat"
-    baseUrl = "https://fat-base-hello-sud.sud.tech/"
-    interactBaseUrl = "https://fat-interact-hello-sud.sud.tech/"
-    gameBaseUrl = "https://fat-game-hello-sud.sud.tech/"
     buglyAppId = "f471ed313c"
-    gameIsTestEnv = "true"
 
     appcompatVersion = "1.4.2"
     materialVersion = "1.5.0"
     constraintlayoutVersion = "2.1.4"
 
-    nftEnv = "fat"
-    mgpEnv = "fat"
 }
 
 allprojects {
@@ -51,17 +43,12 @@ allprojects {
 
         google()
         mavenCentral()
-        jcenter()
         maven() {
             url 'https://jitpack.io'
         }
-
-        // 融云 maven 仓库
         maven {
-            url "https://maven.rongcloud.cn/repository/maven-releases/"
+            url "https://central.sonatype.com/repository/maven-snapshots/"
         }
-        maven { url 'https://maven.zego.im' }
-        maven { url 'https://artifact.bytedance.com/repository/Volcengine/' }
     }
 }
 
