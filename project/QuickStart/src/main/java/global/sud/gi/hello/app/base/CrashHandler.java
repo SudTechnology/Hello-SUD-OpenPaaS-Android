@@ -12,6 +12,8 @@ import android.widget.Toast;
 
 import com.blankj.utilcode.util.LogUtils;
 
+import global.sud.gi.hello.R;
+
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.io.Writer;
@@ -102,7 +104,7 @@ public class CrashHandler implements UncaughtExceptionHandler {
             @Override
             public void run() {
                 Looper.prepare();
-                Toast toast = Toast.makeText(mContext, "crash，quit", Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(mContext, mContext.getString(R.string.toast_crash_quit), Toast.LENGTH_LONG);
                 toast.setGravity(Gravity.CENTER, 0, 0);
                 toast.show();
                 Looper.loop();

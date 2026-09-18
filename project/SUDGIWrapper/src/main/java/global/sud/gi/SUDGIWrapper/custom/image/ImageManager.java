@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.util.Log;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -35,12 +36,15 @@ import global.sud.gi.SUDGIWrapper.custom.base.utils.ImageUtils;
 import global.sud.gi.SUDGIWrapper.custom.base.utils.UriCopyUtils;
 import global.sud.gi.SUDGIWrapper.custom.ui.model.ChooseImageResult;
 import global.sud.gi.SUDGIWrapper.custom.ui.widget.dialog.ChooseImageDialog;
+import global.sud.gi.SudGIPWrapper.R;
 import global.sud.op.runtime.core.SUDOPStateHandle;
 import global.sud.op.runtime.core.wrapped.SUDOPChooseImageParams;
 import global.sud.op.runtime.core.wrapped.SUDOPSaveImageTempParams;
 import global.sud.op.runtime.core.wrapped.SUDOPSaveImageToPhotosAlbumParams;
 
 public class ImageManager {
+
+    private static final String TAG = "ImageManager";
 
     private FragmentActivity activity;
 
@@ -67,7 +71,7 @@ public class ImageManager {
                 processChooseImageUri(imageUri);
                 imageUri = null;
             } else {
-                chooseImageStateHandle.failure(-1, "user cancel");
+                chooseImageStateHandle.failure(-1, activity.getString(R.string.sud_op_wck_error_user_cancelled));
                 chooseImageStateHandle = null;
             }
         });
@@ -85,18 +89,19 @@ public class ImageManager {
                     } else if ("png".equals(params.fileType)) {
                         ImageUtils.rgbaToPng(params.data, params.width, params.height, filePath);
                     } else {
-                        handle.failure(-1, "This file type is not supported：" + params.fileType);
+                        handle.failure(-1, activity.getString(R.string.sud_op_wck_error_unsupported_file_type, params.fileType));
                         return;
                     }
                 } catch (IOException e) {
-                    handle.failure(-1, "error:" + e);
+                    Log.e(TAG, "save_image_temp_generation_failure", e);
+                    handle.failure(-1, activity.getString(R.string.sud_op_wck_error_generate_image_data_failed));
                     return;
                 }
                 JSONObject obj = new JSONObject();
                 try {
                     obj.put("tempFilePath", filePath);
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    Log.e(TAG, "save_image_temp_result_serialization_failure", e);
                 }
                 String result = obj.toString();
                 handle.success(result);
@@ -123,20 +128,21 @@ public class ImageManager {
     public void saveImageToPhotosAlbum(SUDOPStateHandle handle, SUDOPSaveImageToPhotosAlbumParams params) {
         File file;
         if (params.filePath == null || !(file = new File(params.filePath)).exists()) {
-            handle.failure(-1, "The filePath does not exist.");
+            handle.failure(-1, activity.getString(R.string.sud_op_wck_error_file_path_not_found));
             return;
         }
         boolean result = false;
         try {
             result = saveImageToGallery(activity, file);
         } catch (Exception e) {
-            handle.failure(-1, "saveImageToPhotsAlbum error:" + e);
+            Log.e(TAG, "save_image_to_photos_failure", e);
+            handle.failure(-1, activity.getString(R.string.sud_op_wck_error_save_photo_failed));
             return;
         }
         if (result) {
             handle.success(null);
         } else {
-            handle.failure(-1, "saveImageToPhotsAlbum fail");
+            handle.failure(-1, activity.getString(R.string.sud_op_wck_error_save_photo_failed));
         }
     }
 
@@ -170,7 +176,7 @@ public class ImageManager {
         } else if (isAlbum) {
             selectAlbum(count, isOriginal, handle);
         } else {
-            handle.failure(-1, "sourceType fail to identify");
+            handle.failure(-1, activity.getString(R.string.sud_op_wck_error_invalid_source_types));
         }
     }
 
@@ -193,61 +199,56 @@ public class ImageManager {
     }
 
     public boolean saveImageToGallery(Context context, File file) throws Exception {
-        try {
-            // Android 10+
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                ContentValues values = new ContentValues();
-                values.put(MediaStore.Images.Media.DISPLAY_NAME, file.getName());
-                values.put(MediaStore.Images.Media.MIME_TYPE, "image/jpeg");
-                values.put(MediaStore.Images.Media.RELATIVE_PATH,
-                        Environment.DIRECTORY_PICTURES);
-                ContentResolver resolver = context.getContentResolver();
-                Uri uri = resolver.insert(
-                        MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
-                        values
-                );
-                if (uri == null) {
+        // Android 10+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            ContentValues values = new ContentValues();
+            values.put(MediaStore.Images.Media.DISPLAY_NAME, file.getName());
+            values.put(MediaStore.Images.Media.MIME_TYPE, "image/jpeg");
+            values.put(MediaStore.Images.Media.RELATIVE_PATH,
+                    Environment.DIRECTORY_PICTURES);
+            ContentResolver resolver = context.getContentResolver();
+            Uri uri = resolver.insert(
+                    MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+                    values
+            );
+            if (uri == null) {
+                return false;
+            }
+            try (OutputStream out = resolver.openOutputStream(uri);
+                 FileInputStream in = new FileInputStream(file)) {
+                if (out == null) {
                     return false;
                 }
-                try (OutputStream out = resolver.openOutputStream(uri);
-                     FileInputStream in = new FileInputStream(file)) {
-                    if (out == null) {
-                        return false;
-                    }
-                    byte[] buffer = new byte[4096];
-                    int len;
-                    while ((len = in.read(buffer)) != -1) {
-                        out.write(buffer, 0, len);
-                    }
-                    out.flush();
-                    return true;
+                byte[] buffer = new byte[4096];
+                int len;
+                while ((len = in.read(buffer)) != -1) {
+                    out.write(buffer, 0, len);
                 }
-            } else {
-                // Android 9及以下
-                File picturesDir = Environment.getExternalStoragePublicDirectory(
-                        Environment.DIRECTORY_PICTURES
-                );
-                if (!picturesDir.exists()) {
-                    picturesDir.mkdirs();
-                }
-                File destFile = new File(picturesDir, file.getName());
-                try (FileInputStream in = new FileInputStream(file);
-                     FileOutputStream out = new FileOutputStream(destFile)) {
-                    byte[] buffer = new byte[4096];
-                    int len;
-                    while ((len = in.read(buffer)) != -1) {
-                        out.write(buffer, 0, len);
-                    }
-                    out.flush();
-                }
-                // 通知图库刷新
-                MediaScannerConnection.scanFile(context, new String[]{destFile.getAbsolutePath()}, new String[]{"image/jpeg"}, null);
+                out.flush();
                 return true;
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw e;
         }
+
+        // Android 9及以下
+        File picturesDir = Environment.getExternalStoragePublicDirectory(
+                Environment.DIRECTORY_PICTURES
+        );
+        if (!picturesDir.exists()) {
+            picturesDir.mkdirs();
+        }
+        File destFile = new File(picturesDir, file.getName());
+        try (FileInputStream in = new FileInputStream(file);
+             FileOutputStream out = new FileOutputStream(destFile)) {
+            byte[] buffer = new byte[4096];
+            int len;
+            while ((len = in.read(buffer)) != -1) {
+                out.write(buffer, 0, len);
+            }
+            out.flush();
+        }
+        // 通知图库刷新
+        MediaScannerConnection.scanFile(context, new String[]{destFile.getAbsolutePath()}, new String[]{"image/jpeg"}, null);
+        return true;
     }
 
     private void showChooseDialog(int count, boolean isOriginal, SUDOPStateHandle handle) {
@@ -265,7 +266,7 @@ public class ImageManager {
 
             @Override
             public void onClickCancel() {
-                handle.failure(-1, "user cancel chooseImage");
+                handle.failure(-1, activity.getString(R.string.sud_op_wck_error_user_cancelled));
             }
         });
         dialog.show();
@@ -285,7 +286,7 @@ public class ImageManager {
 
                 @Override
                 public void onDenied() {
-                    handle.failure(-1, "No permission to take photos.");
+                    handle.failure(-1, activity.getString(R.string.sud_op_wck_error_camera_permission_denied));
                 }
             });
             permissionUtils.request();
@@ -314,7 +315,7 @@ public class ImageManager {
             return;
         }
         if (uri == null) {
-            chooseImageStateHandle.failure(-1, "user cancel");
+            chooseImageStateHandle.failure(-1, activity.getString(R.string.sud_op_wck_error_user_cancelled));
             chooseImageStateHandle = null;
             return;
         }
@@ -335,8 +336,8 @@ public class ImageManager {
                 chooseImageResult.addFile(result);
                 chooseImageStateHandle.success(GsonUtils.toJson(chooseImageResult));
             } catch (Exception e) {
-                e.printStackTrace();
-                chooseImageStateHandle.failure(-1, "compress fail:" + e);
+                Log.e(TAG, "choose_image_processing_failure", e);
+                chooseImageStateHandle.failure(-1, activity.getString(R.string.sud_op_wck_error_compress_image_failed));
             }
             chooseImageStateHandle = null;
         });

@@ -6,6 +6,7 @@
 package global.sud.gi.hello.app.base;
 
 import android.app.Application;
+import android.content.res.Configuration;
 import android.text.TextUtils;
 import android.view.Gravity;
 
@@ -16,7 +17,9 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+import global.sud.gi.core.ISUDAPPD;
 import global.sud.gi.hello.BuildConfig;
+import global.sud.gi.hello.app.common.utils.SUDGILanguageConfig;
 
 public class MyApplication extends Application {
 
@@ -25,15 +28,23 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        SUDGILanguageConfig.restoreApplicationLanguage();
         String processName = getProcessName(android.os.Process.myPid());
         LogUtils.d("processName:" + processName);
         if (getPackageName().equals(processName)) {//只有是当前进程下才需要初始化如下参数
             instance = this;
+            ISUDAPPD.e(1); // 固定使用 Pro 环境。
             configLog();
             configToast();
             initCrashHandler();
         }
         configBugly();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        SUDGILanguageConfig.restoreApplicationLanguage();
     }
 
     private void configBugly() {

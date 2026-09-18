@@ -29,7 +29,7 @@ public class ActionSheetDialog extends BaseDialog {
 
     @Override
     protected int getLayoutId() {
-        return R.layout.dialog_action_sheet;
+        return R.layout.sud_op_wck_dialog_action_sheet;
     }
 
     @Override

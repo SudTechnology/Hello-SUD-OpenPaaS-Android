@@ -23,6 +23,6 @@
         android:textSize="14sp"
         android:textColor="#303133"
         android:gravity="center"
-        android:text="@string/cancel" />
+        android:text="@string/sud_op_wck_common_cancel" />
 
 </LinearLayout>

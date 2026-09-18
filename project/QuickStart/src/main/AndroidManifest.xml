@@ -16,9 +16,6 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.CAMERA" />
 
-    <!-- 悬浮窗权限 -->
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-    <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" />
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -50,13 +47,43 @@
             </intent-filter>
         </activity>
 
+        <!-- 支付回跳仅恢复 App，不以链接参数判定支付结果。 -->
+        <activity
+            android:name="global.sud.gi.hello.game.pay.SUDGIPaymentReturnActivity"
+            android:exported="true"
+            android:excludeFromRecents="true"
+            android:launchMode="singleTask"
+            android:taskAffinity=""
+            android:theme="@android:style/Theme.NoDisplay">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:scheme="${SUDOP_DEMO_PAYMENT_RETURN_SCHEME}"
+                    android:host="pay"
+                    android:path="/result" />
+            </intent-filter>
+        </activity>
+
         <!-- 首页 -->
+        <activity
+            android:name="global.sud.gi.hello.app.ui.main.SUDGILanguageActivity"
+            android:exported="false" />
+
         <activity
             android:name="global.sud.gi.hello.app.ui.main.MainActivity"
             android:exported="false"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan"
+            tools:ignore="LockedOrientationActivity" />
+
+        <activity
+            android:name="global.sud.gi.hello.app.ui.main.GameListAPITestActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"
             tools:ignore="LockedOrientationActivity" />
 
         <activity
@@ -94,14 +121,6 @@
             tools:ignore="LockedOrientationActivity" />
 
         <activity
-            android:name="global.sud.gi.hello.app.ui.main.SmokeTestActivity"
-            android:exported="false"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan"
-            tools:ignore="LockedOrientationActivity" />
-
-        <activity
             android:name="global.sud.gi.hello.app.ui.game.GameInformationActivity"
             android:exported="false"
             android:launchMode="singleTask"
@@ -110,18 +129,14 @@
             android:configChanges="locale|orientation|screenSize|keyboardHidden|navigation"
             tools:ignore="LockedOrientationActivity" />
 
-        <activity
-            android:name=".quickstart.QuickStartGameActivity"
-            android:exported="false"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan"
-            android:configChanges="locale|orientation|screenSize|keyboardHidden|navigation" />
-
         <!-- 屏幕适配配置 -->
         <meta-data
             android:name="design_width_in_dp"
             android:value="375" />
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="${SUDM_DEMO_ADMOB_APP_ID}" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

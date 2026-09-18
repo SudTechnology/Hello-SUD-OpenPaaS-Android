@@ -16,7 +16,7 @@ public class LoadingHintView extends View {
     /**
      * 提示的内容
      */
-    public String title = "loading...";
+    public String title = "";
 
     /**
      * 是否显示透明蒙层，防止触摸穿透

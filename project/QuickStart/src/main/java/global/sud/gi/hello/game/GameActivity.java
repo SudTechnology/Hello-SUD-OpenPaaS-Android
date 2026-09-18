@@ -18,6 +18,7 @@ import com.gyf.immersionbar.ImmersionBar;
 import global.sud.gi.SUDGIWrapper.base.BaseGameViewModel;
 import global.sud.gi.hello.R;
 import global.sud.gi.hello.app.common.base.BaseActivity;
+import global.sud.gi.hello.app.common.utils.LanguageUtils;
 import global.sud.gi.hello.app.common.utils.ViewUtils;
 import global.sud.gi.hello.app.ui.game.GameInformationActivity;
 import global.sud.gi.hello.app.ui.game.GameInformationDialog;
@@ -175,7 +176,7 @@ public class GameActivity extends BaseActivity implements CustomAdapt {
             return;
         }
         isRequestingGameInfo = true;
-        SUDOP.getGameInformation(gameId, new SUDOPGetGameInformationListener() {
+        SUDOP.getGameInformation(gameId, LanguageUtils.getLanguageTag(this), new SUDOPGetGameInformationListener() {
             @Override
             public void onSuccess(SUDOPGameInformationModel model) {
                 gameInformationModel = model;
@@ -185,7 +186,7 @@ public class GameActivity extends BaseActivity implements CustomAdapt {
 
             @Override
             public void onFailure(int retCode, String retMsg) {
-                ToastUtils.showShort("error retCode:" + retCode + " retMsg:" + retMsg);
+                ToastUtils.showShort(getString(R.string.toast_game_error, retCode, retMsg));
                 isRequestingGameInfo = false;
             }
         });
@@ -269,8 +270,8 @@ public class GameActivity extends BaseActivity implements CustomAdapt {
 
     @Override
     public void onBackPressed() {
-        gameViewModel.destroyGame();
-        super.onBackPressed();
+//        gameViewModel.destroyGame();
+//        super.onBackPressed();
     }
 
     @Override

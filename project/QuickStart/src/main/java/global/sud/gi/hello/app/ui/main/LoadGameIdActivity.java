@@ -7,6 +7,7 @@ import android.widget.EditText;
 import com.blankj.utilcode.util.ToastUtils;
 
 import global.sud.gi.hello.R;
+import global.sud.gi.hello.app.base.AppConfig;
 import global.sud.gi.hello.app.common.base.BaseActivity;
 import global.sud.gi.hello.app.common.utils.GlobalSP;
 import global.sud.gi.hello.app.ui.main.model.GameModel;
@@ -26,7 +27,7 @@ public class LoadGameIdActivity extends BaseActivity {
     protected void initWidget() {
         super.initWidget();
         etGameId = findViewById(R.id.et_gameid);
-        etGameId.setText(GlobalSP.getSP().getString(GlobalSP.KEY_GAME_ID, "2049100752121937922"));
+        etGameId.setText(GlobalSP.getSP().getString(GlobalSP.KEY_GAME_ID, AppConfig.TEST_GAME_ID));
     }
 
     @Override
@@ -38,7 +39,7 @@ public class LoadGameIdActivity extends BaseActivity {
     private void startGame() {
         String gameId = getInputContent();
         if (TextUtils.isEmpty(gameId)) {
-            ToastUtils.showShort("请输入gameId");
+            ToastUtils.showShort(getString(R.string.toast_enter_game_id));
             return;
         }
         GameModel gameModel = new GameModel();

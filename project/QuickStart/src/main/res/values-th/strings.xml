@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sud_gi_language_entry">ตั้งค่าภาษา: %1$s</string>
+    <string name="sud_gi_language_title">ตั้งค่าภาษา</string>
+    <string name="sud_gi_language_system">ตามระบบ</string>
+    <string name="sud_gi_language_notice">แตะภาษาเพื่อใช้ทันที ระบบจะบันทึกไว้สำหรับการเปิดแอปครั้งถัดไป เปลี่ยนภาษาแอปเพื่อทดสอบข้อความเริ่มต้นของ Wrapper ข้อความที่เกมกำหนดเองจะไม่ถูกแปลโดยอัตโนมัติ</string>
+    <string name="app_name">SUDOP</string>
+    <string name="net_error_hint">เกิดข้อผิดพลาดของเครือข่าย โปรดตรวจสอบการเชื่อมต่อ</string>
+    <string name="common_camera">กล้อง</string>
+    <string name="common_storage">พื้นที่เก็บข้อมูล</string>
+    <string name="common_correlation">ที่เกี่ยวข้อง</string>
+    <string name="common_record_audio">ไมโครโฟน</string>
+    <string name="common_phone">โทรศัพท์</string>
+    <string name="common_setting_permission_info">เปิดสิทธิ์ %1$s ในการตั้งค่าเพื่อใช้ฟีเจอร์ของ %2$s ได้ตามปกติ</string>
+    <string name="main_top_title">SUDGI</string>
+    <string name="main_top_url">www.sud.tech</string>
+    <string name="select_game">เลือกเกม</string>
+    <string name="audio_chat_hint">พูดอะไรสักหน่อย…</string>
+    <string name="audio_gameing">กำลังเล่นเกม</string>
+    <string name="close_game">ปิดเกม</string>
+    <string name="room_name">มาเล่นด้วยกัน</string>
+    <string name="enter">เข้า</string>
+    <string name="room_number">หมายเลขห้อง</string>
+    <string name="exit_room">ออกจากห้อง</string>
+    <string name="restart">เข้าใหม่</string>
+    <string name="game_information">ข้อมูลเกม</string>
+    <string name="main_start_by_game_id">เริ่มด้วย Game ID</string>
+    <string name="main_start_by_game_signature">เริ่มด้วย Game Signature</string>
+    <string name="main_load_existing_game">โหลดแพ็กเกจเกมที่มีอยู่</string>
+    <string name="input_game_id_hint">ป้อน Game ID</string>
+    <string name="input_game_signature_hint">ป้อน Game Signature</string>
+    <string name="start_game">เริ่มเกม</string>
+    <string name="load_old_instruction">เลือกไดเรกทอรีแพ็กเกจเกมก่อนเริ่ม หรือป้อนเส้นทางด้านล่าง</string>
+    <string name="load_old_manifest_instruction">เลือก manifest.json แบบกำหนดเองหากไม่ได้อยู่ในไดเรกทอรีแพ็กเกจเกม</string>
+    <string name="load_old_path_hint">ป้อนเส้นทางไดเรกทอรี</string>
+    <string name="select_game_directory">เลือกไดเรกทอรีแพ็กเกจเกม</string>
+    <string name="select_manifest_json">เลือก manifest.json</string>
+    <string name="payment_mock_title">จำลองการชำระเงิน</string>
+    <string name="payment_pay">ชำระเงิน</string>
+    <string name="payment_query_result">ดูผลลัพธ์</string>
+    <string name="common_back">กลับ</string>
+    <string name="game_info_basic">ข้อมูลพื้นฐาน</string>
+    <string name="game_info_verified_subject">หน่วยงานที่ยืนยันแล้ว</string>
+    <string name="game_info_verification_type">ประเภทการยืนยัน</string>
+    <string name="game_info_game_id">Game ID</string>
+    <string name="game_info_category">หมวดหมู่เกม</string>
+    <string name="game_info_update_time">อัปเดตล่าสุด</string>
+    <string name="game_info_service_phone">โทรศัพท์ฝ่ายสนับสนุน</string>
+    <string name="game_info_service_email">อีเมลฝ่ายสนับสนุน</string>
+    <string name="game_info_service_privacy">ความเป็นส่วนตัวของบริการ</string>
+    <string name="game_info_service_statement">คำชี้แจงบริการ</string>
+    <string name="game_info_statement_content">นักพัฒนาเป็นผู้ให้บริการนี้แก่ผู้ใช้ และรับผิดชอบอย่างเต็มที่ต่อความถูกต้องตามจริง ความชอบด้วยกฎหมาย และความมีผลของข้อมูล เนื้อหา และการดำเนินงานของบริการ OpenPaaS ให้บริการสนับสนุนทางเทคนิคแก่นักพัฒนา</string>
+    <string name="game_info_default_game_name">เกมนี้</string>
+    <string name="game_info_privacy_guide">คู่มือความเป็นส่วนตัวของ %1$s</string>
+    <string name="game_info_privacy_handling">นักพัฒนาประมวลผลข้อมูลส่วนบุคคลของคุณอย่างเคร่งครัดตาม %1$s</string>
+    <string name="game_info_subject_personal">บุคคล</string>
+    <string name="game_info_subject_company">บริษัท</string>
+    <string name="game_info_category_role_playing">สวมบทบาท</string>
+    <string name="game_info_category_strategy">กลยุทธ์</string>
+    <string name="game_info_category_casual">แคชชวลและปริศนา</string>
+    <string name="game_info_category_action">แอ็กชันและผจญภัย</string>
+    <string name="game_info_category_shooter">ยิงปืน</string>
+    <string name="game_info_category_sports">กีฬาและแข่งรถ</string>
+    <string name="game_info_category_board">กระดานและไพ่</string>
+    <string name="game_info_category_music">ดนตรีและเต้นรำ</string>
+    <string name="toast_enter_game_id">โปรดป้อน Game ID</string>
+    <string name="toast_enter_game_signature">โปรดป้อน Game Signature</string>
+    <string name="toast_invalid_game_signature">รูปแบบ signature ไม่ถูกต้อง</string>
+    <string name="toast_permission_denied">ไม่ได้รับสิทธิ์</string>
+    <string name="toast_game_directory_missing">ไม่พบไดเรกทอรีเกม</string>
+    <string name="toast_manifest_loaded">โหลด manifest.json แล้ว</string>
+    <string name="toast_exception">ข้อผิดพลาด: %1$s</string>
+    <string name="toast_game_error">ข้อผิดพลาด — รหัส: %1$d; ข้อความ: %2$s</string>
+    <string name="toast_sudm_init_failed">เริ่มต้น SUDM ไม่สำเร็จ: %1$d (%2$s)</string>
+    <string name="toast_crash_quit">แอปขัดข้องและจะปิด</string>
+    <string name="ad_hot_games">เกมยอดนิยมแนะนำ</string>
+    <string name="ad_banner_description">รางวัลดี เล่นง่าย ลองเลยตอนนี้</string>
+    <string name="ad_download_now">ดาวน์โหลดเลย</string>
+    <string name="ad_image_placeholder">รูปภาพ</string>
+    <string name="ad_recommended_mini_games">มินิเกมคัดสรร</string>
+    <string name="ad_mini_games">มินิเกมแนะนำ</string>
+    <string name="ad_more_fun">สนุก\nกว่า</string>
+    <string name="ad_label">โฆษณา</string>
+    <string name="ad_interstitial_title">ละครสั้นฟรี Hongguo</string>
+    <string name="ad_interstitial_description">เพลิดเพลินกับละครสั้นมากมายบน Hongguo</string>
+    <string name="ad_watch_short_dramas_free">ดูละครสั้นฟรี</string>
+    <string name="ad_interstitial_footer">ความเป็นส่วนตัว | สิทธิ์ | เกี่ยวกับ | V7.1.5… | Beijing Bimoliuxiang Technology Co., Ltd.</string>
+    <string name="ad_back">‹ กลับ</string>
+    <string name="ad_native_app_name">ชื่อแอป</string>
+    <string name="ad_native_app_description">คำอธิบายแอป</string>
+    <string name="ad_install">ติดตั้ง</string>
+    <string name="ad_native_footer">3.1.5 | XXXX Co., Ltd. | ความเป็นส่วนตัว | สิทธิ์</string>
+    <string name="ad_reward_countdown">ดู %1$d วินาทีเพื่อรับรางวัล</string>
+    <string name="ad_reward_earned">ครบเงื่อนไขรับรางวัลแล้ว</string>
+    <string name="ad_reward_exit_message">ดูต่ออีก %1$d วินาทีเพื่อรับรางวัล ออกตอนนี้หรือไม่?</string>
+    <string name="ad_close_video">ปิดวิดีโอ</string>
+    <string name="ad_continue_watching">ดูต่อ</string>
+    <string name="ad_sound_on">เสียง</string>
+    <string name="ad_sound_off">ปิดเสียง</string>
+    <string-array name="ad_portal_game_names">
+        <item>ระเบิดกระต่าย</item>
+        <item>บล็อกจิ๋ว…</item>
+        <item>สไตลิสต์ไอดอล</item>
+        <item>หัวหน้าห้องยอดเยี่ยม</item>
+        <item>ซูชิรัช</item>
+        <item>แกะสลักไม้ 6</item>
+        <item>งานเลี้ยงนักรบ</item>
+        <item>ผู้เชี่ยวชาญดูแลเท้า</item>
+        <item>ระเบิดทั่วชาติ…</item>
+    </string-array>
+    <string-array name="ad_portal_icon_texts">
+        <item>ก</item>
+        <item>บ</item>
+        <item>อ</item>
+        <item>ห</item>
+        <item>ซ</item>
+        <item>ม</item>
+        <item>น</item>
+        <item>ท</item>
+        <item>ร</item>
+    </string-array>
+    <string-array name="ad_drawer_game_names">
+        <item>ลูกบอลฝันจักรวาล</item>
+        <item>ด้วงไซโคลน</item>
+        <item>วีรบุรุษเขตสงคราม</item>
+        <item>โลกแห่งการเดินทาง</item>
+        <item>วัวซูเปอร์</item>
+        <item>อย่าเหยียบบล็อก</item>
+    </string-array>
+    <string-array name="ad_drawer_icon_texts">
+        <item>จ</item>
+        <item>ด</item>
+        <item>ว</item>
+        <item>ล</item>
+        <item>ว</item>
+        <item>บ</item>
+    </string-array>
+    <string-array name="ad_banner_game_names">
+        <item>ผู้เชี่ยวชาญดูแลเท้า</item>
+        <item>แกะสลักไม้ 6</item>
+        <item>ระเบิดกระต่าย</item>
+        <item>เปียโนไทล์ 2</item>
+        <item>หัวหน้าห้องยอดเยี่ยม</item>
+    </string-array>
+    <string-array name="ad_banner_icon_texts">
+        <item>ท</item>
+        <item>ม</item>
+        <item>ก</item>
+        <item>2</item>
+        <item>ห</item>
+    </string-array>
+    <string name="main_get_game_list">รับรายชื่อเกม</string>
+    <string name="game_list_api_test_title">ทดสอบ API รายชื่อเกม</string>
+    <string name="game_list_api_page_no_label">pageNo</string>
+    <string name="game_list_api_page_size_label">pageSize</string>
+    <string name="game_list_api_page_no_hint">หมายเลขหน้า (เริ่มจาก 0)</string>
+    <string name="game_list_api_page_size_hint">จำนวนต่อหน้า</string>
+    <string name="game_list_api_request">ขอรายชื่อเกม</string>
+    <string name="game_list_api_previous">หน้าก่อนหน้า</string>
+    <string name="game_list_api_next">หน้าถัดไป</string>
+    <string name="game_list_api_initial_status">กรอกพารามิเตอร์หน้าแล้วแตะขอข้อมูล</string>
+    <string name="game_list_api_requesting">กำลังขอข้อมูล…</string>
+    <string name="game_list_api_init_failed">เริ่มต้น SDK ไม่สำเร็จ: %1$d, %2$s</string>
+    <string name="game_list_api_request_failed">ขอข้อมูลไม่สำเร็จ: %1$d, %2$s</string>
+    <string name="game_list_api_request_success">สำเร็จ: หน้า %1$d, %2$d รายการ, ทั้งหมด %3$d รายการ (pageSize จากเซิร์ฟเวอร์=%4$d)</string>
+    <string name="game_list_api_unknown_error">ข้อผิดพลาดที่ไม่ทราบสาเหตุ</string>
+    <string name="game_list_api_item_format">gameId: %1$s\ngameName: %2$s\nicon: %3$s\nversion: %4$s</string>
+    <string name="sud_gi_language_custom">กำหนดเอง</string>
+    <string name="sud_gi_language_custom_hint">รหัสภาษา เช่น vi-VN</string>
+    <string name="sud_gi_language_custom_empty">กรุณาป้อนรหัสภาษา</string>
+    <string name="sud_gi_language_custom_invalid">รหัสภาษาไม่ถูกต้อง เช่น vi-VN</string>
+</resources>

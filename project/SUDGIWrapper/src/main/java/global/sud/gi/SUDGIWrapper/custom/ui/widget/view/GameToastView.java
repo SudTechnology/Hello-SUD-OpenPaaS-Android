@@ -8,6 +8,8 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.RectF;
+import android.text.Layout;
+import android.text.StaticLayout;
 import android.text.TextPaint;
 import android.text.TextUtils;
 import android.util.AttributeSet;
@@ -30,9 +32,9 @@ public class GameToastView extends View {
     public String title = "";
 
     /**
-     * success 显示成功图标，此时 title 文本最多显示 7 个汉字长度
-     * error 显示失败图标，此时 title 文本最多显示 7 个汉字长度
-     * loading 显示加载图标，此时 title 文本最多显示 7 个汉字长度
+     * success 显示成功图标
+     * error 显示失败图标
+     * loading 显示加载图标
      * none 不显示图标
      */
     public String icon = ICON_NONE;
@@ -221,8 +223,10 @@ public class GameToastView extends View {
      * 带图标的 Toast，类似截图中的成功、失败、提示样式。
      */
     private void drawIconToast(Canvas canvas, int viewWidth, int viewHeight, boolean hasCustomImage) {
-        float boxWidth = dp(130);
-        float boxHeight = dp(122);
+        IconToastLayout toastLayout = calculateIconToastLayout(title, viewWidth);
+        float boxWidth = toastLayout.boxWidth;
+        float boxHeight = toastLayout.boxHeight;
+        StaticLayout titleLayout = toastLayout.titleLayout;
 
         float centerX = viewWidth / 2f;
         float centerY = viewHeight / 2f;
@@ -247,8 +251,27 @@ public class GameToastView extends View {
             drawSystemIcon(canvas, iconCenterX, iconCenterY);
         }
 
-        String text = buildIconModeTitle();
-        drawSingleLineText(canvas, text, centerX, bottom - dp(32), boxWidth - dp(18));
+        if (titleLayout != null) {
+            float textLeft = centerX - titleLayout.getWidth() / 2f;
+            float textTop = top + dp(21) + dp(44) + dp(12);
+            canvas.save();
+            canvas.translate(textLeft, textTop);
+            titleLayout.draw(canvas);
+            canvas.restore();
+        }
+    }
+
+    IconToastLayout calculateIconToastLayout(String title, int viewWidth) {
+        String text = title == null ? "" : title;
+        float horizontalPadding = dp(18);
+        float maxBoxWidth = Math.max(dp(1), Math.min(dp(320), viewWidth - dp(40)));
+        float desiredBoxWidth = TextUtils.isEmpty(text) ? dp(130) : Layout.getDesiredWidth(text, textPaint) + horizontalPadding * 2;
+        float boxWidth = Math.min(maxBoxWidth, Math.max(dp(130), desiredBoxWidth));
+        int textWidth = Math.max(1, Math.round(boxWidth - horizontalPadding * 2));
+        StaticLayout titleLayout = TextUtils.isEmpty(text) ? null : buildIconModeTitleLayout(text, textWidth);
+        float titleHeight = titleLayout == null ? 0 : titleLayout.getHeight();
+        float boxHeight = Math.max(dp(122), dp(21) + dp(44) + dp(12) + titleHeight + dp(18));
+        return new IconToastLayout(boxWidth, boxHeight, titleLayout);
     }
 
     /**
@@ -435,47 +458,31 @@ public class GameToastView extends View {
         canvas.drawText(showText.toString(), centerX, baseline, textPaint);
     }
 
-    /**
-     * 带图标模式下，title 最多显示 7 个汉字长度。
-     */
-    private String buildIconModeTitle() {
-        if (title == null) {
-            return "";
-        }
-
-        return limitByChineseLength(title, 7);
+    @SuppressWarnings("deprecation")
+    StaticLayout buildIconModeTitleLayout(String text, int width) {
+        TextPaint layoutPaint = new TextPaint(textPaint);
+        layoutPaint.setTextAlign(Paint.Align.LEFT);
+        return new StaticLayout(
+                text == null ? "" : text,
+                layoutPaint,
+                Math.max(1, width),
+                Layout.Alignment.ALIGN_CENTER,
+                1f,
+                0f,
+                false
+        );
     }
 
-    /**
-     * 简单按照“汉字长度”限制。
-     * 中文字符算 1，非中文字符算 0.5。
-     */
-    private String limitByChineseLength(String text, float maxChineseLength) {
-        if (TextUtils.isEmpty(text)) {
-            return "";
+    static final class IconToastLayout {
+        final float boxWidth;
+        final float boxHeight;
+        final StaticLayout titleLayout;
+
+        IconToastLayout(float boxWidth, float boxHeight, StaticLayout titleLayout) {
+            this.boxWidth = boxWidth;
+            this.boxHeight = boxHeight;
+            this.titleLayout = titleLayout;
         }
-
-        float length = 0;
-        StringBuilder builder = new StringBuilder();
-
-        for (int i = 0; i < text.length(); i++) {
-            char c = text.charAt(i);
-            float charLength = isChinese(c) ? 1f : 0.5f;
-
-            if (length + charLength > maxChineseLength) {
-                builder.append("...");
-                break;
-            }
-
-            builder.append(c);
-            length += charLength;
-        }
-
-        return builder.toString();
-    }
-
-    private boolean isChinese(char c) {
-        return c >= 0x4E00 && c <= 0x9FA5;
     }
 
     private boolean hasCustomImage() {

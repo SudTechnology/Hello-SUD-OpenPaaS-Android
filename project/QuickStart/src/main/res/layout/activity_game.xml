@@ -12,14 +12,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <!-- The controls required for the demo presentation -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/widget_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/container_more"
         android:layout_width="86dp"
         android:layout_height="32dp"
         android:layout_marginTop="6dp"
         android:layout_marginEnd="8dp"
-        android:visibility="gone"
         android:background="@drawable/shape_game_top_container_bg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -58,10 +61,5 @@
             app:layout_constraintBottom_toBottomOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/widget_container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -140,7 +140,7 @@ public class LoadOldGameActivity extends BaseActivity {
                 }
             }
             if (!isGranted) {
-                ToastUtils.showShort("没有拿到权限");
+                ToastUtils.showShort(getString(R.string.toast_permission_denied));
                 return;
             }
         }
@@ -164,7 +164,7 @@ public class LoadOldGameActivity extends BaseActivity {
         String path = getInputPath();
         File gameDir;
         if (TextUtils.isEmpty(path) || !(gameDir = new File(path)).exists()) {
-            ToastUtils.showShort("游戏目录不存在");
+            ToastUtils.showShort(getString(R.string.toast_game_directory_missing));
             return;
         }
 
@@ -210,7 +210,7 @@ public class LoadOldGameActivity extends BaseActivity {
                 }
             }
             if (!isGranted) {
-                ToastUtils.showShort("没有拿到权限");
+                ToastUtils.showShort(getString(R.string.toast_permission_denied));
                 initPermission();
                 return;
             }
@@ -241,10 +241,10 @@ public class LoadOldGameActivity extends BaseActivity {
                     ThreadUtils.runOnUiThread(() -> {
                         tvManifestInfo.setText(manifestJson);
                     });
-                    ToastUtils.showShort("读取manifest.json完成");
+                    ToastUtils.showShort(getString(R.string.toast_manifest_loaded));
                 } catch (Exception e) {
                     e.printStackTrace();
-                    ToastUtils.showShort("异常：" + e);
+                    ToastUtils.showShort(getString(R.string.toast_exception, e));
                 }
             }
         }.start();

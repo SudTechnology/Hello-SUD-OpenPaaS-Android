@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
-import java.text.SimpleDateFormat;
+import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Map;
@@ -23,6 +23,7 @@ import java.util.Map;
 import global.sud.gi.hello.R;
 import global.sud.gi.hello.app.common.base.BaseActivity;
 import global.sud.gi.hello.app.common.utils.ImageLoader;
+import global.sud.gi.hello.app.common.utils.LanguageUtils;
 import global.sud.op.runtime.core.model.SUDOPGameInformationModel;
 
 public class GameInformationActivity extends BaseActivity {
@@ -119,13 +120,11 @@ public class GameInformationActivity extends BaseActivity {
         tvServicePhone.setText(emptyToDefault(data.service_phone, "--"));
         tvServiceEmail.setText(emptyToDefault(data.service_email, "--"));
 
-        setPrivacyText(gameName, data.privacy_policy_url);
+        setPrivacyText(gameName, getMultiLanguageText(data.privacyPolicy));
 
-        tvServiceStatement.setText(
-                "本服务由开发者向用户提供，开发者对服务信息内容、数据资料及其运营行为等的真实性、合法性及有效性承担全部责任。OpenPaaS向开发者提供技术支持服务。"
-        );
+        tvServiceStatement.setText(R.string.game_info_statement_content);
 
-        loadGameIcon(data.game_icon);
+        loadGameIcon(getMultiLanguageText(data.icon));
     }
 
     /**
@@ -140,9 +139,11 @@ public class GameInformationActivity extends BaseActivity {
     }
 
     private void setPrivacyText(String gameName, String privacyUrl) {
-        String name = emptyToDefault(gameName, "本游戏");
-        String linkText = "《" + name + "的隐私保护指引》";
-        String fullText = "开发者严格按照 " + linkText + " 处理你的个人信息。";
+        String name = emptyToDefault(gameName, getString(R.string.game_info_default_game_name));
+        // FSI/PDI 让游戏名独立判断书写方向，避免被外层文案改变混排顺序。
+        String isolatedName = "\u2068" + name + "\u2069";
+        String linkText = getString(R.string.game_info_privacy_guide, isolatedName);
+        String fullText = getString(R.string.game_info_privacy_handling, linkText);
 
         SpannableString spannableString = new SpannableString(fullText);
 
@@ -179,56 +180,15 @@ public class GameInformationActivity extends BaseActivity {
     }
 
     private String getMultiLanguageText(Map<String, String> map) {
-        if (map == null || map.isEmpty()) {
-            return "";
-        }
-
-        Locale locale = Locale.getDefault();
-
-        String language = locale.getLanguage();
-        String country = locale.getCountry();
-
-        String key1 = language + "-" + country;
-        String key2 = language + "_" + country;
-        String key3 = language;
-
-        if (map.containsKey(key1)) {
-            return map.get(key1);
-        }
-
-        if (map.containsKey(key2)) {
-            return map.get(key2);
-        }
-
-        if (map.containsKey(key3)) {
-            return map.get(key3);
-        }
-
-        if (map.containsKey("zh-CN")) {
-            return map.get("zh-CN");
-        }
-
-        if (map.containsKey("zh_CN")) {
-            return map.get("zh_CN");
-        }
-
-        if (map.containsKey("en-US")) {
-            return map.get("en-US");
-        }
-
-        for (String value : map.values()) {
-            return value;
-        }
-
-        return "";
+        return LanguageUtils.getMultiLanguageText(context, map);
     }
 
     private String getSubjectTypeText(int type) {
         switch (type) {
             case 0:
-                return "个人";
+                return getString(R.string.game_info_subject_personal);
             case 1:
-                return "企业";
+                return getString(R.string.game_info_subject_company);
             default:
                 return "--";
         }
@@ -237,21 +197,21 @@ public class GameInformationActivity extends BaseActivity {
     private String getCategoryText(int category) {
         switch (category) {
             case 1:
-                return "角色扮演";
+                return getString(R.string.game_info_category_role_playing);
             case 2:
-                return "经营策略";
+                return getString(R.string.game_info_category_strategy);
             case 3:
-                return "休闲益智";
+                return getString(R.string.game_info_category_casual);
             case 4:
-                return "动作冒险";
+                return getString(R.string.game_info_category_action);
             case 5:
-                return "射击游戏";
+                return getString(R.string.game_info_category_shooter);
             case 6:
-                return "体育竞速";
+                return getString(R.string.game_info_category_sports);
             case 7:
-                return "棋牌游戏";
+                return getString(R.string.game_info_category_board);
             case 8:
-                return "音乐舞蹈";
+                return getString(R.string.game_info_category_music);
             default:
                 return "--";
         }
@@ -263,8 +223,8 @@ public class GameInformationActivity extends BaseActivity {
         }
 
         try {
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy年M月d日", Locale.CHINA);
-            return sdf.format(new Date(timeMillis));
+            Locale locale = getResources().getConfiguration().getLocales().get(0);
+            return DateFormat.getDateInstance(DateFormat.MEDIUM, locale).format(new Date(timeMillis));
         } catch (Exception e) {
             return "--";
         }

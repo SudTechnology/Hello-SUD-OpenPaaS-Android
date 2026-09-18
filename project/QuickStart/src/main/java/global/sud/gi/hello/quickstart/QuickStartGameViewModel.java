@@ -23,6 +23,7 @@ import java.util.Objects;
 import global.sud.gi.SUDGIWrapper.base.BaseGameViewModel;
 import global.sud.gi.SUDGIWrapper.custom.base.utils.QuickStartUtils;
 import global.sud.gi.SUDGIWrapper.custom.client.QgExtendedClient;
+import global.sud.gi.hello.app.common.utils.LanguageUtils;
 import global.sud.op.runtime.core.SUDRTGameHandle;
 import global.sud.op.runtime.core.SUDRTGamePackageManager;
 import global.sud.op.runtime.core.model.SUDOPGameInfo;
@@ -150,6 +151,11 @@ public class QuickStartGameViewModel extends BaseGameViewModel {
     @Override
     public String getAppKey() {
         return SUD_APP_KEY;
+    }
+
+    @Override
+    protected String getLanguage(Activity activity) {
+        return LanguageUtils.getLanguageTag(activity);
     }
 
     @Override

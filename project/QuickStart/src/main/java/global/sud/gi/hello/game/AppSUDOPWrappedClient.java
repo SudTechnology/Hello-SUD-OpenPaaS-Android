@@ -19,17 +19,9 @@ import global.sud.gi.hello.app.common.http.param.BaseResponse;
 import global.sud.gi.hello.app.common.http.rx.RxCallback;
 import global.sud.gi.hello.app.service.MainRepository;
 import global.sud.gi.hello.app.service.resp.GetUserProfileResp;
-import global.sud.gi.hello.game.ad.AdManager;
 import global.sud.gi.hello.game.pay.PayManager;
 import global.sud.op.runtime.client.SUDOPCommonStateHandle;
 import global.sud.op.runtime.core.SUDOPStateHandle;
-import global.sud.op.runtime.core.ad.SUDOPBannerAd;
-import global.sud.op.runtime.core.ad.SUDOPCustomAd;
-import global.sud.op.runtime.core.ad.SUDOPGameBannerAd;
-import global.sud.op.runtime.core.ad.SUDOPGameDrawerAd;
-import global.sud.op.runtime.core.ad.SUDOPGamePortalAd;
-import global.sud.op.runtime.core.ad.SUDOPInterstitialAd;
-import global.sud.op.runtime.core.ad.SUDOPRewardedAd;
 import global.sud.op.runtime.core.listener.SUDOPWrappedClient;
 import global.sud.op.runtime.core.model.SUDOPSetKeepScreenOnParams;
 import global.sud.op.runtime.core.model.SUDOPSetScreenBrightnessParams;
@@ -52,7 +44,6 @@ public abstract class AppSUDOPWrappedClient implements SUDOPWrappedClient {
     private final FrameLayout gameContainer;
     private final ConstraintLayout widgetContainer;
 
-    private AdManager adManager;
     private GameUiManager gameUiManager;
     private ImageManager imageManager;
     private PayManager payManager;
@@ -66,7 +57,6 @@ public abstract class AppSUDOPWrappedClient implements SUDOPWrappedClient {
     }
 
     private void initData() {
-        adManager = new AdManager(activity, widgetContainer);
         gameUiManager = new GameUiManager(activity, widgetContainer);
         imageManager = new ImageManager(activity);
         payManager = new PayManager(activity, gameViewModel);
@@ -167,41 +157,6 @@ public abstract class AppSUDOPWrappedClient implements SUDOPWrappedClient {
     public void createVideo(SUDOPVideo params) {
         VideoContainer videoContainer = new VideoContainer(activity, gameContainer);
         videoContainer.initVideo(params);
-    }
-
-    @Override
-    public void createBannerAd(SUDOPBannerAd bannerAd) {
-        adManager.createBannerAd(bannerAd);
-    }
-
-    @Override
-    public void createCustomAd(SUDOPCustomAd customAd) {
-        adManager.createCustomAd(customAd);
-    }
-
-    @Override
-    public void createInterstitialAd(SUDOPInterstitialAd interstitialAd) {
-        adManager.createInterstitialAd(interstitialAd);
-    }
-
-    @Override
-    public void createGameBannerAd(SUDOPGameBannerAd gameBannerAd) {
-        adManager.createGameBannerAd(gameBannerAd);
-    }
-
-    @Override
-    public void createGamePortalAd(SUDOPGamePortalAd gamePortalAd) {
-        adManager.createGamePortalAd(gamePortalAd);
-    }
-
-    @Override
-    public void createGameDrawerAd(SUDOPGameDrawerAd gameDrawerAd) {
-        adManager.createGameDrawerAd(gameDrawerAd);
-    }
-
-    @Override
-    public void createRewardedVideoAd(SUDOPRewardedAd rewardedAd) {
-        adManager.createRewardedVideoAd(rewardedAd);
     }
 
     @Override

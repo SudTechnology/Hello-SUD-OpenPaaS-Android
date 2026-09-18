@@ -58,7 +58,7 @@ public class VideoContainer extends ConstraintLayout {
     }
 
     private void initView(Context context) {
-        inflate(context, R.layout.view_video_container, this);
+        inflate(context, R.layout.sud_op_wck_view_video_container, this);
         ivPoster = findViewById(R.id.iv_poster);
         ivFullScreen = findViewById(R.id.iv_video_fullscreen);
         ivControl = findViewById(R.id.iv_video_control);
@@ -231,7 +231,7 @@ public class VideoContainer extends ConstraintLayout {
         currentOrientation = activity.getRequestedOrientation();
         this.video = video;
         TextureView videoView = video.videoView;
-        ConstraintLayout.LayoutParams videoViewLayoutParams = new ConstraintLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+        LayoutParams videoViewLayoutParams = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
         addView(videoView, 0, videoViewLayoutParams);
 
         setVideoListeners(video);

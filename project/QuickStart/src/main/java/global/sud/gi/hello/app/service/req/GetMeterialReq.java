@@ -6,7 +6,6 @@ public class GetMeterialReq {
      * BANNER(1, "横幅广告"),
      * INTERSTITIAL(2, "插屏广告"),
      * CUSTOM(3, "自定义广告"),
-     * BOX(4, "盒子"),
      * SPLASH(5, "开屏广告");
      */
     public int slot_code; // 广告位类型

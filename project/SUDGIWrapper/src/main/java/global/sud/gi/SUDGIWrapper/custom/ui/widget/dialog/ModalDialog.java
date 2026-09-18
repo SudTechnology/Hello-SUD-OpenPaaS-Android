@@ -33,7 +33,7 @@ public class ModalDialog extends BaseDialog {
 
     @Override
     protected int getLayoutId() {
-        return R.layout.dialog_modal;
+        return R.layout.sud_op_wck_dialog_modal;
     }
 
     @Override
@@ -68,7 +68,7 @@ public class ModalDialog extends BaseDialog {
             viewLineVertical.setVisibility(View.VISIBLE);
             tvCancel.setVisibility(View.VISIBLE);
             if (TextUtils.isEmpty(params.cancelText)) {
-                tvCancel.setText(R.string.cancel);
+                tvCancel.setText(R.string.sud_op_wck_common_cancel);
             } else {
                 tvCancel.setText(params.cancelText);
             }
@@ -85,7 +85,7 @@ public class ModalDialog extends BaseDialog {
         }
 
         if (TextUtils.isEmpty(params.confirmText)) {
-            tvConfirm.setText(R.string.confirm);
+            tvConfirm.setText(R.string.sud_op_wck_common_confirm);
         } else {
             tvConfirm.setText(params.confirmText);
         }

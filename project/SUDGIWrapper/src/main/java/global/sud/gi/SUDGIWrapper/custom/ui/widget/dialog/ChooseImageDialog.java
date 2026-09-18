@@ -20,7 +20,7 @@ public class ChooseImageDialog extends BaseDialog {
 
     @Override
     protected int getLayoutId() {
-        return R.layout.dialog_choose_image;
+        return R.layout.sud_op_wck_dialog_choose_image;
     }
 
     @Override

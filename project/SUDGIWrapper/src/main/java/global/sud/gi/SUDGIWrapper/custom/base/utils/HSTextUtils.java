@@ -1,13 +1,9 @@
 package global.sud.gi.SUDGIWrapper.custom.base.utils;
 
 import android.text.Editable;
-import android.text.TextUtils;
 import android.widget.EditText;
 
-import java.util.Map;
 import java.util.regex.Pattern;
-
-import global.sud.base.utils.Utils;
 
 public class HSTextUtils {
 
@@ -45,19 +41,5 @@ public class HSTextUtils {
         }
         return null;
     }
-
-    /**
-     * 从map当中获取当前语言显示的文本
-     */
-    public static String getLanguageText(Map<String, String> map) {
-        if (map != null) {
-            String value = map.get(SystemUtils.getLanguageCode(Utils.getApp()));
-            if (TextUtils.isEmpty(value)) {
-                return map.get("default");
-            } else {
-                return value;
-            }
-        }
-        return null;
-    }
+    
 }

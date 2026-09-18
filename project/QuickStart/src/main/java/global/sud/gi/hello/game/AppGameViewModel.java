@@ -21,9 +21,10 @@ import java.util.List;
 import global.sud.gi.SUDGIWrapper.base.BaseGameViewModel;
 import global.sud.gi.SUDGIWrapper.custom.base.utils.QuickStartUtils;
 import global.sud.gi.SUDGIWrapper.custom.client.QgExtendedClient;
-import global.sud.gi.hello.BuildConfig;
+import global.sud.gi.hello.app.base.AppConfig;
 import global.sud.gi.hello.app.common.http.param.BaseResponse;
 import global.sud.gi.hello.app.common.http.rx.RxCallback;
+import global.sud.gi.hello.app.common.utils.LanguageUtils;
 import global.sud.gi.hello.app.service.MainRepository;
 import global.sud.gi.hello.app.service.resp.GameLoginResp;
 import global.sud.op.runtime.core.SUDRTGameHandle;
@@ -33,14 +34,14 @@ import global.sud.op.runtime.core.model.SUDOPGamePathType;
 
 public class AppGameViewModel extends BaseGameViewModel {
 
-    private static final String TAG = "QuickStartGameViewModel";
+    private static final String TAG = "AppGameViewModel";
     // TODO: Sud平台申请的appId
     // TODO: The appId obtained from Sud platform application.
-    public static String SUD_APP_ID = "2049108146763776002";
+    public String SudGIP_APP_ID = AppConfig.SudGIP_APP_ID;
 
     // TODO: Sud平台申请的appKey
     // TODO: The appKey obtained from Sud platform application.
-    public static String SUD_APP_KEY = "LMKp0m44C4jYzbAAjUChSmodNnQq2N9Q";
+    public String SudGIP_APP_KEY = AppConfig.SudGIP_APP_KEY;
 
     // TODO: 使用的UserId。这里随机生成作演示，开发者将其修改为业务使用的唯一userId
     // TODO: Used UserId. Here it is randomly generated for demonstration purposes. Developers should modify it to the unique userId used for the business.
@@ -101,7 +102,7 @@ public class AppGameViewModel extends BaseGameViewModel {
      */
     @Override
     public String getAppId() {
-        return SUD_APP_ID;
+        return SudGIP_APP_ID;
     }
 
     /**
@@ -110,7 +111,12 @@ public class AppGameViewModel extends BaseGameViewModel {
      */
     @Override
     public String getAppKey() {
-        return SUD_APP_KEY;
+        return SudGIP_APP_KEY;
+    }
+
+    @Override
+    protected String getLanguage(Activity activity) {
+        return LanguageUtils.getLanguageTag(activity);
     }
 
     @Override
@@ -134,10 +140,6 @@ public class AppGameViewModel extends BaseGameViewModel {
         Bundle bundle = new Bundle();
         if (pathType != null && pathType == SUDOPGamePathType.DIR) {
             bundle.putString(SUDRTGamePackageManager.KEY_PACKAGE_CONTENT_PATH, gameUrl);
-        }
-//        bundle.putBoolean(SUDRTGameHandle.KEY_GAME_DEBUG_OPTION_ENABLE_DEBUGGER, true);
-        if (BuildConfig.DEBUG) {
-            bundle.putBoolean(SUDRTGameHandle.KEY_GAME_DEBUG_OPTION_ENABLE_V_CONSOLE, true);
         }
         if (manifestJson != null) {
             bundle.putString(SUDRTGameHandle.KEY_GAME_START_OPTIONS_CUSTOM_CONFIG, manifestJson);

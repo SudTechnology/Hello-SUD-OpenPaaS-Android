@@ -40,12 +40,12 @@ public class LoadGameSignatureActivity extends BaseActivity {
     private void startGame() {
         String signature = getInputContent();
         if (TextUtils.isEmpty(signature)) {
-            ToastUtils.showShort("请输入gameSignature");
+            ToastUtils.showShort(getString(R.string.toast_enter_game_signature));
             return;
         }
         String gameId = getGameId(signature);
         if (TextUtils.isEmpty(gameId)) {
-            ToastUtils.showShort("signature格式不对");
+            ToastUtils.showShort(getString(R.string.toast_invalid_game_signature));
             return;
         }
         GameModel gameModel = new GameModel();

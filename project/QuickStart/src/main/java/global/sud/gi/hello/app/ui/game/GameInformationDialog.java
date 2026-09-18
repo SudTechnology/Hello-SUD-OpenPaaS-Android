@@ -12,8 +12,8 @@ import com.bumptech.glide.Glide;
 
 import global.sud.gi.SUDGIWrapper.custom.base.BaseDialogFragment;
 import global.sud.gi.SUDGIWrapper.custom.base.utils.DensityUtils;
-import global.sud.gi.SUDGIWrapper.custom.base.utils.HSTextUtils;
 import global.sud.gi.hello.R;
+import global.sud.gi.hello.app.common.utils.LanguageUtils;
 import global.sud.op.runtime.core.model.SUDOPGameInformationModel;
 
 
@@ -72,8 +72,8 @@ public class GameInformationDialog extends BaseDialogFragment {
         if (gameInformationModel == null) {
             return;
         }
-        Glide.with(ivIcon).load(gameInformationModel.game_icon).into(ivIcon);
-        tvGameName.setText(HSTextUtils.getLanguageText(gameInformationModel.game_name));
+        Glide.with(ivIcon).load(LanguageUtils.getMultiLanguageText(requireContext(), gameInformationModel.icon)).into(ivIcon);
+        tvGameName.setText(LanguageUtils.getMultiLanguageText(requireContext(), gameInformationModel.game_name));
         tvSubjectName.setText(gameInformationModel.subject_name);
     }
 

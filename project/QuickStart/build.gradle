@@ -2,6 +2,14 @@ plugins {
     id 'com.android.application'
 }
 
+def demoAdMobAppId = project.findProperty('SUDM_DEMO_ADMOB_APP_ID')
+        ?: 'ca-app-pub-9122824708293916~5253131528'
+// 与 App Server 的支付回跳地址保持一致；同时用于 Manifest 注册和入口校验。
+def demoPaymentReturnScheme = project.findProperty('SUDOP_DEMO_PAYMENT_RETURN_SCHEME') ?: 'helloopp'
+if (!(demoPaymentReturnScheme ==~ /[a-z][a-z0-9+.-]*/)) {
+    throw new GradleException('SUDOP_DEMO_PAYMENT_RETURN_SCHEME must be a lowercase URI scheme')
+}
+
 android {
     compileSdk 36
 
@@ -10,7 +18,12 @@ android {
         minSdk 26
         targetSdk 36
         versionCode 1
-        versionName "1.0"
+        versionName project.hasProperty("APP_VERSION_NAME")
+                ? project.property("APP_VERSION_NAME")
+                : "1.0.0"
+        buildConfigField 'String', 'PAYMENT_RETURN_SCHEME', "\"${demoPaymentReturnScheme}\""
+        manifestPlaceholders = [SUDM_DEMO_ADMOB_APP_ID          : demoAdMobAppId,
+                                SUDOP_DEMO_PAYMENT_RETURN_SCHEME: demoPaymentReturnScheme]
     }
 
     signingConfigs {
@@ -39,6 +52,10 @@ android {
     }
 
     buildTypes {
+        mock {
+            initWith debug
+            matchingFallbacks = ['debug']
+        }
         release {
             signingConfig signingConfigs.release
             minifyEnabled true
@@ -62,6 +79,14 @@ android {
     namespace 'global.sud.gi.hello'
     buildFeatures {
         buildConfig true
+    }
+    testOptions {
+        unitTests.includeAndroidResources = true
+    }
+    packaging {
+        jniLibs {
+            useLegacyPackaging = true
+        }
     }
 }
 
@@ -88,8 +113,10 @@ dependencies {
 
     implementation 'com.google.android.flexbox:flexbox:3.0.0'
 
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.robolectric:robolectric:4.16'
+
     api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.7' // https://github.com/CymChad/BaseRecyclerViewAdapterHelper
     // --- endregion Demo使用
-
 
 }

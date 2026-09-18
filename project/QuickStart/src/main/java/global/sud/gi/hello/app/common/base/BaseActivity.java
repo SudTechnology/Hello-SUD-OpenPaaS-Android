@@ -1,5 +1,6 @@
 package global.sud.gi.hello.app.common.base;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -12,6 +13,11 @@ import global.sud.gi.hello.R;
 public abstract class BaseActivity extends RxAppCompatActivity {
 
     protected BaseActivity context = this;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(com.blankj.utilcode.util.LanguageUtils.attachBaseContext(newBase));
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

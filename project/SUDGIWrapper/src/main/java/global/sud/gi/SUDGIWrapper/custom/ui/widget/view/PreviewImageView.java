@@ -212,7 +212,7 @@ public class PreviewImageView extends FrameLayout {
             imageView.setBackgroundColor(Color.BLACK);
             imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
 
-            FrameLayout.LayoutParams imageLp = new FrameLayout.LayoutParams(
+            LayoutParams imageLp = new LayoutParams(
                     ViewGroup.LayoutParams.MATCH_PARENT,
                     ViewGroup.LayoutParams.MATCH_PARENT
             );

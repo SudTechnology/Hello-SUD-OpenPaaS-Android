@@ -27,6 +27,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/sud_demo_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/main_top_title"
@@ -39,6 +40,22 @@
             app:layout_constraintStart_toEndOf="@id/view_logo" />
 
         <TextView
+            android:id="@+id/sud_demo_build_info"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:textColor="#13141a"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:maxLines="2"
+            app:layout_constraintStart_toEndOf="@id/sud_demo_title"
+            app:layout_constraintEnd_toStartOf="@id/sud_demo_site"
+            app:layout_constraintTop_toTopOf="@id/view_logo"
+            app:layout_constraintBottom_toBottomOf="@id/view_logo" />
+
+        <TextView
+            android:id="@+id/sud_demo_site"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingHorizontal="8dp"
@@ -53,61 +70,101 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:paddingHorizontal="11dp"
-        android:paddingBottom="16dp"
-        android:clipToPadding="false"
-        android:orientation="vertical"
-        android:gravity="center_horizontal"
+        android:fillViewport="true"
         app:layout_constraintTop_toBottomOf="@id/top_bar"
         app:layout_constraintBottom_toBottomOf="parent">
 
-        <Button
-            android:id="@+id/btn_game_id"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="16dp"
-            android:text="通过gameId启动游戏"
-            android:textAllCaps="false"
-            android:textSize="17sp"
-            android:textColor="@color/white" />
+            android:paddingHorizontal="11dp"
+            android:paddingBottom="16dp"
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
 
-        <Button
-            android:id="@+id/btn_game_signature"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="16dp"
-            android:text="通过gameSignature启动游戏"
-            android:textAllCaps="false"
-            android:textSize="17sp"
-            android:textColor="@color/white" />
+            <Button
+                android:id="@+id/sud_gi_language_entry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/sud_gi_language_title"
+                android:textAllCaps="false"
+                android:textSize="17sp"
+                android:textColor="@color/white" />
 
-        <Button
-            android:id="@+id/btn_load_old_game"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="16dp"
-            android:text="加载存量游戏包"
-            android:textAllCaps="false"
-            android:textSize="17sp"
-            android:textColor="@color/white" />
+            <Button
+                android:id="@+id/btn_game_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/main_start_by_game_id"
+                android:textAllCaps="false"
+                android:textSize="17sp"
+                android:textColor="@color/white" />
 
-        <Button
-            android:id="@+id/btn_quick_start_game"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="16dp"
-            android:text="打开快速开始游戏页面"
-            android:textAllCaps="false"
-            android:textSize="17sp"
-            android:textColor="@color/white" />
+            <Button
+                android:id="@+id/btn_get_game_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/main_get_game_list"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="17sp" />
 
-    </LinearLayout>
+            <Button
+                android:id="@+id/sud_op_selection_game_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/sud_op_selection_game_list"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="17sp" />
+
+            <Button
+                android:id="@+id/sud_op_selection_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/sud_op_selection_list"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="17sp" />
+
+            <Button
+                android:id="@+id/btn_game_signature"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/main_start_by_game_signature"
+                android:textAllCaps="false"
+                android:textSize="17sp"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/btn_load_old_game"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/main_load_existing_game"
+                android:textAllCaps="false"
+                android:textSize="17sp"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -21,7 +21,7 @@
             android:padding="10dp"
             android:layout_gravity="start|center_vertical"
             android:src="@drawable/ic_back"
-            android:contentDescription="back" />
+            android:contentDescription="@string/common_back" />
 
         <TextView
             android:id="@+id/tv_page_title"
@@ -29,7 +29,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="游戏信息"
+            android:text="@string/game_information"
             android:textColor="#333333"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -143,7 +143,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="28dp"
                 android:textColor="#333333"
-                android:text="基础信息"
+                android:text="@string/game_info_basic"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -164,7 +164,7 @@
 
                     <TextView
                         style="@style/SUDOPGameInfoLabel"
-                        android:text="认证主体" />
+                        android:text="@string/game_info_verified_subject" />
 
                     <TextView
                         android:id="@+id/tv_subject_name"
@@ -192,7 +192,7 @@
 
                     <TextView
                         style="@style/SUDOPGameInfoLabel"
-                        android:text="认证类型" />
+                        android:text="@string/game_info_verification_type" />
 
                     <TextView
                         android:id="@+id/tv_subject_type"
@@ -210,7 +210,7 @@
 
                     <TextView
                         style="@style/SUDOPGameInfoLabel"
-                        android:text="Game ID" />
+                        android:text="@string/game_info_game_id" />
 
                     <TextView
                         android:id="@+id/tv_game_id"
@@ -228,7 +228,7 @@
 
                     <TextView
                         style="@style/SUDOPGameInfoLabel"
-                        android:text="游戏分类" />
+                        android:text="@string/game_info_category" />
 
                     <TextView
                         android:id="@+id/tv_category"
@@ -246,7 +246,7 @@
 
                     <TextView
                         style="@style/SUDOPGameInfoLabel"
-                        android:text="更新时间" />
+                        android:text="@string/game_info_update_time" />
 
                     <TextView
                         android:id="@+id/tv_update_time"
@@ -264,7 +264,7 @@
 
                     <TextView
                         style="@style/SUDOPGameInfoLabel"
-                        android:text="客服电话" />
+                        android:text="@string/game_info_service_phone" />
 
                     <TextView
                         android:id="@+id/tv_service_phone"
@@ -281,7 +281,7 @@
 
                     <TextView
                         style="@style/SUDOPGameInfoLabel"
-                        android:text="客服邮箱" />
+                        android:text="@string/game_info_service_email" />
 
                     <TextView
                         android:id="@+id/tv_service_email"
@@ -304,7 +304,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="28dp"
-                android:text="服务隐私"
+                android:text="@string/game_info_service_privacy"
                 android:textColor="#333333"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -331,7 +331,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="28dp"
-                android:text="服务声明"
+                android:text="@string/game_info_service_statement"
                 android:textColor="#333333"
                 android:textSize="20sp"
                 android:textStyle="bold" />

@@ -71,7 +71,7 @@
             android:layout_height="wrap_content"
             android:textSize="17sp"
             android:textColor="@color/black"
-            android:text="请先选择游戏包目录，然后再启动游戏，也可在下方输入框直接输入目录路径" />
+            android:text="@string/load_old_instruction" />
 
         <HorizontalScrollView
             android:layout_width="match_parent"
@@ -85,7 +85,7 @@
                 android:textColor="@color/black"
                 android:layout_marginTop="8dp"
                 android:singleLine="true"
-                android:text="如果manifest.json不在游戏包目录下，则自定义选择" />
+                android:text="@string/load_old_manifest_instruction" />
 
         </HorizontalScrollView>
 
@@ -94,7 +94,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:hint="可以直接输入目录路径"
+            android:hint="@string/load_old_path_hint"
             android:textColorHint="#aaaaaa"
             android:textSize="17sp"
             android:textColor="@color/black" />
@@ -105,7 +105,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="16dp"
-            android:text="选择游戏包目录"
+            android:text="@string/select_game_directory"
             android:textSize="17sp"
             android:textColor="@color/white" />
 
@@ -115,7 +115,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="16dp"
-            android:text="选择manifest.json"
+            android:text="@string/select_manifest_json"
             android:textSize="17sp"
             android:textColor="@color/white" />
 
@@ -125,7 +125,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="16dp"
-            android:text="启动游戏"
+            android:text="@string/start_game"
             android:textSize="17sp"
             android:textColor="@color/white" />
 

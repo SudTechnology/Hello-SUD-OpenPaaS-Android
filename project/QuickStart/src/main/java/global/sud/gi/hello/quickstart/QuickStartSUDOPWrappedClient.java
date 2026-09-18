@@ -20,13 +20,6 @@ import global.sud.gi.SUDGIWrapper.custom.video.VideoContainer;
 import global.sud.op.runtime.client.SUDOPCommonStateHandle;
 import global.sud.op.runtime.client.model.MenuButtonBoundingClientRect;
 import global.sud.op.runtime.core.SUDOPStateHandle;
-import global.sud.op.runtime.core.ad.SUDOPBannerAd;
-import global.sud.op.runtime.core.ad.SUDOPCustomAd;
-import global.sud.op.runtime.core.ad.SUDOPGameBannerAd;
-import global.sud.op.runtime.core.ad.SUDOPGameDrawerAd;
-import global.sud.op.runtime.core.ad.SUDOPGamePortalAd;
-import global.sud.op.runtime.core.ad.SUDOPInterstitialAd;
-import global.sud.op.runtime.core.ad.SUDOPRewardedAd;
 import global.sud.op.runtime.core.listener.SUDOPWrappedClient;
 import global.sud.op.runtime.core.model.SUDOPSetKeepScreenOnParams;
 import global.sud.op.runtime.core.model.SUDOPSetScreenBrightnessParams;
@@ -195,41 +188,6 @@ public class QuickStartSUDOPWrappedClient implements SUDOPWrappedClient {
     public void createVideo(SUDOPVideo params) {
         VideoContainer videoContainer = new VideoContainer(activity, gameContainer);
         videoContainer.initVideo(params);
-    }
-
-    @Override
-    public void createBannerAd(SUDOPBannerAd bannerAd) {
-        // TODO: 2026/7/16 Game requests for advertisement content, reference:global.sud.gi.hello.game.ad.AdManager.java
-    }
-
-    @Override
-    public void createCustomAd(SUDOPCustomAd customAd) {
-        // TODO: 2026/7/16 Game requests for advertisement content, reference:global.sud.gi.hello.game.ad.AdManager.java
-    }
-
-    @Override
-    public void createInterstitialAd(SUDOPInterstitialAd interstitialAd) {
-        // TODO: 2026/7/16 Game requests for advertisement content, reference:global.sud.gi.hello.game.ad.AdManager.java
-    }
-
-    @Override
-    public void createGameBannerAd(SUDOPGameBannerAd gameBannerAd) {
-        // TODO: 2026/7/16 Game requests for advertisement content, reference:global.sud.gi.hello.game.ad.AdManager.java
-    }
-
-    @Override
-    public void createGamePortalAd(SUDOPGamePortalAd gamePortalAd) {
-        // TODO: 2026/7/16 Game requests for advertisement content, reference:global.sud.gi.hello.game.ad.AdManager.java
-    }
-
-    @Override
-    public void createGameDrawerAd(SUDOPGameDrawerAd gameDrawerAd) {
-        // TODO: 2026/7/16 Game requests for advertisement content, reference:global.sud.gi.hello.game.ad.AdManager.java
-    }
-
-    @Override
-    public void createRewardedVideoAd(SUDOPRewardedAd rewardedAd) {
-        // TODO: 2026/7/16 Game requests for advertisement content, reference:global.sud.gi.hello.game.ad.AdManager.java
     }
 
     @Override

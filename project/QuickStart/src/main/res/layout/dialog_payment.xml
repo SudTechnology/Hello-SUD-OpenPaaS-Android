@@ -12,7 +12,7 @@
         android:gravity="center"
         android:textSize="20sp"
         android:textColor="@color/black"
-        android:text="模拟支付"
+        android:text="@string/payment_mock_title"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -35,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingHorizontal="46dp"
-            android:text="支付"
+            android:text="@string/payment_pay"
             android:textSize="18sp"
             android:textColor="@color/white"
             app:layout_constraintHorizontal_chainStyle="spread"
@@ -48,7 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingHorizontal="46dp"
-            android:text="取消"
+            android:text="@string/sud_op_wck_common_cancel"
             android:textSize="18sp"
             android:textColor="@color/c_ff2959"
             app:layout_constraintStart_toEndOf="@id/btn_payment"
@@ -60,7 +60,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingHorizontal="46dp"
-            android:text="查询结果"
+            android:text="@string/payment_query_result"
             android:textSize="18sp"
             android:textColor="@color/c_ff2959"
             android:visibility="gone"

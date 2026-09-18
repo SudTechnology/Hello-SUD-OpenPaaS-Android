@@ -25,6 +25,7 @@ import global.sud.op.runtime.core.listener.SUDOPWrappedClient;
 import global.sud.op.runtime.core.model.SUDOPGameInfo;
 import global.sud.op.runtime.core.model.SUDOPGamePackageParams;
 import global.sud.op.runtime.core.model.SUDOPGamePathType;
+import global.sud.op.runtime.core.model.SUDOPPrivacyConfig;
 
 public abstract class BaseGameViewModel {
 
@@ -127,7 +128,7 @@ public abstract class BaseGameViewModel {
     }
 
     private void initSdk(Activity activity, String gameId, String gameUrl, String gamePkgVersion, String code) {
-        SUDOP.initSDK(activity.getApplicationContext(), getAppId(), getAppKey(), new SUDOPInitSDKListener() {
+        SUDOP.initSDK(activity.getApplicationContext(), getAppId(), getAppKey(), getPrivacyConfig(), new SUDOPInitSDKListener() {
             @Override
             public void onSuccess() {
                 auth(activity, gameId, gameUrl, gamePkgVersion, code);
@@ -163,7 +164,7 @@ public abstract class BaseGameViewModel {
             return;
         }
         if (pathType == SUDOPGamePathType.GAME_ID) {
-            sudOPGameTask = SUDOP.startGame(gameId, getSUDOPStartGameListener(activity, gameId, gameUrl, gamePkgVersion));
+            sudOPGameTask = SUDOP.startGame(gameId, getLanguage(activity), getSUDOPStartGameListener(activity, gameId, gameUrl, gamePkgVersion));
             return;
         }
         if (pathType == SUDOPGamePathType.DIR) {
@@ -350,6 +351,7 @@ public abstract class BaseGameViewModel {
 
     private void _changeGameState(int newState) {
         _expectGameState = newState;
+        setAudioInterruption(newState != SUDRTGameHandle.GAME_STATE_PLAYING);
         if (gameHandle == null || !_isGameInstalled || _isGameStateChanging) {
             return;
         }
@@ -428,6 +430,17 @@ public abstract class BaseGameViewModel {
     }
 
     /**
+     * 设置游戏音频的临时中断状态，不改变用户的静音设置。
+     *
+     * @param interrupted true 中断音频，false 恢复音频
+     */
+    private void setAudioInterruption(boolean interrupted) {
+        if (gameHandle != null && gameHandle.getGameAudioSession() != null) {
+            gameHandle.getGameAudioSession().setAudioInterruption(interrupted);
+        }
+    }
+
+    /**
      * 向接入方服务器获取code
      * Get the code from the integration party server.
      */
@@ -459,6 +472,16 @@ public abstract class BaseGameViewModel {
      * Returns the game service appKey.
      */
     public abstract String getAppKey();
+
+    /** 返回可选隐私配置；默认不设置各广告 SDK 的隐私状态。 */
+    public SUDOPPrivacyConfig getPrivacyConfig() {
+        return null;
+    }
+
+    /** 返回游戏请求使用的语言；默认沿用 SDK 未指定语言的行为。 */
+    protected String getLanguage(Activity activity) {
+        return null;
+    }
 
     /**
      * 将游戏View添加到页面中

@@ -71,7 +71,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:singleLine="true"
-            android:hint="输入gameSignature"
+            android:hint="@string/input_game_signature_hint"
             android:textColorHint="#aaaaaa"
             android:textSize="17sp"
             android:textColor="@color/black" />
@@ -82,7 +82,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="16dp"
-            android:text="启动游戏"
+            android:text="@string/start_game"
             android:textSize="17sp"
             android:textColor="@color/white" />
 

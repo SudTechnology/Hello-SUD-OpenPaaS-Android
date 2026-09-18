@@ -12,6 +12,7 @@ import global.sud.gi.SUDGIWrapper.custom.ui.widget.dialog.ActionSheetDialog;
 import global.sud.gi.SUDGIWrapper.custom.ui.widget.dialog.ModalDialog;
 import global.sud.gi.SUDGIWrapper.custom.ui.widget.view.GameToastView;
 import global.sud.gi.SUDGIWrapper.custom.ui.widget.view.LoadingHintView;
+import global.sud.gi.SudGIPWrapper.R;
 import global.sud.op.runtime.client.SUDOPCommonStateHandle;
 import global.sud.op.runtime.core.SUDOPStateHandle;
 import global.sud.op.runtime.core.model.SUDOPSetKeepScreenOnParams;
@@ -34,13 +35,14 @@ public class GameUiManager {
     }
 
     public void showLoading(SUDOPStateHandle handle, SUDOPShowLoadingParams params) {
+        String title = resolveLoadingTitle(params.title, activity.getString(R.string.sud_op_wck_loading_default));
         if (loadingHintView == null) {
             loadingHintView = new LoadingHintView(activity);
-            loadingHintView.title = params.title;
+            loadingHintView.title = title;
             loadingHintView.mask = params.mask;
             container.addView(loadingHintView, ConstraintLayout.LayoutParams.MATCH_PARENT, ConstraintLayout.LayoutParams.MATCH_PARENT);
         } else {
-            loadingHintView.title = params.title;
+            loadingHintView.title = title;
             loadingHintView.mask = params.mask;
             loadingHintView.setVisibility(LoadingHintView.VISIBLE);
             loadingHintView.invalidate();
@@ -60,7 +62,8 @@ public class GameUiManager {
         if (gameToastView == null) {
             gameToastView = new GameToastView(activity);
         }
-        gameToastView.setToast(params.title, params.icon, params.image, params.duration, params.mask);
+        String title = resolveToastTitle(params.title, params.icon, activity.getString(R.string.sud_op_wck_toast_success_default));
+        gameToastView.setToast(title, params.icon, params.image, params.duration, params.mask);
         if (gameToastView.getParent() == null) {
             container.addView(gameToastView, ConstraintLayout.LayoutParams.MATCH_PARENT, ConstraintLayout.LayoutParams.MATCH_PARENT);
         }
@@ -92,7 +95,7 @@ public class GameUiManager {
 
             @Override
             public void cancel() {
-                handle.failure(-1, "user cancel");
+                handle.failure(-1, activity.getString(R.string.sud_op_wck_error_user_cancelled));
             }
         });
         dialog.show();
@@ -125,8 +128,23 @@ public class GameUiManager {
             window.setAttributes(layoutParams);
             handle.success(null);
         } else {
-            handle.failure(-1, "value is out of range");
+            handle.failure(-1, activity.getString(R.string.sud_op_wck_error_brightness_out_of_range));
         }
+    }
+
+    static String resolveLoadingTitle(String title, String defaultTitle) {
+        return isEmpty(title) ? defaultTitle : title;
+    }
+
+    static String resolveToastTitle(String title, String icon, String successDefaultTitle) {
+        if (isEmpty(title) && GameToastView.ICON_SUCCESS.equals(icon)) {
+            return successDefaultTitle;
+        }
+        return title;
+    }
+
+    private static boolean isEmpty(String value) {
+        return value == null || value.length() == 0;
     }
 
     public void getScreenBrightness(SUDOPCommonStateHandle handle) {
