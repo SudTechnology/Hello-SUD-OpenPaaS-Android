@@ -218,9 +218,9 @@ public class GameActivity extends BaseActivity implements CustomAdapt {
 
     private void updateStatusBar() {
         int newOrientation = getResources().getConfiguration().orientation;
-        if (oldOrientation == newOrientation) {
-            return;
-        }
+//        if (oldOrientation == newOrientation) {
+//            return;
+//        }
         oldOrientation = newOrientation;
         // 这个沉浸式状态栏的使用是APP的业务，对于游戏而言不是必须的
         // The use of the immersive status bar is part of the app's functionality and is not essential for games.
