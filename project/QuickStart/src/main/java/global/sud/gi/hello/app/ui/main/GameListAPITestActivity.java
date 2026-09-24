@@ -8,15 +8,8 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -28,8 +21,8 @@ import global.sud.gi.hello.app.common.base.BaseActivity;
 import global.sud.gi.hello.app.common.utils.LanguageUtils;
 import global.sud.op.runtime.core.SUDOP;
 import global.sud.op.runtime.core.listener.SUDOPGameListCallback;
-import global.sud.op.runtime.core.listener.SUDOPSelectionListCallback;
 import global.sud.op.runtime.core.listener.SUDOPInitSDKListener;
+import global.sud.op.runtime.core.listener.SUDOPSelectionListCallback;
 import global.sud.op.runtime.core.model.SUDOPGameListItem;
 import global.sud.op.runtime.core.model.SUDOPGameListParams;
 import global.sud.op.runtime.core.model.SUDOPGameListResult;
@@ -55,7 +48,7 @@ public class GameListAPITestActivity extends BaseActivity {
     private Button previousButton;
     private Button nextButton;
     private TextView statusView;
-    private GameListAdapter adapter;
+    private LinearLayout resultContainer;
     private int total;
     private boolean requestInProgress;
 
@@ -86,10 +79,7 @@ public class GameListAPITestActivity extends BaseActivity {
             statusView.setText(R.string.sud_op_selection_list_hint);
         }
 
-        RecyclerView recyclerView = findViewById(R.id.recycler_game_list);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new GameListAdapter(records);
-        recyclerView.setAdapter(adapter);
+        resultContainer = findViewById(R.id.sud_gi_game_list_result_container);
         updatePageButtons();
     }
 
@@ -97,15 +87,6 @@ public class GameListAPITestActivity extends BaseActivity {
     protected void setListeners() {
         findViewById(R.id.btn_back).setOnClickListener(v -> finish());
         requestButton.setOnClickListener(v -> requestGameList());
-        adapter.setOnItemClickListener((listAdapter, view, position) -> {
-            if (!selectionListMode || requestInProgress || position >= selections.size()) {
-                return;
-            }
-            Intent intent = new Intent(this, GameListAPITestActivity.class);
-            intent.putExtra(EXTRA_SELECTION_MODE, true);
-            intent.putExtra(EXTRA_SELECTION_ID, selections.get(position).selectionId);
-            startActivity(intent);
-        });
         previousButton.setOnClickListener(v -> {
             pageNoField.setText(String.valueOf(Math.max(0, getPageNo() - 1)));
             requestGameList();
@@ -124,19 +105,15 @@ public class GameListAPITestActivity extends BaseActivity {
             return;
         }
         hideKeyboard();
-        Long selectionId = null;
+        String selectionId = null;
         if (selectionMode) {
-            try {
-                selectionId = Long.parseLong(selectionIdField.getText().toString().trim());
-                if (selectionId < 0) {
-                    throw new NumberFormatException();
-                }
-            } catch (NumberFormatException e) {
+            selectionId = selectionIdField.getText().toString().trim();
+            if (selectionId.isEmpty()) {
                 selectionIdField.setError(getString(R.string.sud_op_selection_id_invalid));
                 return;
             }
         }
-        Long requestedSelectionId = selectionId;
+        String requestedSelectionId = selectionId;
         int pageNo = getPageNo();
         int pageSize = getPageSize();
         pageNoField.setText(String.valueOf(pageNo));
@@ -161,7 +138,7 @@ public class GameListAPITestActivity extends BaseActivity {
         });
     }
 
-    private void requestGameList(Long selectionId, int pageNo, int pageSize) {
+    private void requestGameList(String selectionId, int pageNo, int pageSize) {
         if (selectionListMode) {
             requestSelectionList(pageNo, pageSize);
             return;
@@ -190,7 +167,7 @@ public class GameListAPITestActivity extends BaseActivity {
                 for (String item : records) {
                     Log.i(TAG, item);
                 }
-                adapter.notifyDataSetChanged();
+                showRecords();
                 setRequestInProgress(false);
             }
 
@@ -215,7 +192,7 @@ public class GameListAPITestActivity extends BaseActivity {
         total = 0;
         statusView.setText(message);
         Log.e(TAG, message);
-        adapter.notifyDataSetChanged();
+        showRecords();
         setRequestInProgress(false);
     }
 
@@ -311,7 +288,7 @@ public class GameListAPITestActivity extends BaseActivity {
                 pageNoField.setText(String.valueOf(result.pageNo));
                 statusView.setText(getString(R.string.game_list_api_request_success,
                         result.pageNo, records.size(), result.total, result.pageSize));
-                adapter.notifyDataSetChanged();
+                showRecords();
                 setRequestInProgress(false);
             }
 
@@ -324,15 +301,24 @@ public class GameListAPITestActivity extends BaseActivity {
         });
     }
 
-    private class GameListAdapter extends BaseQuickAdapter<String, BaseViewHolder> {
-
-        GameListAdapter(@Nullable List<String> data) {
-            super(R.layout.item_game_list_api_test, data);
-        }
-
-        @Override
-        protected void convert(@NonNull BaseViewHolder holder, String item) {
-            holder.setText(R.id.tv_game_content, item);
+    private void showRecords() {
+        resultContainer.removeAllViews();
+        for (int position = 0; position < records.size(); position++) {
+            TextView view = (TextView) getLayoutInflater().inflate(R.layout.item_game_list_api_test, resultContainer, false);
+            view.setText(records.get(position));
+            if (selectionListMode) {
+                int selectedPosition = position;
+                view.setOnClickListener(v -> {
+                    if (requestInProgress || selectedPosition >= selections.size()) {
+                        return;
+                    }
+                    Intent intent = new Intent(this, GameListAPITestActivity.class);
+                    intent.putExtra(EXTRA_SELECTION_MODE, true);
+                    intent.putExtra(EXTRA_SELECTION_ID, selections.get(selectedPosition).selectionId);
+                    startActivity(intent);
+                });
+            }
+            resultContainer.addView(view);
         }
     }
 }
