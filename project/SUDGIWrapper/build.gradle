@@ -2,7 +2,7 @@ plugins {
     id 'com.android.library'
 }
 
-def sudSdkVersion = '2.1.0'
+def sudSdkVersion = '2.2.0'
 
 android {
     compileSdkVersion 36
